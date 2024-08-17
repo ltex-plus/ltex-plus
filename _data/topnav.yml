@@ -3,13 +3,13 @@
 topnav:
   - title: "Topnav"
     items:
-      - title: "vscode-ltex@Marketplace"
-        external_url: "https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex"
+      - title: "vscode-ltex-plus@Marketplace"
+        external_url: "https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus"
         icon_url: "images/logo-visual-studio.svg"
-      - title: "<i class=\"fa fa-github fa-lg\"></i> vscode-ltex@GitHub"
-        external_url: "https://github.com/valentjn/vscode-ltex"
-      - title: "<i class=\"fa fa-github fa-lg\"></i> ltex-ls@GitHub"
-        external_url: "https://github.com/valentjn/ltex-ls"
+      - title: "<i class=\"fa fa-github fa-lg\"></i> vscode-ltex-plus@GitHub"
+        external_url: "https://github.com/ltex-plus/vscode-ltex-plus"
+      - title: "<i class=\"fa fa-github fa-lg\"></i> ltex-ls-plus@GitHub"
+        external_url: "https://github.com/ltex-plus/ltex-plus"
 
 #Topnav dropdowns
 topnav_dropdowns: []

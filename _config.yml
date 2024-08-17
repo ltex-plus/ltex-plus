@@ -1,22 +1,22 @@
-repository: "valentjn/ltex"
+repository: "ltex-plus/ltex-plus"
 
 # this property is useful for conditional filtering of content that is separate from the PDF.
 output: "web"
 
 # this appears on the top navigation bar next to the home button
-topnav_title: "LT<sub>E</sub>X"
+topnav_title: "LT<sub>E</sub>X+"
 
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
-site_title: "LTeX"
+site_title: "LTeX+"
 
 # this appears in the footer
 company_name: "Your company"
 
 # if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
-github_editme_path: "valentjn/ltex/blob/develop/"
+github_editme_path: "ltex-plus/ltex-plus/blob/develop/"
 
 # if you're using GitLab, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
-# gitlab_editme_path: "valentjn/ltex/blob/develop/"
+# gitlab_editme_path: "ltex-plus/ltex-plus/blob/develop/"
 
 # if you have google-analytics ID, put it in. if not, edit this value to blank.
 google_analytics: ""
@@ -103,7 +103,7 @@ description: "LTeX – Grammar/Spell Checker for VS Code with LanguageTool and L
 
 # needed for sitemap.xml file only
 # url: http://idratherbewriting.com
-baseurl: "/ltex"
+baseurl: "/ltex-plus"
 
 github:
   - "metadata"

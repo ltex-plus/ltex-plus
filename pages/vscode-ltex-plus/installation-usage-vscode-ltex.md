@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Installation and Usage (vscode-ltex)"
-permalink: "/vscode-ltex/installation-usage-vscode-ltex.html"
+permalink: "/vscode-ltex-plus/installation-usage-vscode-ltex.html"
 sidebar: "sidebar"
 ---
 
@@ -15,7 +15,7 @@ sidebar: "sidebar"
 - Download from within VS Code: Open the *Extensions* panel and type `ltex`
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex) (VS Code uses this for downloading)
 - [Open VSX](https://open-vsx.org/extension/valentjn/vscode-ltex)
-- [Releases on GitHub](https://github.com/valentjn/vscode-ltex/releases) (+ packages for offline installation)
+- [Releases on GitHub](https://github.com/valentjn/vscode-ltex-plus/releases) (+ packages for offline installation)
 - [Source on GitHub](https://github.com/valentjn/vscode-ltex)
 
 ## Requirements
@@ -48,7 +48,7 @@ In case there are any problems, you will find additional debug info in `View` â†
 
 ### First Alternative: Download the Offline Version of LTeX
 
-Download the offline version of LTeX at the [Releases page on GitHub](https://github.com/valentjn/vscode-ltex/releases) and install it via `Extensions: Install from VSIX...` on the Command Palette. The offline version already includes ltex-ls (and the portable Java distribution). Reload the Visual Studio Code window after installing the offline version.
+Download the offline version of LTeX at the [Releases page on GitHub](https://github.com/valentjn/vscode-ltex-plus/releases) and install it via `Extensions: Install from VSIX...` on the Command Palette. The offline version already includes ltex-ls (and the portable Java distribution). Reload the Visual Studio Code window after installing the offline version.
 
 ### Second Alternative: Download ltex-ls/Java Manually
 

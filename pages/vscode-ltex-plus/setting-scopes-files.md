@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Setting Scopes &amp; Files"
-permalink: "/vscode-ltex/setting-scopes-files.html"
+permalink: "/vscode-ltex-plus/setting-scopes-files.html"
 sidebar: "sidebar"
 ---
 

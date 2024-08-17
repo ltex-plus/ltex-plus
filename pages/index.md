@@ -11,14 +11,14 @@ sidebar: "sidebar"
 toc: false
 ---
 
-<a href="https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex" class="no-external">![latest release](https://badgen.net/badge/-/release/585858?label=)![version number](https://badgen.net/vs-marketplace/v/valentjn.vscode-ltex?label=)![release date](https://badgen.net/github/last-commit/valentjn/vscode-ltex/release?label=)</a>&nbsp;
+<a href="https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex" class="no-external">![latest release](https://badgen.net/badge/-/release/585858?label=)![version number](https://badgen.net/vs-marketplace/v/valentjn.vscode-ltex?label=)![release date](https://badgen.net/github/last-commit/valentjn/vscode-ltex-plus/release?label=)</a>&nbsp;
 <a href="https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex" class="no-external">![installs](https://badgen.net/vs-marketplace/i/valentjn.vscode-ltex)</a>&nbsp;
 <a href="https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex" class="no-external">![rating](https://badgen.net/vs-marketplace/rating/valentjn.vscode-ltex)</a>
 
 <a href="https://github.com/valentjn/vscode-ltex" class="no-external">![vscode-ltex](https://badgen.net/github/license/valentjn/vscode-ltex?label=vscode-ltex)</a>&nbsp;
-<a href="https://github.com/valentjn/vscode-ltex/actions?query=workflow%3A%22CI%22+branch%3Arelease" class="no-external">![CI status](https://github.com/valentjn/vscode-ltex/workflows/CI/badge.svg?branch=release)</a>&nbsp;
+<a href="https://github.com/valentjn/vscode-ltex-plus/actions?query=workflow%3A%22CI%22+branch%3Arelease" class="no-external">![CI status](https://github.com/valentjn/vscode-ltex-plus/workflows/CI/badge.svg?branch=release)</a>&nbsp;
 <a href="https://github.com/valentjn/vscode-ltex" class="no-external">![stars](https://badgen.net/github/stars/valentjn/vscode-ltex)</a>&nbsp;
-<a href="https://github.com/valentjn/vscode-ltex/issues" class="no-external">![open issues](https://badgen.net/github/open-issues/valentjn/vscode-ltex?label=open/closed%20issues&color=blue)</a>&nbsp;<a href="https://github.com/valentjn/vscode-ltex/issues" class="no-external">![closed issues](https://badgen.net/github/closed-issues/valentjn/vscode-ltex?label=)</a><br/>
+<a href="https://github.com/valentjn/vscode-ltex-plus/issues" class="no-external">![open issues](https://badgen.net/github/open-issues/valentjn/vscode-ltex?label=open/closed%20issues&color=blue)</a>&nbsp;<a href="https://github.com/valentjn/vscode-ltex-plus/issues" class="no-external">![closed issues](https://badgen.net/github/closed-issues/valentjn/vscode-ltex?label=)</a><br/>
 <a href="https://github.com/valentjn/ltex-ls" class="no-external">![ltex-ls](https://badgen.net/github/license/valentjn/ltex-ls?label=ltex-ls)</a>&nbsp;
 <a href="https://github.com/valentjn/ltex-ls/actions?query=workflow%3A%22CI%22+branch%3Arelease" class="no-external">![CI status](https://github.com/valentjn/ltex-ls/workflows/CI/badge.svg?branch=release)</a>&nbsp;
 <a href="https://coveralls.io/github/valentjn/ltex-ls" class="no-external">![coverage](https://badgen.net/coveralls/c/github/valentjn/ltex-ls/release)</a>&nbsp;
@@ -44,7 +44,7 @@ LTeX is a successor/fork of the abandoned [LanguageTool for Visual Studio Code e
 
 ## Features
 
-![Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support](https://github.com/valentjn/vscode-ltex/raw/release/img/banner-ltex.png)
+![Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support](https://github.com/valentjn/vscode-ltex-plus/raw/release/img/banner-ltex.png)
 
 - **Supported markup languages:** BibTeX, ConTeXt, LaTeX, Markdown, Org, reStructuredText, R Sweave, XHTML
 - Comes with **everything included,** no need to install Java or LanguageTool

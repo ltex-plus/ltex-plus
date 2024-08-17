@@ -122,9 +122,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#multi-scope-settings)
+This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
 
-This setting supports external files. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#external-setting-files)
+This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
 
 <!-- ltex-client-specific-end -->
 
@@ -388,9 +388,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#multi-scope-settings)
+This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
 
-This setting supports external files. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#external-setting-files)
+This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
 
 <!-- ltex-client-specific-end -->
 
@@ -654,9 +654,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#multi-scope-settings)
+This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
 
-This setting supports external files. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#external-setting-files)
+This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
 
 <!-- ltex-client-specific-end -->
 
@@ -920,13 +920,13 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 Although it is possible to manually edit this setting, the intended way is the `Hide false positive` quick fix.
 
-The JSON string currently has the form `{"rule": "<RULE>", "sentence": "<SENTENCE>"}`, where `<RULE>` is the ID of the LanguageTool rule and `<SENTENCE>` is a Java-compatible regular expression. All occurrences of the given rule are hidden in sentences (as determined by the LanguageTool tokenizer) that match the regular expression. [See the documentation for details.](https://valentjn.github.io/ltex/advanced-usage.html#hiding-false-positives-with-regular-expressions)
+The JSON string currently has the form `{"rule": "<RULE>", "sentence": "<SENTENCE>"}`, where `<RULE>` is the ID of the LanguageTool rule and `<SENTENCE>` is a Java-compatible regular expression. All occurrences of the given rule are hidden in sentences (as determined by the LanguageTool tokenizer) that match the regular expression. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#hiding-false-positives-with-regular-expressions)
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#multi-scope-settings)
+This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
 
-This setting supports external files. [See the documentation for details.](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#external-setting-files)
+This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
 
 <!-- ltex-client-specific-end -->
 
@@ -1305,7 +1305,7 @@ Object with arbitrary property names, where the value of each property has the f
 
 <!-- ltex-client-specific-begin -->
 
-Controls which `settings.json` or external setting file ([see documentation](https://valentjn.github.io/ltex/vscode-ltex/setting-scopes-files.html#external-setting-files)) to update when using one of the quick fixes.
+Controls which `settings.json` or external setting file ([see documentation](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)) to update when using one of the quick fixes.
 
 <!-- ltex-client-specific-end -->
 

@@ -33,7 +33,7 @@ def checkLinksInPage(anchors: Dict[str, Sequence[str]],
   numberOfProblems = 0
 
   for url in urls:
-    if re.search("^https?://(?!valentjn.github.io/ltex/)", url) is not None: continue
+    if re.search("^https?://(?!valentjn.github.io/ltex-plus/)", url) is not None: continue
 
     regexMatch = re.search(r"^(.*?)(?:#(.*))?$", url)
 
@@ -47,8 +47,8 @@ def checkLinksInPage(anchors: Dict[str, Sequence[str]],
     if urlPathRelative == "": urlPathRelative = f"{pageFilePath.stem}.html"
     urlAnchor = regexMatch.group(2)
 
-    if re.search("^https://valentjn.github.io/ltex", url) is not None:
-      urlPathRelativeToPages = re.sub("^https://valentjn.github.io/ltex/", "", urlPathRelative)
+    if re.search("^https://ltex-plus.github.io/ltex", url) is not None:
+      urlPathRelativeToPages = re.sub("^https://ltex-plus.github.io/ltex-plus/", "", urlPathRelative)
     else:
       urlPath = pageFilePath.parent.joinpath(urlPathRelative).resolve()
       urlPathRelativeToPages = os.path.relpath(urlPath, start=pagesDirPath).replace("\\", "/")

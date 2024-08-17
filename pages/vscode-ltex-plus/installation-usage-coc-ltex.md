@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Installation and Usage (coc-ltex)"
-permalink: "/vscode-ltex/installation-usage-coc-ltex.html"
+permalink: "/vscode-ltex-plus/installation-usage-coc-ltex.html"
 sidebar: "sidebar"
 ---
 
@@ -26,7 +26,7 @@ sidebar: "sidebar"
 
 1. Install the requirements listed above
 2. Install coc-ltex by running `:CocInstall coc-ltex`
-3. If you want to check LaTeX documents: Add `let g:coc_filetype_map = {'tex': 'latex'}` to `~/.vimrc` (Vim) or `~/.config/nvim/init.vim` (workaround for [#425](https://github.com/valentjn/vscode-ltex/issues/425), until [neoclide/coc.nvim#3433](https://github.com/neoclide/coc.nvim/pull/3433) is released)
+3. If you want to check LaTeX documents: Add `let g:coc_filetype_map = {'tex': 'latex'}` to `~/.vimrc` (Vim) or `~/.config/nvim/init.vim` (workaround for [#425](https://github.com/valentjn/vscode-ltex-plus/issues/425), until [neoclide/coc.nvim#3433](https://github.com/neoclide/coc.nvim/pull/3433) is released)
 4. Open a LaTeX or a Markdown document
 5. Wait until [ltex-ls](../faq.html#whats-the-difference-between-vscode-ltex-ltex-ls-and-languagetool) has been downloaded and started
 6. Grammar/spelling errors will be displayed! (if there are any)

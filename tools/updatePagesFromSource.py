@@ -332,7 +332,7 @@ def updateCommands(vscodeLtexRepoDirPath: pathlib.Path, pagesRepoDirPath: pathli
     commandsMarkdown = [formatCommand(x, packageNlsJson) for x in commandsJson]
     markdown = """---{}
 title: "Commands"
-permalink: "/vscode-ltex/commands{}.html"
+permalink: "/vscode-ltex-plus/commands{}.html"
 sidebar: "sidebar"
 ---
 

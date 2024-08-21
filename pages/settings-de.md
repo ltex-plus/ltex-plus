@@ -1,5 +1,5 @@
 ---
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -18,15 +18,15 @@ Change language of this page: [English](settings.html), [German](settings-de.htm
 
 Steuert, ob die Erweiterung aktiviert ist. Erlaubt die Deaktivierung von LanguageTool für bestimmte Arbeitsbereiche oder für bestimmte Code-Sprachmodi (d. h. Dateitypen).
 
-Sie können entweder einen Boolean-Wert angeben, der bestimmt, ob LTeX für alle unterstützten Auszeichnungssprachen aktiviert oder für alle deaktiviert wird, oder eine Liste von [Code-Sprachbezeichnern](https://code.visualstudio.com/docs/languages/identifiers), für die LTeX aktiviert werden soll (beachten Sie, dass Erweiterungen zusätzliche Code-Sprachbezeichner definieren können).
+Sie können entweder einen Boolean-Wert angeben, der bestimmt, ob LTeX+ für alle unterstützten Auszeichnungssprachen aktiviert oder für alle deaktiviert wird, oder eine Liste von [Code-Sprachbezeichnern](https://code.visualstudio.com/docs/languages/identifiers), für die LTeX+ aktiviert werden soll (beachten Sie, dass Erweiterungen zusätzliche Code-Sprachbezeichner definieren können).
 
-Alle unterstützten Auszeichnungssprachen sind in der Voreinstellung dieser Einstellung aufgelistet. Zusätzlich kann LTeX Kommentare in vielen populären Programmiersprachen wie C++ oder Java überprüfen, wenn Sie die entsprechenden Code-Sprachbezeichner zu dieser Einstellung hinzufügen. Wenn Sie einen nicht-unterstützten Code-Sprachmodus hinzufügen, dann wird LTeX entsprechende Dateien als reinen Text ohne Parsen überprüfen.
+Alle unterstützten Auszeichnungssprachen sind in der Voreinstellung dieser Einstellung aufgelistet. Zusätzlich kann LTeX+ Kommentare in vielen populären Programmiersprachen wie C++ oder Java überprüfen, wenn Sie die entsprechenden Code-Sprachbezeichner zu dieser Einstellung hinzufügen. Wenn Sie einen nicht-unterstützten Code-Sprachmodus hinzufügen, dann wird LTeX+ entsprechende Dateien als reinen Text ohne Parsen überprüfen.
 
 <!-- ltex-client-specific-de-begin -->
 
-Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [`LTeX: Aktiviere Erweiterung`](vscode-ltex/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
+Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [`LTeX+: Aktiviere Erweiterung`](vscode-ltex-plus/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -57,7 +57,7 @@ Einer der folgenden Typen:
 
 Die Sprache (z. B. `"en-US"`), mit der LanguageTool auf Fehler suchen soll. Benutzen Sie eine bestimmte Variante wie `"en-US"` oder `"de-DE"` anstelle des generischen Sprachcodes wie `"en"` oder `"de"`, um Rechtschreibfehler zu finden (zusätzlich zu Grammatikfehlern).
 
-Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und daher keine Rechtschreibfehler gemeldet werden.
+Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und daher keine Rechtschreibfehler gemeldet werden.
 
 *Typ:* `string`
 
@@ -118,7 +118,7 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX versuchen, die Sprache
 
 Listen von zusätzlichen Wörtern, die nicht als Schreibfehler gewertet werden sollen.
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<WORT1>", "<WORT2>", ...], "<SPRACHE2>": ["<WORT1>", "<WORT2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<WORT1>", "<WORT2>", ...], "<SPRACHE2>": ["<WORT1>", "<WORT2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -384,7 +384,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von zusätzlichen Regeln, die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -650,7 +650,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von zusätzlichen Regeln, die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -916,7 +916,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von falschen Fehlern, die verborgen werden sollen (indem alle Fehler einer bestimmten Regel in einem bestimmten Satz verborgen werden).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<JSON1>", "<JSON2>", ...], "<SPRACHE2>": ["<JSON1>", "<JSON2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) bezeichnet und `<JSON>` eine JSON-Zeichenfolge ist, die Informationen über die Regel und den Satz enthält.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<JSON1>", "<JSON2>", ...], "<SPRACHE2>": ["<JSON1>", "<JSON2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) bezeichnet und `<JSON>` eine JSON-Zeichenfolge ist, die Informationen über die Regel und den Satz enthält.
 
 Obwohl es möglich ist, diese Einstellung manuell zu ändern, ist der bevorzugte Weg, Einträge zu dieser Einstellung hinzuzufügen, die schnelle Problembehebung `Falschen Fehler verbergen`.
 
@@ -1236,7 +1236,7 @@ Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folge
 
   - `"default"`: Der Befehl wird so behandelt, wie unbekannte Befehle standardmäßig behandelt werden: Der Befehlsname an sich wird ignoriert, aber die Befehlsargumente werden nicht ignoriert.
   - `"ignore"`: Der ganze Befehl zusammen mit seinen Argumenten wird ignoriert.
-  - `"dummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
+  - `"dummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX+ nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
   - `"pluralDummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Plural-Dummy-Wort ersetzt (d. h. `Dummies`). Siehe die Beschreibung von `"dummy"`.
   - `"vowelDummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Vokal-Dummy-Wort ersetzt (d. h. `Ina`). Siehe die Beschreibung von `"dummy"`.
 
@@ -1295,7 +1295,7 @@ Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folge
 
   - `"default"`: Der Knoten wird nicht gesondert behandelt.
   - `"ignore"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird ignoriert.
-  - `"dummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
+  - `"dummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX+ nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
   - `"pluralDummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Plural-Dummy-Wort ersetzt (d. h. `Dummies`). Siehe die Beschreibung von `"dummy"`.
   - `"vowelDummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Vokal-Dummy-Wort ersetzt (d. h. `Ina`). Siehe die Beschreibung von `"dummy"`.
 
@@ -1358,7 +1358,7 @@ Aktiviere LanguageTool-Regeln, die als pedantisch ("picky") markiert und standar
 
 Optionale Muttersprache des Benutzers (z. B. `"de-DE"`).
 
-Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um falsche Freunde zu erkennen. Es kann sein, dass pedantische Regeln aktiviert werden müssen, damit diese Einstellung eine Auswirkung hat (siehe [`ltex.additionalRules.enablePickyRules`](settings-de.html#ltexadditionalrulesenablepickyrules)). Die Erkennung von falschen Freunden verbessert sich, falls ein Sprachmodell bereitgestellt wird (siehe [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel)).
+Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um falsche Freunde zu erkennen. Es kann sein, dass pedantische Regeln aktiviert werden müssen, damit diese Einstellung eine Auswirkung hat (siehe [`ltex-plus.additionalRules.enablePickyRules`](settings-de.html#ltexadditionalrulesenablepickyrules)). Die Erkennung von falschen Freunden verbessert sich, falls ein Sprachmodell bereitgestellt wird (siehe [`ltex-plus.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel)).
 
 *Typ:* `string`
 
@@ -1441,9 +1441,9 @@ Optionaler Pfad zu einem Verzeichnis mit Regeln eines word2vec-Sprachmodells.
 
 ## `ltex.languageToolHttpServerUri`
 
-Falls dies auf eine nicht-leere Zeichenfolge gesetzt ist, dann verwendet LTeX nicht die eingebaute Version von LanguageTool. Stattdessen verbindet sich LTeX zu einem externen [LanguageTool-HTTP-Server](http://wiki.languagetool.org/http-server). Setzen Sie diese Einstellung auf die Haupt-URI des Servers und hängen Sie kein `v2/check` oder Ähnliches an.
+Falls dies auf eine nicht-leere Zeichenfolge gesetzt ist, dann verwendet LTeX+ nicht die eingebaute Version von LanguageTool. Stattdessen verbindet sich LTeX+ zu einem externen [LanguageTool-HTTP-Server](http://wiki.languagetool.org/http-server). Setzen Sie diese Einstellung auf die Haupt-URI des Servers und hängen Sie kein `v2/check` oder Ähnliches an.
 
-Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), [`ltex.additionalRules.neuralNetworkModel`](settings-de.html#ltexadditionalrulesneuralnetworkmodel) und [`ltex.additionalRules.word2VecModel`](settings-de.html#ltexadditionalrulesword2vecmodel) ignoriert werden.
+Beachten Sie, dass in diesem Modus die Einstellungen [`ltex-plus.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), [`ltex-plus.additionalRules.neuralNetworkModel`](settings-de.html#ltexadditionalrulesneuralnetworkmodel) und [`ltex-plus.additionalRules.word2VecModel`](settings-de.html#ltexadditionalrulesword2vecmodel) ignoriert werden.
 
 *Typ:* `string`
 
@@ -1453,7 +1453,7 @@ Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.lang
 
 ## `ltex.languageToolOrg.username`
 
-Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
+Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zugriff auf die Premium-API. Nur relevant, falls [`ltex-plus.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
 
 *Typ:* `string`
 
@@ -1461,7 +1461,7 @@ Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zu
 
 ## `ltex.languageToolOrg.apiKey`
 
-API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
+API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex-plus.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
 
 *Typ:* `string`
 
@@ -1471,11 +1471,11 @@ API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.lang
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX automatisch [ltex-ls von GitHub](https://github.com/valentjn/ltex-ls/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-Releases setzen, das Sie selbst heruntergeladen haben.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls-plus von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-Releases setzen, das Sie selbst heruntergeladen haben.
 
-Benutzen Sie dafür den Pfad zum Hauptverzeichnis von ltex-ls (dieses enthält die Unterverzeichnisse `bin` und `lib`).
+Benutzen Sie dafür den Pfad zum Hauptverzeichnis von ltex-ls-plus (dieses enthält die Unterverzeichnisse `bin` und `lib`).
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -1485,11 +1485,11 @@ Nach Änderungen muss LTeX neugestartet werden.
 
 ## `ltex.ltex-ls.logLevel`
 
-Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls, das unter `Anzeigen` › `Ausgabe` › `LTeX Language Server` verfügbar ist.
+Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls, das unter `Anzeigen` › `Ausgabe` › `LTeX+ Language Server` verfügbar ist.
 
 Die Levels sind in absteigender Reihenfolge `"severe"`, `"warning"`, `"info"`, `"config"`, `"fine"`, `"finer"`, und `"finest"`. Alle Meldungen, die den angegebenen Level oder einen höheren Level haben, werden protokolliert.
 
-ltex-ls benutzt nicht alle Protokollierungslevel.
+ltex-ls-plus benutzt nicht alle Protokollierungslevel.
 
 *Typ:* `string`
 
@@ -1509,11 +1509,11 @@ ltex-ls benutzt nicht alle Protokollierungslevel.
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX eine Java-Distribution, die in ltex-ls enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX+ eine Java-Distribution, die in ltex-ls-plus enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen.
 
 Benutzen Sie denselben Pfad, den Sie für die Umgebungsvariable `JAVA_HOME` benutzen würden (dieser enthält üblicherweise neben anderen die Unterverzeichnisse `bin` und `lib`).
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -1529,7 +1529,7 @@ Anfängliche Größe des Java-Heap-Speichers in Megabytes (korrespondiert zur Ja
 
 Eine Verkleinerung kann dazu führen, dass der Java-Prozess weniger RAM-Speicher benötigt.
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -1545,7 +1545,7 @@ Maximale Größe des Java-Heap-Speichers in Megabytes (korrespondiert zur Java-O
 
 Eine Verkleinerung kann dazu führen, dass der Java-Prozess weniger RAM-Speicher benötigt. Wenn Sie diese Einstellung zu klein setzen, kann dies dazu führen, dass der Java-Prozess die Heap-Größe überschreitet, sodass der Fehler `OutOfMemoryError` angezeigt wird.
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -1561,7 +1561,7 @@ Falls nur ein kleiner Teil des Textes geändert wird (z. B. ein einziger Tastend
 
 Eine Verkleinerung kann dazu führen, dass der Java-Prozess weniger RAM-Speicher benötigt. Wenn Sie diese Einstellung auf einen zu kleinen Wert setzen, dann kann sich die Zeit, die LanguageTool zur Überprüfung benötigt, deutlich erhöhen.
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 *Typ:* `integer`
 
@@ -1575,7 +1575,7 @@ Falls diese Einstellung aktiviert ist, dann wird eine Liste von Wörtern angezei
 
 <!-- ltex-client-specific-begin -->
 
-In VS Code ist Vervollständigung während des Tippens standardmäßig aktiviert (via `editor.quickSuggestions`). Daher ist diese Einstellung standardmäßig deaktiviert, weil ständig angezeigte Vervollständigungs-Listen den Benutzer stören könnten. Es wird empfohlen, diese Einstellung zu aktivieren, aber `editor.quickSuggestions` zu deaktivieren. Dann können LTeX-Vervollständigungen durch Drücken von `Strg+Leertaste` angefordert werden.
+In VS Code ist Vervollständigung während des Tippens standardmäßig aktiviert (via `editor.quickSuggestions`). Daher ist diese Einstellung standardmäßig deaktiviert, weil ständig angezeigte Vervollständigungs-Listen den Benutzer stören könnten. Es wird empfohlen, diese Einstellung zu aktivieren, aber `editor.quickSuggestions` zu deaktivieren. Dann können LTeX+-Vervollständigungen durch Drücken von `Strg+Leertaste` angefordert werden.
 
 <!-- ltex-client-specific-end -->
 
@@ -1635,13 +1635,13 @@ Eines von `"edit"`, `"save"` und `"manual"`.
 
 - `"edit"`: Dokumente werden überprüft, wenn sie geöffnet oder bearbeitet werden (bei jedem Tastendruck), oder wenn sich die Einstellungen ändern.
 - `"save"`: Dokumente werden überprüft, wenn sie geöffnet oder gespeichert werden, oder wenn sich die Einstellungen ändern.
-- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [`LTeX: Aktuelles Dokument prüfen`](vscode-ltex/commands-de.html#ltex-aktuelles-dokument-prüfen), um manuell Überprüfungen zu veranlassen.
+- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [`LTeX+: Aktuelles Dokument prüfen`](vscode-ltex-plus/commands-de.html#ltex-aktuelles-dokument-prüfen), um manuell Überprüfungen zu veranlassen.
 
 *Voreinstellung:* `"edit"`
 
 ## `ltex.clearDiagnosticsWhenClosingFile`
 
-Falls dies auf `true` gesetzt ist, dann werden von LTeX gemeldete Schreibfehler einer Datei gelöscht, wenn die Datei geschlossen wird.
+Falls dies auf `true` gesetzt ist, dann werden von LTeX+ gemeldete Schreibfehler einer Datei gelöscht, wenn die Datei geschlossen wird.
 
 *Typ:* `boolean`
 
@@ -1651,7 +1651,7 @@ Falls dies auf `true` gesetzt ist, dann werden von LTeX gemeldete Schreibfehler 
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf `true` gesetzt ist, dann wird ein Eintrag über den Status von LTeX ständig in der Statusleiste angezeigt.
+Falls dies auf `true` gesetzt ist, dann wird ein Eintrag über den Status von LTeX+ ständig in der Statusleiste angezeigt.
 
 <!-- ltex-client-specific-end -->
 
@@ -1665,9 +1665,9 @@ Falls dies auf `true` gesetzt ist, dann wird ein Eintrag über den Status von LT
 
 Debugging-Einstellung, um die Kommunikation zwischen Language Client und Language Server zu protokollieren.
 
-Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll `LTeX Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
+Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll `LTeX+ Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
 
-Nach Änderungen muss LTeX neugestartet werden.
+Nach Änderungen muss LTeX+ neugestartet werden.
 
 <!-- ltex-client-specific-end -->
 

@@ -9,7 +9,7 @@ topnav:
       - title: "<i class=\"fa fa-github fa-lg\"></i> vscode-ltex-plus@GitHub"
         external_url: "https://github.com/ltex-plus/vscode-ltex-plus"
       - title: "<i class=\"fa fa-github fa-lg\"></i> ltex-ls-plus@GitHub"
-        external_url: "https://github.com/ltex-plus/ltex-plus"
+        external_url: "https://github.com/ltex-plus/ltex-ls-plus"
 
 #Topnav dropdowns
 topnav_dropdowns: []

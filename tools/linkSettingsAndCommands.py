@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -44,7 +44,7 @@ def replaceSettingsCommandsMatch(markdownPath: pathlib.Path, pagesDirPath: pathl
     url = "{}#{}".format(getRelativePath(f"settings{pageNameSuffix}.html"), common.getSlug(key))
     return f"[`{text}`]({url})"
   elif key in commandNames:
-    url = "{}#{}".format(getRelativePath(f"vscode-ltex/commands{pageNameSuffix}.html"),
+    url = "{}#{}".format(getRelativePath(f"vscode-ltex-plus/commands{pageNameSuffix}.html"),
         common.getSlug(key))
     return f"[`{text}`]({url})"
   else:
@@ -79,7 +79,7 @@ def linkSettingsAndCommands(markdownPath: pathlib.Path, pagesDirPath: pathlib.Pa
       x["command"] for x in commandsJson}
 
   markdown = common.readFile(markdownPath)
-  markdown = re.sub(r"`(ltex\.[^`]+|LTeX: [^`]+)`|\[`(ltex\.[^`]+|LTeX: [^`]+)`\]\([^\)]*?\)",
+  markdown = re.sub(r"`(ltex\.[^`]+|LTeX+: [^`]+)`|\[`(ltex\.[^`]+|LTeX+: [^`]+)`\]\([^\)]*?\)",
       functools.partial(replaceSettingsCommandsMatch, markdownPath, pagesDirPath, markdown,
         settingNames, commandNames), markdown)
   common.writeFile(markdownPath, markdown)
@@ -89,7 +89,7 @@ def linkSettingsAndCommands(markdownPath: pathlib.Path, pagesDirPath: pathlib.Pa
 def main() -> None:
   parser = argparse.ArgumentParser(description="link settings in all pages")
   parser.add_argument("--vscode-ltex-repo", default="eowyn:/home/valentjn/repos/vscode-ltex",
-      type=pathlib.Path, help="path to vscode-ltex repo")
+      type=pathlib.Path, help="path to vscode-ltex-plus  repo")
   args = parser.parse_args()
 
   pagesDirPath = pathlib.Path(__file__).parent.parent.joinpath("pages")

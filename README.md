@@ -1,5 +1,5 @@
 <!--
-   - Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+   - Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
    -
    - This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,4 +8,4 @@
 
 # LT<sub>E</sub>X+ Documentation Repository
 
-This is the repository for the documentation of LT<sub>E</sub>X+. It is published at <https://ltex-plus.github.io/ltex>.
+This is the repository for the documentation of LT<sub>E</sub>X+. It is published at <https://ltex-plus.github.io/ltex-plus>.

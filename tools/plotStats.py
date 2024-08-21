@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -195,7 +195,7 @@ def plotMap() -> None:
     if isinstance(child, mpl.image.AxesImage): child.set_alpha(0.5)
 
   stargazers = sorted(list(set((stargazer["lon"], stargazer["lat"])
-      for repoName in ["vscode-ltex", "ltex-ls"]
+      for repoName in ["vscode-ltex", "ltex-ls-plus"]
       for stargazer in map_["stargazers"][repoName].values()
       if stargazer is not None)))
 

@@ -1,5 +1,5 @@
 ---
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -14,9 +14,9 @@ sidebar: "sidebar"
 
 ### Markup Languages
 
-LTeX supports checking grammar and spelling in the following markup languages. These markup languages are exactly those languages for which LTeX is enabled by default, so no further configuration is necessary. Change [`ltex.enabled`](settings.html#ltexenabled) to manually configure for which languages LTeX is enabled/disabled.
+LTeX+ supports checking grammar and spelling in the following markup languages. These markup languages are exactly those languages for which LTeX+ is enabled by default, so no further configuration is necessary. Change [`ltex-plus.enabled`](settings.html#ltexenabled) to manually configure for which languages LTeX+ is enabled/disabled.
 
-| Language | Language ID | LTeX support |
+| Language | Language ID | LTeX+ support |
 | -------- | ----------- | ------------ |
 | BibTeX | `bibtex`&nbsp;∗ | Basic |
 | ConTeXt | `context`&nbsp;∗ | Advanced |
@@ -27,17 +27,17 @@ LTeX supports checking grammar and spelling in the following markup languages. T
 | R Sweave | `rsweave`&nbsp;∗ | Good |
 | XHTML | `html` | Basic |
 
-“Language ID” denotes the code language identifier that has to be used when changing [`ltex.enabled`](settings.html#ltexenabled). An asterisk (∗) indicates that the language is not supported by VS Code out-of-the-box, and an additional extension that adds support for the language has to be installed in order for vscode-ltex to work (e.g., [LaTeX Workshop Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for LaTeX).
+“Language ID” denotes the code language identifier that has to be used when changing [`ltex-plus.enabled`](settings.html#ltexenabled). An asterisk (∗) indicates that the language is not supported by VS Code out-of-the-box, and an additional extension that adds support for the language has to be installed in order for vscode-ltex-plus  to work (e.g., [LaTeX Workshop Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) for LaTeX).
 
 ### Programming Languages
 
-In addition to markup languages, LTeX can also check comments in many popular programming languages. This is disabled by default, as LTeX is currently not able to reliably detect if a comment is source code that has been commented out. To enable checking for programming languages, add the respective code language identifier to [`ltex.enabled`](settings.html#ltexenabled).
+In addition to markup languages, LTeX+ can also check comments in many popular programming languages. This is disabled by default, as LTeX+ is currently not able to reliably detect if a comment is source code that has been commented out. To enable checking for programming languages, add the respective code language identifier to [`ltex-plus.enabled`](settings.html#ltexenabled).
 
-A line comment is only checked if its start delimiter is only preceded by whitespace on the same line and followed by a whitespace character. A block comment is only checked if its start delimiter is only preceded by whitespace on the same line and followed by a whitespace character, and its end delimiter is preceded by a whitespace character and only followed by whitespace on the same line. These rules try to minimize the amount of false positives, accounting for both comment delimiters inside code (e.g., strings) and commented out code. If you comment out code that should not be checked by LTeX, don't insert whitespace after the start delimiter.
+A line comment is only checked if its start delimiter is only preceded by whitespace on the same line and followed by a whitespace character. A block comment is only checked if its start delimiter is only preceded by whitespace on the same line and followed by a whitespace character, and its end delimiter is preceded by a whitespace character and only followed by whitespace on the same line. These rules try to minimize the amount of false positives, accounting for both comment delimiters inside code (e.g., strings) and commented out code. If you comment out code that should not be checked by LTeX+, don't insert whitespace after the start delimiter.
 
-LTeX assumes comments are written in Markdown, except for Python, where reStructuredText is used.
+LTeX+ assumes comments are written in Markdown, except for Python, where reStructuredText is used.
 
-There is a list of all supported programming languages below. Again, an asterisk (∗) indicates that the language is not supported by VS Code out-of-the-box, and an additional extension that adds support for the language has to be installed in order for vscode-ltex to work (e.g., [MATLAB Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Gimly81.matlab) for MATLAB).
+There is a list of all supported programming languages below. Again, an asterisk (∗) indicates that the language is not supported by VS Code out-of-the-box, and an additional extension that adds support for the language has to be installed in order for vscode-ltex-plus  to work (e.g., [MATLAB Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Gimly81.matlab) for MATLAB).
 
 Bash/Shell&nbsp;Script&nbsp;(`shellscript`),
 C&nbsp;(`c`),
@@ -83,11 +83,11 @@ Visual&nbsp;Basic&nbsp;(`vb`)
 
 Apart from code languages like markup and programming languages, there is also the notion of natural languages. Natural languages are the languages in which the contents of documents can be written, like English or German.
 
-By default, LTeX uses American English (`en-US`) when checking documents. If your documents are written in a different language, change [`ltex.language`](settings.html#ltexlanguage). In addition, there are ways to change the checking language in the middle of documents. For details, see the questions [“How can I check multiple languages at once?”](faq.html#how-can-i-check-multiple-languages-at-once) and [“Why does LTeX check in a different language than expected?”](faq.html#why-does-ltex-check-in-a-different-language-than-expected) in the FAQ.
+By default, LTeX+ uses American English (`en-US`) when checking documents. If your documents are written in a different language, change [`ltex-plus.language`](settings.html#ltexlanguage). In addition, there are ways to change the checking language in the middle of documents. For details, see the questions [“How can I check multiple languages at once?”](faq.html#how-can-i-check-multiple-languages-at-once) and [“Why does LTeX+ check in a different language than expected?”](faq.html#why-does-ltex-check-in-a-different-language-than-expected) in the FAQ.
 
 Use a specific variant like `en-US` or `de-DE` instead of the generic language code like `en` or `de` to obtain spelling corrections (in addition to grammar corrections).
 
-The natural languages supported by LTeX are identical to those supported by [LanguageTool](https://languagetool.org/), which is LTeX's backend. Therefore, the supported languages (and how well they are supported) might change if a new LTeX version comes with an updated version of LanguageTool. The following languages are currently supported:
+The natural languages supported by LTeX+ are identical to those supported by [LanguageTool](https://languagetool.org/), which is LTeX+'s backend. Therefore, the supported languages (and how well they are supported) might change if a new LTeX+ version comes with an updated version of LanguageTool. The following languages are currently supported:
 
 <!-- ltex-natural-languages-begin -->
 

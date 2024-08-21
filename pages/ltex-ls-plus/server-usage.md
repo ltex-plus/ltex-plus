@@ -1,47 +1,47 @@
 ---
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Server Usage"
-permalink: "/ltex-ls/server-usage.html"
+permalink: "/ltex-ls-plus/server-usage.html"
 sidebar: "sidebar"
 ---
 
 ## Startup
 
-It is recommended to use the startup scripts `bin/ltex-ls` (Linux, Mac) and `bin\ltex-ls.bat` (Windows) to start LTeX LS. These scripts are only part of the released versions (they are not contained in the source repository).
+It is recommended to use the startup scripts `bin/ltex-ls` (Linux, Mac) and `bin\ltex-ls.bat` (Windows) to start LTeX+ LS. These scripts are only part of the released versions (they are not contained in the source repository).
 
 The startup scripts can be controlled by the following environment variables:
 
-- `JAVA_HOME`: Path to the directory of the Java distribution to use (contains `bin`, `lib`, and other subdirectories). If set, this overrides the included Java distribution when using a platform-dependent LTeX LS archive.
+- `JAVA_HOME`: Path to the directory of the Java distribution to use (contains `bin`, `lib`, and other subdirectories). If set, this overrides the included Java distribution when using a platform-dependent LTeX+ LS archive.
 - `JAVA_OPTS`: Java arguments to be fed to `java` (e.g., `-Xmx1024m`)
 
-It is also possible to start LTeX LS directly without the startup scripts (not recommended).
+It is also possible to start LTeX+ LS directly without the startup scripts (not recommended).
 
 ### Command-Line Arguments
 
-Any command-line arguments supplied to the startup scripts are processed by LTeX LS itself. The possible arguments are as follows:
+Any command-line arguments supplied to the startup scripts are processed by LTeX+ LS itself. The possible arguments are as follows:
 
 - `--[no-]endless`: Keep the server alive when the client terminates the connection to allow reuse by the next client.
 - `-h`, `--help`: Show help message and exit.
 - `--host=<host>`: Listen for TCP connections on host `<host>` (IP address or hostname; default is `localhost`). Only relevant if server type is `tcpSocket`.
-- `--log-file=<logFile>`: Tee server/client communication and server log to `<logFile>`. `${PID}` is replaced by the process ID of LTeX LS. The parent directory of `<logFile>` must exist. If `<logFile>` is an existing directory, then `ltex-ls-${PID}.log` is used as filename.
+- `--log-file=<logFile>`: Tee server/client communication and server log to `<logFile>`. `${PID}` is replaced by the process ID of LTeX+ LS. The parent directory of `<logFile>` must exist. If `<logFile>` is an existing directory, then `ltex-ls-${PID}.log` is used as filename.
 - `--port=<port>`: Listen for TCP connections on port `<port>`. Only relevant if server type is `tcpSocket`. A value of `0` (default) will have the system automatically determine a free port (the actual port number will be printed to the log).
 - `--server-type=<serverType>`: Run the server as type `<serverType>`. Valid values are:
   - `standardStream` (default): Communicate with clients over standard input and standard output.
   - `tcpSocket`: Communicate with clients over a TCP socket.
-- `-V`, `--version`: Print version information as JSON to the standard output and exit. The format is a JSON object with `"java"` and `"ltex-ls"` keys and string values. A key may be missing if no information about the corresponding version could be retrieved.
+- `-V`, `--version`: Print version information as JSON to the standard output and exit. The format is a JSON object with `"java"` and `"ltex-ls-plus"` keys and string values. A key may be missing if no information about the corresponding version could be retrieved.
 
 Instead of using the equals sign `=` to separate option names and values, it is also possible to use one or more spaces.
 
 ### Exit Codes
 
-- 0: LTeX LS exited successfully.
-- 1: An exception was thrown during the execution of LTeX LS.
-- 2: An invalid command-line argument was supplied to LTeX LS.
+- 0: LTeX+ LS exited successfully.
+- 1: An exception was thrown during the execution of LTeX+ LS.
+- 2: An invalid command-line argument was supplied to LTeX+ LS.
 
 ## Checking Documents with the LSP
 
@@ -51,7 +51,7 @@ Communication with the server is by default via standard input and standard outp
 
 ## Settings
 
-See the [list of all supported settings](../settings.html). Note that some settings are client-specific, i.e., they only affect vscode-ltex and coc-ltex.
+See the [list of all supported settings](../settings.html). Note that some settings are client-specific, i.e., they only affect vscode-ltex-plus  and coc-ltex.
 
 ## Quick Fixes
 
@@ -62,7 +62,7 @@ See the [list of all supported settings](../settings.html). Note that some setti
 
 ## Commands
 
-Some commands are handled by LTeX LS, while others must be handled by the language client. This is in contrast to the [LSP specification](https://microsoft.github.io/language-server-protocol/specification), which recommends that the server handles all commands. However, handling of some commands by the client is necessary as these commands change the client configuration, which the LSP does not allow server-side.
+Some commands are handled by LTeX+ LS, while others must be handled by the language client. This is in contrast to the [LSP specification](https://microsoft.github.io/language-server-protocol/specification), which recommends that the server handles all commands. However, handling of some commands by the client is necessary as these commands change the client configuration, which the LSP does not allow server-side.
 
 All commands are prefixed with `_ltex.` during usage. The purpose of the leading underscore is that in some clients, commands are directly exposed to the user of the client (e.g., for assigning keyboard shortcuts), which is not desirable for internal commands that require arguments. The leading underscore signals that the commands are internal.
 
@@ -88,7 +88,7 @@ interface ServerCommandResult {
 
 ### `_ltex.addToDictionary` (Client)
 
-`_ltex.addToDictionary` is executed by the client when it should add words to the dictionary by adding them to [`ltex.dictionary`](../settings.html#ltexdictionary).
+`_ltex.addToDictionary` is executed by the client when it should add words to the dictionary by adding them to [`ltex-plus.dictionary`](../settings.html#ltexdictionary).
 
 ```typescript
 interface AddToDictionaryCommandParams {
@@ -110,7 +110,7 @@ type AddToDictionaryCommandResult = null;
 
 ### `_ltex.disableRules` (Client)
 
-`_ltex.disableRules` is executed by the client when it should disable rules by adding the rule IDs to [`ltex.disabledRules`](../settings.html#ltexdisabledrules).
+`_ltex.disableRules` is executed by the client when it should disable rules by adding the rule IDs to [`ltex-plus.disabledRules`](../settings.html#ltexdisabledrules).
 
 ```typescript
 interface DisableRulesCommandParams {
@@ -132,7 +132,7 @@ type DisableRulesCommandResult = null;
 
 ### `_ltex.hideFalsePositives` (Client)
 
-`_ltex.hideFalsePositives` is executed by the client when it should hide false positives by adding them to [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives).
+`_ltex.hideFalsePositives` is executed by the client when it should hide false positives by adding them to [`ltex-plus.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives).
 
 ```typescript
 interface HideFalsePositivesCommandParams {
@@ -186,7 +186,7 @@ type CheckDocumentCommandResult = ServerCommandResult;
 
 ### `_ltex.getServerStatus` (Server)
 
-`_ltex.getServerStatus` is executed by the server to return information about the current resource consumption of LTeX LS. Some information might not be available.
+`_ltex.getServerStatus` is executed by the server to return information about the current resource consumption of LTeX+ LS. Some information might not be available.
 
 ```typescript
 type GetServerStatusCommandParams = null;
@@ -198,7 +198,7 @@ interface GetServerStatusCommandResult extends ServerCommandResult {
   processId: number;
 
   /**
-   * Wall-clock duration in seconds since the start of LTeX LS.
+   * Wall-clock duration in seconds since the start of LTeX+ LS.
    */
   wallClockDuration: number;
 
@@ -223,7 +223,7 @@ interface GetServerStatusCommandResult extends ServerCommandResult {
   totalMemory: number;
 
   /**
-   * Whether LTeX LS is currently busy checking text.
+   * Whether LTeX+ LS is currently busy checking text.
    */
   isChecking: boolean;
 
@@ -237,12 +237,12 @@ interface GetServerStatusCommandResult extends ServerCommandResult {
 
 ## Custom LSP Extensions
 
-LTeX LS supports the following custom features that are not specified by the LSP:
+LTeX+ LS supports the following custom features that are not specified by the LSP:
 
 - Custom initialization options
 - Custom requests and notifications
 
-To use custom LSP extensions, the client has to pass a `CustomInitializationOptions` object to the `InitializeParams.initializationOptions` field when sending the [`initialize`](https://microsoft.github.io/language-server-protocol/specification#initialize) request. If no such object is passed, LTeX LS will fall back to an LSP-compliant mode and not use any custom LSP extensions.
+To use custom LSP extensions, the client has to pass a `CustomInitializationOptions` object to the `InitializeParams.initializationOptions` field when sending the [`initialize`](https://microsoft.github.io/language-server-protocol/specification#initialize) request. If no such object is passed, LTeX+ LS will fall back to an LSP-compliant mode and not use any custom LSP extensions.
 
 ### Custom Initialization Options
 
@@ -253,7 +253,7 @@ interface CustomInitializationOptions {
   /**
    * Possibility to supply the locale of the client, if LSP 3.15 is used.
    * For LSP 3.16 and later, use `InitializeParams.locale` instead.
-   * @deprecated This will be removed once LTeX LS requires LSP 3.16.
+   * @deprecated This will be removed once LTeX+ LS requires LSP 3.16.
    */
   locale?: string;
 
@@ -281,11 +281,11 @@ All custom requests and notifications are prefixed with `ltex/` during usage.
 
 `ltex/workspaceSpecificConfiguration` is a server-to-client request. Parameters and result are exactly like [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) (i.e., `ConfigurationParams` and `any[]`, respectively).
 
-If enabled, LTeX LS will not only send a [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request to the client every time a document is checked, but also an `ltex/workspaceSpecificConfiguration` request. Some settings used for the check are then taken from the result of the `ltex/workspaceSpecificConfiguration` request instead of the [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request. These settings are:
+If enabled, LTeX+ LS will not only send a [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request to the client every time a document is checked, but also an `ltex/workspaceSpecificConfiguration` request. Some settings used for the check are then taken from the result of the `ltex/workspaceSpecificConfiguration` request instead of the [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request. These settings are:
 
-- [`ltex.dictionary`](../settings.html#ltexdictionary)
-- [`ltex.disabledRules`](../settings.html#ltexdisabledrules)
-- [`ltex.enabledRules`](../settings.html#ltexenabledrules)
-- [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives)
+- [`ltex-plus.dictionary`](../settings.html#ltexdictionary)
+- [`ltex-plus.disabledRules`](../settings.html#ltexdisabledrules)
+- [`ltex-plus.enabledRules`](../settings.html#ltexenabledrules)
+- [`ltex-plus.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives)
 
-The reason of the existence of `ltex/workspaceSpecificConfiguration` is that some clients like VS Code have different configuration scopes (e.g., user and workspace). When a configuration like [`ltex.dictionary`](../settings.html#ltexdictionary) appears in multiple scopes, the value in the scope with the higher precedence will override the other values (e.g., workspace scope will override user scope). `ltex/workspaceSpecificConfiguration` makes it possible for the client to implement a merging mechanism instead, without having to change [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration).
+The reason of the existence of `ltex/workspaceSpecificConfiguration` is that some clients like VS Code have different configuration scopes (e.g., user and workspace). When a configuration like [`ltex-plus.dictionary`](../settings.html#ltexdictionary) appears in multiple scopes, the value in the scope with the higher precedence will override the other values (e.g., workspace scope will override user scope). `ltex/workspaceSpecificConfiguration` makes it possible for the client to implement a merging mechanism instead, without having to change [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration).

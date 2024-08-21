@@ -7,7 +7,7 @@ output: "web"
 topnav_title: "LT<sub>E</sub>X+"
 
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
-site_title: "LTeX+"
+site_title: "LTeX++"
 
 # this appears in the footer
 company_name: "Your company"
@@ -98,7 +98,7 @@ defaults:
 sidebars:
   - "sidebar"
 
-description: "LTeX – Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support"
+description: "LTeX+ – Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support"
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only

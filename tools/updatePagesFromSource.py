@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -22,7 +22,7 @@ from linkSettingsAndCommands import linkSettingsAndCommands
 
 
 licenseHeader = """
-# Copyright (C) 2019-2021 Julian Valentin, LTeX Development Community
+# Copyright (C) 2019-2021 Julian Valentin, LTeX+ Development Community
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -226,7 +226,7 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
 
 def formatCommand(commandJson: Dict[str, Any], packageNlsJson: Dict[str, str]) -> Optional[str]:
   description = f"%ltex.i18n.commands.{commandJson['command']}.fullMarkdownDescription%"
-  markdown = (f"## `LTeX: {formatDescription(commandJson['title'], packageNlsJson)}`\n\n"
+  markdown = (f"## `LTeX+: {formatDescription(commandJson['title'], packageNlsJson)}`\n\n"
       f"{formatDescription(description, packageNlsJson)}\n")
   return markdown
 
@@ -424,11 +424,11 @@ sidebar: "sidebar"
 
 
 def main() -> None:
-  parser = argparse.ArgumentParser(description="Update Markdown according to vscode-ltex repo")
+  parser = argparse.ArgumentParser(description="Update Markdown according to vscode-ltex-plus  repo")
   parser.add_argument("--vscode-ltex-repo", default="eowyn:/home/valentjn/repos/vscode-ltex",
-      type=pathlib.Path, help="Path to vscode-ltex repo")
-  parser.add_argument("--ltex-ls-repo", default="D:\\repos\\ltex-ls",
-      type=pathlib.Path, help="Path to ltex-ls repo")
+      type=pathlib.Path, help="Path to vscode-ltex-plus  repo")
+  parser.add_argument("--ltex-ls-repo", default="D:\\repos\\ltex-ls-plus",
+      type=pathlib.Path, help="Path to ltex-ls-plus repo")
   args = parser.parse_args()
 
   vscodeLtexRepoDirPath = args.vscode_ltex_repo
@@ -440,7 +440,7 @@ def main() -> None:
   updateCommands(vscodeLtexRepoDirPath, pagesRepoDirPath)
   updateCodeOfConduct(vscodeLtexRepoDirPath, pagesRepoDirPath)
 
-  for sourceRepoName in ["vscode-ltex", "ltex-ls"]:
+  for sourceRepoName in ["vscode-ltex", "ltex-ls-plus"]:
     sourceRepoDirPath = (vscodeLtexRepoDirPath if sourceRepoName == "vscode-ltex" else
         ltexLsRepoDirPath)
     updateChangelog(sourceRepoDirPath, sourceRepoName, vscodeLtexRepoDirPath, pagesRepoDirPath)

@@ -7,7 +7,7 @@ output: "web"
 topnav_title: "LT<sub>E</sub>X+"
 
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
-site_title: "LTeX++"
+site_title: "LTeX+"
 
 # this appears in the footer
 company_name: "Your company"

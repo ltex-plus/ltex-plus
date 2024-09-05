@@ -21,7 +21,7 @@ sidebar: "sidebar"
 ## Requirements
 
 - 64-bit Linux, Mac, or Windows operating system
-- [VS Code 1.52.0 or later](https://code.visualstudio.com/) (new versions of LTeX+ released on or after January 14, 2022, will require VS Code 1.61.0 or later)
+- [VS Code 1.82.0 or later](https://code.visualstudio.com/)
 - Optional:
   - If you want to check LaTeX documents: [LaTeX Workshop Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
   - If you want to check Org documents: [Org Mode Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=tootone.org-mode)

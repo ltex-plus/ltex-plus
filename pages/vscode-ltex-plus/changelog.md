@@ -11,6 +11,25 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 14.0.1 &#x2014; &#x201c;The User Name Spaces Indeterminacy&#x201d; (September 7, 2024)
+
+- &#x1f41b; *Bug fix:* Fix the dump of LT<sub>E</sub>X LS+ if spaces are in the user profile. &#x2014; [valentjn/vscode-ltex#887](https://github.com/valentjn/vscode-ltex/issues/887)
+- &#x1f41b; *Bug fix:* Incorrectly, compatibility with VS Code lower than 1.82 was claimed in version 14.0.0, but this was not the case. Starting from LT<sub>E</sub>X+ 14.0.0, VS Code 1.82 or higher is required.
+- &#x1f41b; *Bug fix:* Update link to create new issues on Github. &#x2014; [#22](https://github.com/ltex-plus/vscode-ltex-plus/issues/22)
+
+## 14.0.0 &#x2014; &#x201c;The Language Tool Schism&#x201d; (September 1, 2024)
+
+- &#x1f527; *Change:* Update LanguageTool from 5.5 to 6.0 (see [LT 6.0 release notes](https://github.com/languagetool-org/languagetool/blob/v6.0/languagetool-standalone/CHANGES.md)). LT<sub>E</sub>X LS+ 17.0.1 is now used.
+- &#x1f527; *Change:* Update to LSP 3.17.5 and vscode-languageclient 9.0.1
+
+## 13.1.2 &#x2014; &#x201c;The Stray Java Process Reaction&#x201d; (August 18, 2024)
+
+- &#x1f41b; *Bug fix:* Fix stray Java process [valentjn/vscode-ltex/issues/497](https://github.com/valentjn/vscode-ltex/issues/497)
+
+## 13.1.1 &#x2014; &#x201c;The The Windows Bug Negation&#x201d; (August 16, 2024)
+
+- &#x1f41b; *Bug fix:* Fix severe bug for VS Code 1.92 and higher running on Windows [valentjn/vscode-ltex/issues/884](https://github.com/valentjn/vscode-ltex/issues/884)
+
 ## 13.1.0 &#x2014; &#x201c;The ConTeXt Paradigm&#x201d; (November 28, 2021)
 
 - &#x2728; *New:* Add support for ConTeXt &#x2014; [ltex-ls#120](https://github.com/valentjn/ltex-ls/issues/120)

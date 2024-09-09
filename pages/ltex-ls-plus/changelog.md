@@ -11,6 +11,35 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.0.0 (upcoming)
+
+- &#x1f527; *Change:* Update from Java 11 to 21. Be aware: Starting from LT<sub>E</sub>X LS+ 18.0.0, Java 21 or higher is required!
+- &#x2728; *New:* Add arm64/aarch64 Java runtimes for Linux (e.g. Raspberry Pi), macOS (Apple M1 SoC and its successors) and Windows on ARM.
+
+## 17.0.1 (August 29, 2024)
+
+- &#x1f41b; *Bug fix:* Silence output to stdout caused by LanguageTool. This issue caused a crash of LT<sub>E</sub>X LS+ on Linux systems. It's a similar issue to https://github.com/valentjn/vscode-ltex/issues/68
+
+## 17.0.0 (August 24, 2024)
+
+- &#x1f527; *Change:* Rename to LT<sub>E</sub>X LS+
+- &#x1f527; *Change:* Update bundled Java runtime to 11.0.24+8
+
+## 16.0.0 (March 19, 2023)
+
+- &#x1f527; *Change:* Update LanguageTool to 6.0 (see LT release notes of [5.6](https://github.com/languagetool-org/languagetool/blob/v5.6/languagetool-standalone/CHANGES.md#56-2021-12-29), [5.7](https://github.com/languagetool-org/languagetool/blob/v5.7/languagetool-standalone/CHANGES.md#57-2022-03-28), [5.8](https://github.com/languagetool-org/languagetool/blob/v5.8/languagetool-standalone/CHANGES.md#58-2022-07-01), [5.9](https://github.com/languagetool-org/languagetool/blob/v5.9/languagetool-standalone/CHANGES.md#59-2022-09-28), and [6.0](https://github.com/languagetool-org/languagetool/blob/v6.0/languagetool-standalone/CHANGES.md#60-released-2022-12-29))
+- &#x2728; *New:* Add support for Git commit messages (LSP language IDs `git-commit` and `gitcommit`) &#x2014; [#132](https://github.com/ltex-plus/ltex-ls-plus/issues/132)
+- &#x2728; *New:* Add support for Quarto and R Markdown (LSP language IDs `quarto` and `rmd`) &#x2014; [#170](https://github.com/ltex-plus/ltex-ls-plus/issues/170), [#172](https://github.com/ltex-plus/ltex-ls-plus/issues/172), [#180](https://github.com/ltex-plus/ltex-ls-plus/issues/180), [Alexandre Sonderegger (@sondalex)](https://github.com/sondalex)
+- &#x2728; *New:* Add workaround for Pandoc-style inline display math (Markdown) &#x2014; [#131](https://github.com/ltex-plus/ltex-ls-plus/issues/131)
+- &#x2728; *New:* Add support for diacritical commands when enclosed in braces (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [#130](https://github.com/ltex-plus/ltex-ls-plus/issues/130)
+- &#x2728; *New:* Add support for `\newcaptionname` etc. from KOMA-Script and `\DefineBibliographyStrings` from BibL<sup>A</sup>T<sub>E</sub>X (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [vscode-ltex#490](https://github.com/ltex-plus/vscode-ltex/issues/490) 
+- &#x1f41b; *Bug fix:* Fix false positives when using siunitx (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [#134](https://github.com/ltex-plus/ltex-ls-plus/issues/134)
+- &#x1f41b; *Bug fix:* Fix unquoted languages in YAML front matter not parsed correctly (Markdown) &#x2014; [#156](https://github.com/ltex-plus/ltex-ls-plus/issues/156)
+- &#x1f41b; *Bug fix:* Fix optional argument of Beamer's `frame` environment not ignored (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [#161](https://github.com/ltex-plus/ltex-ls-plus/issues/161)
+- &#x1f41b; *Bug fix:* Fix plural dummy in German languages &#x2014; [#178](https://github.com/ltex-plus/ltex-ls-plus/issues/178), [Stanley F (@sfo)](https://github.com/sfo)
+- &#x1f41b; *Bug fix:* Add support for `\import` and `\subimport` (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [#207](https://github.com/ltex-plus/ltex-ls-plus/issues/207)
+- &#x1f41b; *Bug fix:* Fix Babel languages `austrian`, `naustrian`, `swissgerman`, and `nswissgerman` not recognized (L<sup>A</sup>T<sub>E</sub>X) &#x2014; [#213](https://github.com/ltex-plus/ltex-ls-plus/issues/213), [#214](https://github.com/ltex-plus/ltex-ls-plus/issues/214), [@casenull](https://github.com/casenull)
+
 ## 15.2.0 (November 28, 2021)
 
 - &#x2728; *New:* Add support for ConTeXt &#x2014; [#120](https://github.com/valentjn/ltex/issues/120)

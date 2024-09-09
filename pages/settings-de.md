@@ -24,7 +24,7 @@ Alle unterstützten Auszeichnungssprachen sind in der Voreinstellung dieser Eins
 
 <!-- ltex-client-specific-de-begin -->
 
-Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [`LTeX+: Aktiviere Erweiterung`](vscode-ltex-plus/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
+Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [`LTeX: Aktiviere Erweiterung`](vscode-ltex-plus/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
 
 Nach Änderungen muss LTeX+ neugestartet werden.
 
@@ -118,7 +118,7 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprach
 
 Listen von zusätzlichen Wörtern, die nicht als Schreibfehler gewertet werden sollen.
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<WORT1>", "<WORT2>", ...], "<SPRACHE2>": ["<WORT1>", "<WORT2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<WORT1>", "<WORT2>", ...], "<SPRACHE2>": ["<WORT1>", "<WORT2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -384,7 +384,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von zusätzlichen Regeln, die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -650,7 +650,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von zusätzlichen Regeln, die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<REGEL1>", "<REGEL2>", ...], "<SPRACHE2>": ["<REGEL1>", "<REGEL2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) und `<REGEL>` die ID der LanguageTool-Regel bezeichnet.
 
 <!-- ltex-client-specific-de-begin -->
 
@@ -916,7 +916,7 @@ Objekt mit folgenden Eigenschaften:
 
 Listen von falschen Fehlern, die verborgen werden sollen (indem alle Fehler einer bestimmten Regel in einem bestimmten Satz verborgen werden).
 
-Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<JSON1>", "<JSON2>", ...], "<SPRACHE2>": ["<JSON1>", "<JSON2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex-plus.language`](settings-de.html#ltexlanguage) bezeichnet und `<JSON>` eine JSON-Zeichenfolge ist, die Informationen über die Regel und den Satz enthält.
+Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<JSON1>", "<JSON2>", ...], "<SPRACHE2>": ["<JSON1>", "<JSON2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) bezeichnet und `<JSON>` eine JSON-Zeichenfolge ist, die Informationen über die Regel und den Satz enthält.
 
 Obwohl es möglich ist, diese Einstellung manuell zu ändern, ist der bevorzugte Weg, Einträge zu dieser Einstellung hinzuzufügen, die schnelle Problembehebung `Falschen Fehler verbergen`.
 
@@ -1358,7 +1358,7 @@ Aktiviere LanguageTool-Regeln, die als pedantisch ("picky") markiert und standar
 
 Optionale Muttersprache des Benutzers (z. B. `"de-DE"`).
 
-Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um falsche Freunde zu erkennen. Es kann sein, dass pedantische Regeln aktiviert werden müssen, damit diese Einstellung eine Auswirkung hat (siehe [`ltex-plus.additionalRules.enablePickyRules`](settings-de.html#ltexadditionalrulesenablepickyrules)). Die Erkennung von falschen Freunden verbessert sich, falls ein Sprachmodell bereitgestellt wird (siehe [`ltex-plus.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel)).
+Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um falsche Freunde zu erkennen. Es kann sein, dass pedantische Regeln aktiviert werden müssen, damit diese Einstellung eine Auswirkung hat (siehe [`ltex.additionalRules.enablePickyRules`](settings-de.html#ltexadditionalrulesenablepickyrules)). Die Erkennung von falschen Freunden verbessert sich, falls ein Sprachmodell bereitgestellt wird (siehe [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel)).
 
 *Typ:* `string`
 
@@ -1443,7 +1443,7 @@ Optionaler Pfad zu einem Verzeichnis mit Regeln eines word2vec-Sprachmodells.
 
 Falls dies auf eine nicht-leere Zeichenfolge gesetzt ist, dann verwendet LTeX+ nicht die eingebaute Version von LanguageTool. Stattdessen verbindet sich LTeX+ zu einem externen [LanguageTool-HTTP-Server](http://wiki.languagetool.org/http-server). Setzen Sie diese Einstellung auf die Haupt-URI des Servers und hängen Sie kein `v2/check` oder Ähnliches an.
 
-Beachten Sie, dass in diesem Modus die Einstellungen [`ltex-plus.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), [`ltex-plus.additionalRules.neuralNetworkModel`](settings-de.html#ltexadditionalrulesneuralnetworkmodel) und [`ltex-plus.additionalRules.word2VecModel`](settings-de.html#ltexadditionalrulesword2vecmodel) ignoriert werden.
+Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), [`ltex.additionalRules.neuralNetworkModel`](settings-de.html#ltexadditionalrulesneuralnetworkmodel) und [`ltex.additionalRules.word2VecModel`](settings-de.html#ltexadditionalrulesword2vecmodel) ignoriert werden.
 
 *Typ:* `string`
 
@@ -1453,7 +1453,7 @@ Beachten Sie, dass in diesem Modus die Einstellungen [`ltex-plus.additionalRules
 
 ## `ltex.languageToolOrg.username`
 
-Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zugriff auf die Premium-API. Nur relevant, falls [`ltex-plus.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
+Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
 
 *Typ:* `string`
 
@@ -1461,7 +1461,7 @@ Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zu
 
 ## `ltex.languageToolOrg.apiKey`
 
-API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex-plus.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
+API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
 
 *Typ:* `string`
 
@@ -1635,7 +1635,7 @@ Eines von `"edit"`, `"save"` und `"manual"`.
 
 - `"edit"`: Dokumente werden überprüft, wenn sie geöffnet oder bearbeitet werden (bei jedem Tastendruck), oder wenn sich die Einstellungen ändern.
 - `"save"`: Dokumente werden überprüft, wenn sie geöffnet oder gespeichert werden, oder wenn sich die Einstellungen ändern.
-- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [`LTeX+: Aktuelles Dokument prüfen`](vscode-ltex-plus/commands-de.html#ltex-aktuelles-dokument-prüfen), um manuell Überprüfungen zu veranlassen.
+- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [`LTeX: Aktuelles Dokument prüfen`](vscode-ltex-plus/commands-de.html#ltex-aktuelles-dokument-prüfen), um manuell Überprüfungen zu veranlassen.
 
 *Voreinstellung:* `"edit"`
 

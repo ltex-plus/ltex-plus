@@ -24,7 +24,7 @@ All supported markup languages are listed in the default value of this setting. 
 
 <!-- ltex-client-specific-begin -->
 
-The activation events are unaffected by this setting. This means that the extension will be activated whenever a file with a supported code language mode is opened. For unsupported code language modes, you may need to activate the extension explicitly by executing the [`LTeX+: Activate Extension`](vscode-ltex-plus/commands.html#ltex-activate-extension) command.
+The activation events are unaffected by this setting. This means that the extension will be activated whenever a file with a supported code language mode is opened. For unsupported code language modes, you may need to activate the extension explicitly by executing the [`LTeX: Activate Extension`](vscode-ltex-plus/commands.html#ltex-activate-extension) command.
 
 Changes require restarting LTeX+ to take effect.
 
@@ -1635,7 +1635,7 @@ One of `"edit"`, `"save"`, and `"manual"`.
 
 - `"edit"`: Documents are checked when they are opened or edited (on every keystroke), or when the settings change.
 - `"save"`: Documents are checked when they are opened or saved, or when the settings change.
-- `"manual"`: Documents are not checked automatically, except when the settings change. Use commands such as [`LTeX+: Check Current Document`](vscode-ltex-plus/commands.html#ltex-check-current-document) to manually trigger checks.
+- `"manual"`: Documents are not checked automatically, except when the settings change. Use commands such as [`LTeX: Check Current Document`](vscode-ltex-plus/commands.html#ltex-check-current-document) to manually trigger checks.
 
 *Default:* `"edit"`
 

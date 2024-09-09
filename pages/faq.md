@@ -28,7 +28,7 @@ When talking about LTeX+, we usually mean the combination of vscode-ltex-plus (o
 
 ### Why does LTeX+ have such a high CPU load?
 
-LanguageTool is not only a simple spell checker that just looks up some words in a dictionary. It is a powerful grammar checker that [checks thousands of grammar rules](https://community.languagetool.org/rule/list?lang=en) at once. This means that checking a document for the first time, either after activating the LTeX+ extension or after opening a document to be checked, may take a while. The exact duration depends on the length of the document and the power of the computer, but it is usually around 30 seconds and may be up to two minutes. After this initial check, edits are checked very quickly due to the feature of sentence caching (see [`ltex-plus.sentenceCacheSize`](settings.html#ltexsentencecachesize)), and should not cause any significant CPU load.
+LanguageTool is not only a simple spell checker that just looks up some words in a dictionary. It is a powerful grammar checker that [checks thousands of grammar rules](https://community.languagetool.org/rule/list?lang=en) at once. This means that checking a document for the first time, either after activating the LTeX+ extension or after opening a document to be checked, may take a while. The exact duration depends on the length of the document and the power of the computer, but it is usually around 30 seconds and may be up to two minutes. After this initial check, edits are checked very quickly due to the feature of sentence caching (see [`ltex.sentenceCacheSize`](settings.html#ltexsentencecachesize)), and should not cause any significant CPU load.
 
 ### How can I check multiple languages at once?
 
@@ -36,11 +36,11 @@ This depends on whether the multiple languages only occur in different files (i.
 
 - If you are using LaTeX, you can use the [babel package](advanced-usage.html#multilingual-latex-documents-with-the-babel-package) to indicate the languages used. This allows LTeX+ to switch the checking language mid-file.
 - Another way, which also works for Markdown, is using [magic comments](advanced-usage.html#magic-comments).
-- If each file is written in a single language, it is possible to use [multi-root workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_settings). This enables you to have one `settings.json` per folder, and allows you to set [`ltex-plus.language`](settings.html#ltexlanguage) just for that folder.
+- If each file is written in a single language, it is possible to use [multi-root workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_settings). This enables you to have one `settings.json` per folder, and allows you to set [`ltex.language`](settings.html#ltexlanguage) just for that folder.
 
 ### Why does LTeX+ check in a different language than expected?
 
-[`ltex-plus.language`](settings.html#ltexlanguage) is not the only source that LTeX+ uses to decide in which language to check a document:
+[`ltex.language`](settings.html#ltexlanguage) is not the only source that LTeX+ uses to decide in which language to check a document:
 
 - For LaTeX documents: [Commands or environments of the babel package](advanced-usage.html#multilingual-latex-documents-with-the-babel-package) (note that LTeX+ is not a LaTeX compiler, e.g., it won't detect if the babel command is inside a `\newcommand` definition)
 - For Markdown documents: [`lang` variable in YAML front matter](advanced-usage.html#set-language-in-markdown-with-yaml-front-matter)
@@ -72,7 +72,7 @@ Head over to our [GitHub repo](https://github.com/ltex-plus/vscode-ltex-plus)! B
 
 ### How can I prevent vscode-ltex-plus  from redownloading ltex-ls-plus after every update?
 
-[As explained above](faq.html#whats-the-difference-between-vscode-ltex-plus-ltex-ls-plus-and-languagetool), ltex-ls-plus is a necessary component of LTeX+. Due to file size restrictions of the Visual Studio Marketplace, it is not possible to include ltex-ls-plus in the extension itself. You can [install ltex-ls-plus](vscode-ltex-plus/installation-usage-vscode-ltex-plus.html#second-alternative-download-ltex-ls-plusjava-manually) locally on your computer by setting [`ltex-plus.ltex-ls-plus.path`](settings.html#ltexltex-lspath). However, this is not recommended as automatic updates of LTeX+ might break compatibility with ltex-ls-plus.
+[As explained above](faq.html#whats-the-difference-between-vscode-ltex-plus-ltex-ls-plus-and-languagetool), ltex-ls-plus is a necessary component of LTeX+. Due to file size restrictions of the Visual Studio Marketplace, it is not possible to include ltex-ls-plus in the extension itself. You can [install ltex-ls-plus](vscode-ltex-plus/installation-usage-vscode-ltex-plus.html#second-alternative-download-ltex-ls-plusjava-manually) locally on your computer by setting [`ltex.ltex-ls-plus.path`](settings.html#ltexltex-lspath). However, this is not recommended as automatic updates of LTeX+ might break compatibility with ltex-ls-plus.
 
 ### Where does vscode-ltex-plus save its settings (e.g., dictionary, false positives)?
 

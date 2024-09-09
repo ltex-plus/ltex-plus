@@ -26,7 +26,7 @@ entries:
           - title: "Code of Conduct"
             url: "/code-of-conduct.html"
             output: "web"
-      - title: "vscode-ltex-plus / coc-ltex-plus"
+      - title: "vscode-ltex-plus"
         output: "web"
         folderitems:
           - title: "Installation &amp; Usage (vscode-ltex-plus)"
@@ -37,6 +37,8 @@ entries:
             output: "web"
           - title: "Commands"
             url: "/vscode-ltex-plus/commands.html"
+          - title: "Deprecation of Java 11"
+            url: "/vscode-ltex-plus/deprecation-of-java-11.html"
             output: "web"
           - title: "Changelog"
             url: "/vscode-ltex-plus/changelog.html"

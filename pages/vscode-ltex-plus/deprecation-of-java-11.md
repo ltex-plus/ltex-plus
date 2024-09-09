@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Deprecation of Java 11"
-permalink: "/deprecation-of-java-11.html"
+permalink: "/vscode-ltex-plus/deprecation-of-java-11.html"
 sidebar: "sidebar"
 ---
 

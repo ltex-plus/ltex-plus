@@ -46,7 +46,3 @@ Be aware that this documentation was also forked from [LTeX](https://github.com/
 - **Extensive documentation**
 
 <div style="margin-bottom:30px;"></div>
-
-## Thousands of People Around the World Use LTeX+
-
-{% include stats/summary.html %}

@@ -10,7 +10,7 @@ permalink: "/vscode-ltex-plus/deprecation-of-java-11.html"
 sidebar: "sidebar"
 ---
 
-Java 11 has been published in 2018 and is approaching its end of life. Also, there are no builds of [AdoptOpenJDK](https://adoptopenjdk.net/) for ARM processors which are used in recent MacBooks. Fortunately, with Java 21, a new long-term support (LTS) release of Java is available. Therefore, starting with LTeX+ 18.0.0, LTeX+ requires Java 21 or newer (in the following: “Java 21+”).
+Java 11 has been published in 2018 and is approaching its end of life. Also, there are no builds of [AdoptOpenJDK](https://adoptopenjdk.net/) for ARM processors which are used in recent MacBooks. Fortunately, with Java 21, a new long-term support (LTS) release of Java is available. Therefore, starting with LTeX+ 15.0.0, LTeX+ requires Java 21 or newer (in the following: “Java 21+”).
 
 ## What Do I Have to Do?
 

@@ -14,23 +14,23 @@ Java 11 has been published in 2018 and is approaching its end of life. Also, the
 
 ## What Do I Have to Do?
 
-Due to LTeX+'s feature of automatically downloading Java 21 (via [AdoptOpenJDK](https://adoptopenjdk.net/)) if necessary, the impact on most users is minimal. The necessary actions you should perform depend on how you used LTeX+ with Java in the past (substitute “Java 11” with any other version older than Java 21):
+Due to LTeX+'s feature of automatically downloading LTeX+ LS inclduing Java 21 (via [AdoptOpenJDK](https://adoptopenjdk.net/)), the impact on most users is minimal. The necessary actions you should perform depend on how you used LTeX+ with Java in the past (substitute “Java 11” with any other version older than Java 21):
 
-* **Scenario:** You already have Java 21+ installed, either system-wide or by using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
+* **Scenario:** You already have Java 21+ installed and you are using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
 
   *Necessary actions:* Nothing to do, you're all set!
+  
+* **Scenario:** You have Java 11 installed and you are **not** using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
 
-* **Scenario:** You have Java 11 installed system-wide (e.g., Windows installer, Linux package, etc.).
+  *Necessary actions:* Nothing to do. LTeX+ should continue to work as it used to do, as LTeX+ already downloads LTeX+ LS including Java 21.
 
-  *Necessary actions:* You should update your system-wide installation of Java, i.e., remove your old Java installation via the Windows Control Panel or your Linux package manager, and install Java 21+ via Windows installer, Linux package, etc. Otherwise, LTeX+ continues to work, but it will download Java 21 to the extension folder after every update of LTeX+.
+* **Scenario:** You have Java 11 installed and you are using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
 
-* **Scenario:** You have Java 11 installed in a custom location, and you use the [`ltex.java.path`](../settings.html#ltexjavapath) setting to point to this location.
-
-  *Necessary actions:* You should update the Java installation of your custom location. Otherwise, LTeX+ continues to work, but it will download Java 21 to the extension folder after every update of LTeX+. Don't forget to update [`ltex.java.path`](../settings.html#ltexjavapath) if the name of the directory of your Java installation included the Java version.
+  *Necessary actions:* You should update your installation of Java, i.e., remove your old Java installation via the Windows Control Panel or your Linux package manager, and install Java 21+ via Windows installer, Linux package, etc. 
 
 * **Scenario:** You don't have Java installed at all.
 
-  *Necessary actions:* Nothing to do. LTeX+ should continue to work as it used to do, as LTeX+ already downloads Java 21 if it fails to find Java on your system. If you want, you can install Java 21+ system-wide on your system to prevent LTeX+ from redownloading Java after every update of LTeX+.
+  *Necessary actions:* Nothing to do. LTeX+ should continue to work as it used to do, as LTeX+ already downloads LTeX+ LS including Java 21.
 
 If one of the necessary actions includes updating your installation of Java, LTeX+ recommends AdoptOpenJDK to do so (although there are many more Java distributions). Just go to <https://adoptopenjdk.net/> and click on the blue “Latest release” button, leaving the default settings (OpenJDK 21 (LTS) and HotSpot) as they are.
 
@@ -42,7 +42,5 @@ In order to determine which Java installation to use, LTeX+ performs the followi
 
 1. Search an installation of Java 21+ on your system (via [`ltex.java.path`](../settings.html#ltexjavapath) and/or the environment variable `PATH`).
 2. If none can be found, search for Java 21+ in the `lib/` directory of the extension.
-3. If none can be found, download Java 21 (via [AdoptOpenJDK](https://adoptopenjdk.net/)) to `lib/` and use that.
+3. If none can be found, download LTeX+ LS inclduing Java 21 to `lib/` and use that.
 4. If that doesn't work, an error is displayed and LTeX+ cannot be used.
-
-When querying your version of Java with `java -version`, note that Java 11 identifies itself with a version string of the form `1.11.x`, similarly with older Java versions (`1.7.x` is Java 7 and so on). Starting with Java 9, the version string is given as expected (e.g., Java 21 is `21.x`).

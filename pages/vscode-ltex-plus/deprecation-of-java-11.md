@@ -14,7 +14,7 @@ Java 11 has been published in 2018 and is approaching its end of life. Also, the
 
 ## What Do I Have to Do?
 
-Due to LTeX+'s feature of automatically downloading LTeX+ LS inclduing Java 21 (via [AdoptOpenJDK](https://adoptopenjdk.net/)), the impact on most users is minimal. The necessary actions you should perform depend on how you used LTeX+ with Java in the past (substitute “Java 11” with any other version older than Java 21):
+Due to LTeX+'s feature of automatically downloading LTeX+ LS including Java 21 (via [AdoptOpenJDK](https://adoptopenjdk.net/)), the impact on most users is minimal. The necessary actions you should perform depend on how you used LTeX+ with Java in the past (substitute “Java 11” with any other version older than Java 21):
 
 * **Scenario:** You already have Java 21+ installed and you are using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
 
@@ -26,7 +26,7 @@ Due to LTeX+'s feature of automatically downloading LTeX+ LS inclduing Java 21 (
 
 * **Scenario:** You have Java 11 installed and you are using the [`ltex.java.path`](../settings.html#ltexjavapath) setting.
 
-  *Necessary actions:* You should update your installation of Java, i.e., remove your old Java installation via the Windows Control Panel or your Linux package manager, and install Java 21+ via Windows installer, Linux package, etc. 
+  *Necessary actions:* You should update your installation of Java, i.e., remove your old Java installation via the Windows Control Panel or your Linux package manager, and install Java 21+ via Windows installer, Linux package, etc. Don't forget to update [`ltex.java.path`](../settings.html#ltexjavapath) if necessary.
 
 * **Scenario:** You don't have Java installed at all.
 
@@ -40,7 +40,7 @@ If you need more choices (e.g., an archive instead of an installer, JRE instead 
 
 In order to determine which Java installation to use, LTeX+ performs the following steps during startup:
 
-1. Search an installation of Java 21+ on your system (via [`ltex.java.path`](../settings.html#ltexjavapath) and/or the environment variable `PATH`).
-2. If none can be found, search for Java 21+ in the `lib/` directory of the extension.
-3. If none can be found, download LTeX+ LS inclduing Java 21 to `lib/` and use that.
+1. Search an installation of Java 21+ on your system via [`ltex.java.path`](../settings.html#ltexjavapath).
+2. If none can be found, search for LTeX+ LS including Java 21 in the `lib/` directory of the extension.
+3. If none can be found, download LTeX+ LS including Java 21 to `lib/` and use that.
 4. If that doesn't work, an error is displayed and LTeX+ cannot be used.

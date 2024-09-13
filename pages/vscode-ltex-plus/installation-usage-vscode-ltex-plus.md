@@ -52,7 +52,7 @@ Download the offline version of LTeX+ at the [Releases page on GitHub](https://g
 
 ### Second Alternative: Download ltex-ls-plus/Java Manually
 
-Download [ltex-ls-plus](https://github.com/ltex-plus/ltex-ls-plus/releases) and/or a Java distribution (e.g., [Eclipse Adoptium](https://adoptium.net/)) individually and set [`ltex-plus.ltex-ls-plus.path`](../settings.html#ltexltex-lspath) and/or [`ltex-plus.java.path`](../settings.html#ltexjavapath) to the respective locations. If you download a binary release of ltex-ls-plus (those include a platform in the archive file name), then that release already includes Java and you don't need to set [`ltex-plus.java.path`](../settings.html#ltexjavapath).
+Download [ltex-ls-plus](https://github.com/ltex-plus/ltex-ls-plus/releases) and/or a Java distribution (e.g., [Eclipse Adoptium](https://adoptium.net/)) individually and set [`ltex.ltex-ls-plus.path`](../settings.html#ltexltex-lspath) and/or [`ltex.java.path`](../settings.html#ltexjavapath) to the respective locations. If you download a binary release of ltex-ls-plus (those include a platform in the archive file name), then that release already includes Java and you don't need to set [`ltex.java.path`](../settings.html#ltexjavapath).
 
 Note that the versions of ltex-ls-plus and/or Java have to satisfy the following requirements:
 
@@ -63,6 +63,6 @@ Note that the versions of ltex-ls-plus and/or Java have to satisfy the following
   To find out which version a particular version of LTeX+ uses, check the [changelog](changelog.html) for `Update LTeX+ LS to X.Y.Z`. If there is no entry of this form in the changelog for the version of LTeX+ you want to use, use the entry of the first previous version of LTeX+ that has such an entry.
 - The version of Java must be at least 11. Some Java distributions offer a JRE (Java Runtime Environment) and a JDK (Java Development Kit); in this case, the JRE is sufficient.
 
-If you download Java, you can also decide to install it system-wide. In this case, LTeX+ should be able to automatically detect its location. If not, you can still set [`ltex-plus.java.path`](../settings.html#ltexjavapath) to the location of your system-wide installation.
+If you download Java, you can also decide to install it system-wide. In this case, LTeX+ should be able to automatically detect its location. If not, you can still set [`ltex.java.path`](../settings.html#ltexjavapath) to the location of your system-wide installation.
 
 Reload the Visual Studio Code window after installing ltex-ls-plus and/or Java.

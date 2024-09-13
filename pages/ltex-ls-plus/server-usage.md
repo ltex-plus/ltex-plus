@@ -88,7 +88,7 @@ interface ServerCommandResult {
 
 ### `_ltex.addToDictionary` (Client)
 
-`_ltex.addToDictionary` is executed by the client when it should add words to the dictionary by adding them to [`ltex-plus.dictionary`](../settings.html#ltexdictionary).
+`_ltex.addToDictionary` is executed by the client when it should add words to the dictionary by adding them to [`ltex.dictionary`](../settings.html#ltexdictionary).
 
 ```typescript
 interface AddToDictionaryCommandParams {
@@ -110,7 +110,7 @@ type AddToDictionaryCommandResult = null;
 
 ### `_ltex.disableRules` (Client)
 
-`_ltex.disableRules` is executed by the client when it should disable rules by adding the rule IDs to [`ltex-plus.disabledRules`](../settings.html#ltexdisabledrules).
+`_ltex.disableRules` is executed by the client when it should disable rules by adding the rule IDs to [`ltex.disabledRules`](../settings.html#ltexdisabledrules).
 
 ```typescript
 interface DisableRulesCommandParams {
@@ -132,7 +132,7 @@ type DisableRulesCommandResult = null;
 
 ### `_ltex.hideFalsePositives` (Client)
 
-`_ltex.hideFalsePositives` is executed by the client when it should hide false positives by adding them to [`ltex-plus.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives).
+`_ltex.hideFalsePositives` is executed by the client when it should hide false positives by adding them to [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives).
 
 ```typescript
 interface HideFalsePositivesCommandParams {
@@ -283,9 +283,9 @@ All custom requests and notifications are prefixed with `ltex/` during usage.
 
 If enabled, LTeX+ LS will not only send a [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request to the client every time a document is checked, but also an `ltex/workspaceSpecificConfiguration` request. Some settings used for the check are then taken from the result of the `ltex/workspaceSpecificConfiguration` request instead of the [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration) request. These settings are:
 
-- [`ltex-plus.dictionary`](../settings.html#ltexdictionary)
-- [`ltex-plus.disabledRules`](../settings.html#ltexdisabledrules)
-- [`ltex-plus.enabledRules`](../settings.html#ltexenabledrules)
-- [`ltex-plus.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives)
+- [`ltex.dictionary`](../settings.html#ltexdictionary)
+- [`ltex.disabledRules`](../settings.html#ltexdisabledrules)
+- [`ltex.enabledRules`](../settings.html#ltexenabledrules)
+- [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives)
 
-The reason of the existence of `ltex/workspaceSpecificConfiguration` is that some clients like VS Code have different configuration scopes (e.g., user and workspace). When a configuration like [`ltex-plus.dictionary`](../settings.html#ltexdictionary) appears in multiple scopes, the value in the scope with the higher precedence will override the other values (e.g., workspace scope will override user scope). `ltex/workspaceSpecificConfiguration` makes it possible for the client to implement a merging mechanism instead, without having to change [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration).
+The reason of the existence of `ltex/workspaceSpecificConfiguration` is that some clients like VS Code have different configuration scopes (e.g., user and workspace). When a configuration like [`ltex.dictionary`](../settings.html#ltexdictionary) appears in multiple scopes, the value in the scope with the higher precedence will override the other values (e.g., workspace scope will override user scope). `ltex/workspaceSpecificConfiguration` makes it possible for the client to implement a merging mechanism instead, without having to change [`workspace/configuration`](https://microsoft.github.io/language-server-protocol/specification#workspace_configuration).

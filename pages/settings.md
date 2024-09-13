@@ -118,7 +118,7 @@ When using the language code `"auto"`, LTeX+ will try to detect the language of 
 
 Lists of additional words that should not be counted as spelling errors.
 
-This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<WORD1>", "<WORD2>", ...], "<LANGUAGE2>": ["<WORD1>", "<WORD2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex-plus.language`](settings.html#ltexlanguage).
+This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<WORD1>", "<WORD2>", ...], "<LANGUAGE2>": ["<WORD1>", "<WORD2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex.language`](settings.html#ltexlanguage).
 
 <!-- ltex-client-specific-begin -->
 
@@ -384,7 +384,7 @@ Object with the following properties:
 
 Lists of rules that should be disabled (if enabled by default by LanguageTool).
 
-This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<RULE1>", "<RULE2>", ...], "<LANGUAGE2>": ["<RULE1>", "<RULE2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex-plus.language`](settings.html#ltexlanguage) and `<RULE>` the ID of the LanguageTool rule.
+This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<RULE1>", "<RULE2>", ...], "<LANGUAGE2>": ["<RULE1>", "<RULE2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex.language`](settings.html#ltexlanguage) and `<RULE>` the ID of the LanguageTool rule.
 
 <!-- ltex-client-specific-begin -->
 
@@ -650,7 +650,7 @@ Object with the following properties:
 
 Lists of rules that should be enabled (if disabled by default by LanguageTool).
 
-This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<RULE1>", "<RULE2>", ...], "<LANGUAGE2>": ["<RULE1>", "<RULE2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex-plus.language`](settings.html#ltexlanguage) and `<RULE>` the ID of the LanguageTool rule.
+This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<RULE1>", "<RULE2>", ...], "<LANGUAGE2>": ["<RULE1>", "<RULE2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex.language`](settings.html#ltexlanguage) and `<RULE>` the ID of the LanguageTool rule.
 
 <!-- ltex-client-specific-begin -->
 
@@ -916,7 +916,7 @@ Object with the following properties:
 
 Lists of false-positive diagnostics to hide (by hiding all diagnostics of a specific rule within a specific sentence).
 
-This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<JSON1>", "<JSON2>", ...], "<LANGUAGE2>": ["<JSON1>", "<JSON2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex-plus.language`](settings.html#ltexlanguage) and `<JSON>` is a JSON string containing information about the rule and sentence.
+This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<JSON1>", "<JSON2>", ...], "<LANGUAGE2>": ["<JSON1>", "<JSON2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex.language`](settings.html#ltexlanguage) and `<JSON>` is a JSON string containing information about the rule and sentence.
 
 Although it is possible to manually edit this setting, the intended way is the `Hide false positive` quick fix.
 
@@ -1358,7 +1358,7 @@ Enable LanguageTool rules that are marked as picky and that are disabled by defa
 
 Optional mother tongue of the user (e.g., `"de-DE"`).
 
-If set, additional rules will be checked to detect false friends. Picky rules may need to be enabled in order to see an effect (see [`ltex-plus.additionalRules.enablePickyRules`](settings.html#ltexadditionalrulesenablepickyrules)). False friend detection improves if a language model is supplied (see [`ltex-plus.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel)).
+If set, additional rules will be checked to detect false friends. Picky rules may need to be enabled in order to see an effect (see [`ltex.additionalRules.enablePickyRules`](settings.html#ltexadditionalrulesenablepickyrules)). False friend detection improves if a language model is supplied (see [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel)).
 
 *Type:* `string`
 
@@ -1443,7 +1443,7 @@ Optional path to a directory with rules of a word2vec language model.
 
 If set to a non-empty string, LTeX+ will not use the bundled, built-in version of LanguageTool. Instead, LTeX+ will connect to an external [LanguageTool HTTP server](http://wiki.languagetool.org/http-server). Set this setting to the root URI of the server, and do not append `v2/check` or similar.
 
-Note that in this mode, the settings [`ltex-plus.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel), [`ltex-plus.additionalRules.neuralNetworkModel`](settings.html#ltexadditionalrulesneuralnetworkmodel), and [`ltex-plus.additionalRules.word2VecModel`](settings.html#ltexadditionalrulesword2vecmodel) will not take any effect.
+Note that in this mode, the settings [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel), [`ltex.additionalRules.neuralNetworkModel`](settings.html#ltexadditionalrulesneuralnetworkmodel), and [`ltex.additionalRules.word2VecModel`](settings.html#ltexadditionalrulesword2vecmodel) will not take any effect.
 
 *Type:* `string`
 
@@ -1453,7 +1453,7 @@ Note that in this mode, the settings [`ltex-plus.additionalRules.languageModel`]
 
 ## `ltex.languageToolOrg.username`
 
-Username/email as used to log in at languagetool.org for Premium API access. Only relevant if [`ltex-plus.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
+Username/email as used to log in at languagetool.org for Premium API access. Only relevant if [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
 
 *Type:* `string`
 
@@ -1461,7 +1461,7 @@ Username/email as used to log in at languagetool.org for Premium API access. Onl
 
 ## `ltex.languageToolOrg.apiKey`
 
-API key for Premium API access. Only relevant if [`ltex-plus.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
+API key for Premium API access. Only relevant if [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
 
 *Type:* `string`
 

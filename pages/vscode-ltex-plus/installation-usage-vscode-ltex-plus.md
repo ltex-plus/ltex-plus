@@ -49,6 +49,8 @@ In case there are any problems, you will find additional debug info in `View` â†
 ### First Alternative: Download the Offline Version of LTeX+
 
 Download the offline version of LTeX+ at the [Releases page on GitHub](https://github.com/ltex-plus/vscode-ltex-plus/releases) and install it via `Extensions: Install from VSIX...` on the Command Palette. The offline version already includes ltex-ls-plus (and the portable Java distribution). Reload the Visual Studio Code window after installing the offline version.
+Itâ€™s important to choose the right offline version. If you have an AMD or Intel processor, you need the x64 version. The aarch64 version is the right choice for ARM processors like Apple Silicon M series or Qualcomm Snapdragon.
+For LTeX+ prior 15.0.0, aarch64 is not available.
 
 ### Second Alternative: Download ltex-ls-plus/Java Manually
 

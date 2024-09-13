@@ -19,14 +19,13 @@ Choose the topmost scenario that applies to you.
 
 ## Via Editor Extensions
 
-LTeX+ publishes official extensions for Visual Studio Code (VS Code) and Vim/Neovim via coc.nvim. For some other popular editors, third-party extensions exist that add support for LTeX+. If no extension exists yet for your editor, but your editor supports the Language Server Protocol (LSP), then you should be able to [use LTeX+ as a language client](#via-language-clients).
+LTeX+ publishes official extensions for Visual Studio Code (VS Code). For some other popular editors, third-party extensions exist that add support for LTeX+. If no extension exists yet for your editor, but your editor supports the Language Server Protocol (LSP), then you should be able to [use LTeX+ as a language client](#via-language-clients).
 
 ### Official Extensions
 
 | Editor | Extension | Link to instructions |
 | ------ | --------- | -------------------- |
 | [VS Code](https://code.visualstudio.com/) | vscode-ltex-plus  | [Instructions](vscode-ltex-plus/installation-usage-vscode-ltex-plus.html) |
-| [Vim](https://www.vim.org/)/[Neovim](https://neovim.io/) + [coc.nvim](https://github.com/neoclide/coc.nvim) | coc-ltex | [Instructions](vscode-ltex-plus/installation-usage-coc-ltex-plus.html) |
 
 ### Third-Party Extensions
 
@@ -39,7 +38,7 @@ LTeX+ is not responsible for the quality of third-party extensions. The list and
 | [Neovim](https://neovim.io/) | Grammar Guard | [Instructions](https://github.com/brymer-meneses/grammar-guard.nvim) |
 | [Neovim](https://neovim.io/) | nvim-lsp-installer | [Instructions](https://github.com/williamboman/nvim-lsp-installer) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | lbiaggi/ltex.lua | [Instructions](https://gist.github.com/lbiaggi/a3eb761ac2fdbff774b29c88844355b8) |
-| [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX+_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
+| [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
 | [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/LDAP/LSP-ltex-ls) |
 
 ## Via Language Clients

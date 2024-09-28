@@ -11,8 +11,6 @@ sidebar: "sidebar"
 toc: false
 ---
 
-# Changelog
-
 ## 18.1.0 (September 29, 2024)
 
 - &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5. See [LT release notes of 6.1, 6.2, 6.3, 6.4 and 6.5](https://github.com/languagetool-org/languagetool/blob/master/languagetool-standalone/CHANGES.md).

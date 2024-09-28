@@ -11,9 +11,6 @@ sidebar: "sidebar"
 toc: false
 ---
 
-
-# Changelog
-
 ## 15.0.0 &#x2014; &#x201c;The AArch64 Bifurcation&#x201d; (September 29, 2024)
 
 - &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5 (see [LT 6.5 release notes](https://github.com/languagetool-org/languagetool/blob/v6.5/languagetool-standalone/CHANGES.md)). LT<sub>E</sub>X LS+ 18.1.0 including Java 21 is now used.

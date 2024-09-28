@@ -6,12 +6,18 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 title: "Changelog"
-permalink: "/ltex-ls/changelog.html"
+permalink: "/ltex-ls-plus/changelog.html"
 sidebar: "sidebar"
 toc: false
 ---
 
-## 18.0.0 (upcoming)
+# Changelog
+
+## 18.1.0 (September 29, 2024)
+
+- &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5. See [LT release notes of 6.1, 6.2, 6.3, 6.4 and 6.5](https://github.com/languagetool-org/languagetool/blob/master/languagetool-standalone/CHANGES.md).
+
+## 18.0.0 (September 17, 2024)
 
 - &#x1f527; *Change:* Update from Java 11 to 21. Be aware: Starting from LT<sub>E</sub>X LS+ 18.0.0, Java 21 or higher is required!
 - &#x2728; *New:* Add arm64/aarch64 Java runtimes for Linux (e.g. Raspberry Pi), macOS (Apple M1 SoC and its successors) and Windows on ARM.

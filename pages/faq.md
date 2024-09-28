@@ -20,11 +20,11 @@ The LSP solves this by separating the language support from the editor support. 
 
 In the case of LTeX+, the “language” is not a single natural language, but all natural languages supported by LanguageTool.
 
-- [vscode-ltex](https://github.com/ltex-plus/vscode-ltex-plus) is an extension for Visual Studio Code that implements a language client. When a LaTeX or Markdown document should be checked, it is passed to ltex-l-plus.
+- [vscode-ltex-plus](https://github.com/ltex-plus/vscode-ltex-plus) is an extension for Visual Studio Code that implements a language client. When a LaTeX or Markdown document should be checked, it is passed to ltex-ls-plus.
 - [ltex-ls-plus (LTeX+ LS)](https://github.com/ltex-plus/ltex-ls-plus) is an editor-independent language server (although it has only been tested with VS Code) written in Kotlin. Incoming LaTeX or Markdown code is parsed, converted to plaintext, and passed to LanguageTool.
 - [LanguageTool](https://github.com/languagetool-org/languagetool) is a grammar and spell checker written in Java. It can be used via its Java API or standalone. LanguageTool is responsible for the actual checking.
 
-When talking about LTeX+, we usually mean the combination of vscode-ltex-plus (or another editor extension) and ltex-ls-plus.
+When talking about LTeX+, we usually mean the combination of vscode-ltex-plus (or another editor extension) and ltex-ls-plus. LTeX+ is a successor (fork) of [LTeX](https://github.com/valentjn/vscode-ltex])
 
 ### Why does LTeX+ have such a high CPU load?
 

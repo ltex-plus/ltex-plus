@@ -11,6 +11,18 @@ sidebar: "sidebar"
 toc: false
 ---
 
+
+# Changelog
+
+## 15.0.0 &#x2014; &#x201c;The AArch64 Bifurcation&#x201d; (September 29, 2024)
+
+- &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5 (see [LT 6.5 release notes](https://github.com/languagetool-org/languagetool/blob/v6.5/languagetool-standalone/CHANGES.md)). LT<sub>E</sub>X LS+ 18.1.0 including Java 21 is now used.
+- &#x2728; *New:* Add support for AArch64/ARM64.
+
+## 14.0.2 &#x2014; &#x201c;The Java 21 Annoucement Determination&#x201d; (September 12, 2024)
+
+- &#x1f527; *Change:* Announce change of Java version to Java 21 in next mayor release 15.0.0 in README.md.
+
 ## 14.0.1 &#x2014; &#x201c;The User Name Spaces Indeterminacy&#x201d; (September 7, 2024)
 
 - &#x1f41b; *Bug fix:* Fix the dump of LT<sub>E</sub>X LS+ if spaces are in the user profile. &#x2014; [valentjn/vscode-ltex#887](https://github.com/valentjn/vscode-ltex/issues/887)

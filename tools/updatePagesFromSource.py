@@ -347,7 +347,7 @@ Change language of this page: {}
     markdown += "\n".join(x for x in commandsMarkdown if x is not None)
     markdown = re.sub("\n\n+", "\n\n", markdown)
 
-    dstPath = pagesRepoDirPath.joinpath("pages", "vscode-ltex", f"commands{pageNameSuffix}.md")
+    dstPath = pagesRepoDirPath.joinpath("pages", "vscode-ltex-plus", f"commands{pageNameSuffix}.md")
     common.writeFile(dstPath, markdown)
     linkSettingsAndCommands(dstPath, pagesRepoDirPath.joinpath("pages"), vscodeLtexRepoDirPath)
 
@@ -440,8 +440,8 @@ def main() -> None:
   updateCommands(vscodeLtexRepoDirPath, pagesRepoDirPath)
   updateCodeOfConduct(vscodeLtexRepoDirPath, pagesRepoDirPath)
 
-  for sourceRepoName in ["vscode-ltex", "ltex-ls-plus"]:
-    sourceRepoDirPath = (vscodeLtexRepoDirPath if sourceRepoName == "vscode-ltex" else
+  for sourceRepoName in ["vscode-ltex-plus", "ltex-ls-plus"]:
+    sourceRepoDirPath = (vscodeLtexRepoDirPath if sourceRepoName == "vscode-ltex-plus" else
         ltexLsRepoDirPath)
     updateChangelog(sourceRepoDirPath, sourceRepoName, vscodeLtexRepoDirPath, pagesRepoDirPath)
     updateContributing(sourceRepoDirPath, sourceRepoName, vscodeLtexRepoDirPath, pagesRepoDirPath)

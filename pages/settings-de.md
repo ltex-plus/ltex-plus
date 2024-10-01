@@ -1485,7 +1485,7 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 ## `ltex.ltex-ls.logLevel`
 
-Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls, das unter `Anzeigen` › `Ausgabe` › `LTeX+ Language Server` verfügbar ist.
+Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls, das unter `Anzeigen` › `Ausgabe` › `LTeX Language Server` verfügbar ist.
 
 Die Levels sind in absteigender Reihenfolge `"severe"`, `"warning"`, `"info"`, `"config"`, `"fine"`, `"finer"`, und `"finest"`. Alle Meldungen, die den angegebenen Level oder einen höheren Level haben, werden protokolliert.
 
@@ -1665,7 +1665,7 @@ Falls dies auf `true` gesetzt ist, dann wird ein Eintrag über den Status von LT
 
 Debugging-Einstellung, um die Kommunikation zwischen Language Client und Language Server zu protokollieren.
 
-Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll `LTeX+ Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
+Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll `LTeX Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
 
 Nach Änderungen muss LTeX+ neugestartet werden.
 

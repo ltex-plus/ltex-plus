@@ -44,7 +44,7 @@ When activated for the first time, LTeX+ will automatically download and use a h
 
 If you don't have an Internet connection, or if you simply don't want this, there are two alternatives.
 
-In case there are any problems, you will find additional debug info in `View` → `Output` → `LTeX+ Language Server` and `LTeX+ Language Client`.
+In case there are any problems, you will find additional debug info in `View` → `Output` → `LTeX Language Server` and `LTeX Language Client`.
 
 ### First Alternative: Download the Offline Version of LTeX+
 

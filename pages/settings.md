@@ -1485,7 +1485,7 @@ Changes require restarting LTeX+ to take effect.
 
 ## `ltex.ltex-ls.logLevel`
 
-Logging level (verbosity) of the ltex-ls-plus server log, which is accessible via `View` › `Output` › `LTeX+ Language Server`.
+Logging level (verbosity) of the ltex-ls-plus server log, which is accessible via `View` › `Output` › `LTeX Language Server`.
 
 The levels in descending order are `"severe"`, `"warning"`, `"info"`, `"config"`, `"fine"`, `"finer"`, and `"finest"`. All messages that have the specified log level or a higher level are logged.
 
@@ -1665,7 +1665,7 @@ If set to `true`, an item about the status of LTeX+ is shown permanently in the 
 
 Debug setting to log the communication between language client and server.
 
-When reporting issues, set this to `"verbose"` and open the `LTeX+ Language Client` log in `View` › `Output`. Append the relevant part to the GitHub issue.
+When reporting issues, set this to `"verbose"` and open the `LTeX Language Client` log in `View` › `Output`. Append the relevant part to the GitHub issue.
 
 Changes require restarting LTeX+ to take effect.
 

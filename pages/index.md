@@ -26,7 +26,7 @@ A classic use case of LTeX+ is checking scientific LaTeX papers, but why not che
 
 LTeX+ is a successor/fork of the abandoned [LTeX Extension for VS Code](https://github.com/valentjn/vscode-ltex) by Julian Valentin and [LanguageTool for Visual Studio Code extension](https://github.com/adamvoss/vscode-languagetool) by Adam Voss<sup>†</sup>.
 
-Be aware that this documentation was also forked from [LTeX](https://github.com/valentjn/ltex) and the terms LTeX, LTeX+ are mixed up. Feel free to submit a Pull Request if you notice a mistake in this documentation.
+Be aware that this documentation was also forked from [LTeX](https://github.com/valentjn/ltex) and the terms LTeX and LTeX+ are mixed up. Feel free to submit a Pull Request if you notice a mistake in this documentation.
 
 <div style="margin-bottom:30px;"></div>
 

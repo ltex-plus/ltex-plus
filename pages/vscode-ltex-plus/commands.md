@@ -13,7 +13,7 @@ sidebar: "sidebar"
 Change language of this page: [English](commands.html), [German](commands-de.html)
 
 <!-- ltex: language=en-US -->
-
+<!-- 
 To run a command, open the Command Palette (`Ctrl+Shift+P`) and start typing the name of the command.
 
 ## `LTeX: Activate Extension`
@@ -76,4 +76,4 @@ When clicking the button, LTeX+ will copy a pre-filled bug report to the clipboa
 
 ## `LTeX: Request Feature for LTeX+`
 
-Creates a new feature request for LTeX+ by opening the GitHub website.
+Creates a new feature request for LTeX+ by opening the GitHub website. -->

@@ -13,7 +13,7 @@ sidebar: "sidebar"
 Change language of this page: [English](commands.html), [German](commands-de.html)
 
 <!-- ltex: language=de-DE -->
-
+<!-- 
 Um einen Befehl auszuführen, öffnen Sie die Befehlspalette (`Ctrl+Shift+P`) und beginnen Sie mit der Eingabe des Befehlsnamens.
 
 ## `LTeX: Aktiviere Erweiterung`
@@ -76,4 +76,4 @@ Wenn der Knopf gedrückt wird, dann kopiert LTeX+ einen vorausgefüllten Bug-Ber
 
 ## `LTeX: Feature in LTeX+ wünschen`
 
-Erstellt einen neuen Feature-Wunsch für LTeX+, indem die GitHub-Webseite geöffnet wird.
+Erstellt einen neuen Feature-Wunsch für LTeX+, indem die GitHub-Webseite geöffnet wird. -->

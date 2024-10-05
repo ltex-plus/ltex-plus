@@ -1551,7 +1551,7 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 *Typ:* `integer`
 
-*Voreinstellung:* `512`
+*Voreinstellung:* `2048`
 
 ## `ltex.sentenceCacheSize`
 

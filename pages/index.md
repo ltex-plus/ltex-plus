@@ -32,7 +32,7 @@ Be aware that this documentation was also forked from [LTeX](https://github.com/
 
 ## Features
 
-![Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support](https://github.com/ltex-plus/vscode-ltex-plus/raw/release/img/banner-ltex.png)
+![Grammar/Spell Checker for VS Code with LanguageTool and LaTeX Support](https://github.com/ltex-plus/vscode-ltex-plus/raw/develop/img/banner-ltex.png)
 
 - **Supported markup languages:** BibTeX, ConTeXt, LaTeX, Markdown, Org, reStructuredText, R Sweave, XHTML
 - Comes with **everything included,** no need to install Java or LanguageTool

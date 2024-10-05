@@ -58,7 +58,7 @@ Clears all LTeX+ diagnostics.
 
 ## `LTeX: Show Status Information`
 
-Shows information about the current status of LTeX+ in the `LTeX Language Client` output panel.
+Shows information about the current status of LTeX+ in the LTeX Language Client` output panel.
 
 Information about ltex-ls-plus is only included if ltex-ls-plus is running and not checking a document.
 

@@ -58,7 +58,7 @@ Löscht alle durch LTeX+ gemeldeten Schreibfehler.
 
 ## `LTeX: Statusinformationen zeigen`
 
-Zeigt Informationen über den aktuellen Status von LTeX+ im Protokoll `LTeX Language Client`.
+Zeigt Informationen über den aktuellen Status von LTeX+ im Protokoll LTeX Language Client`.
 
 Informationen über ltex-ls-plus werden nur angezeigt, wenn ltex-ls-plus gerade läuft und nicht ein Dokument überprüft.
 

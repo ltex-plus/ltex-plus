@@ -425,9 +425,9 @@ sidebar: "sidebar"
 
 def main() -> None:
   parser = argparse.ArgumentParser(description="Update Markdown according to vscode-ltex-plus  repo")
-  parser.add_argument("--vscode-ltex-repo", default="eowyn:/home/valentjn/repos/vscode-ltex",
-      type=pathlib.Path, help="Path to vscode-ltex-plus  repo")
-  parser.add_argument("--ltex-ls-repo", default="D:\\repos\\ltex-ls-plus",
+  parser.add_argument("--vscode-ltex-repo", default="../../ltex-plus/vscode-ltex-plus",
+      type=pathlib.Path, help="Path to vscode-ltex-plus repo")
+  parser.add_argument("--ltex-ls-repo", default="../../ltex-plus/ltex-ls-plus",
       type=pathlib.Path, help="Path to ltex-ls-plus repo")
   args = parser.parse_args()
 

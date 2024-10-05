@@ -24,7 +24,7 @@ All supported markup languages are listed in the default value of this setting. 
 
 <!-- ltex-client-specific-begin -->
 
-The activation events are unaffected by this setting. This means that the extension will be activated whenever a file with a supported code language mode is opened. For unsupported code language modes, you may need to activate the extension explicitly by executing the [`LTeX: Activate Extension`](vscode-ltex-plus/commands.html#ltex-activate-extension) command.
+The activation events are unaffected by this setting. This means that the extension will be activated whenever a file with a supported code language mode is opened. For unsupported code language modes, you may need to activate the extension explicitly by executing the [LTeX: Activate Extension`](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/commands.html#ltex-activate-extension) command.
 
 Changes require restarting LTeX+ to take effect.
 
@@ -55,9 +55,9 @@ One of the following types:
 
 ## `ltex.language`
 
-The language (e.g., `"en-US"`) LanguageTool should check against. Use a specific variant like `"en-US"` or `"de-DE"` instead of the generic language code like `"en"` or `"de"` to obtain spelling corrections (in addition to grammar corrections).
+The language (e.g., `"en-US"`) LanguageTool should check against. If possible, use a specific variant like `"en-US"` or `"de-DE"` instead of the generic language code like `"en"` or `"de"` to obtain spelling corrections (in addition to grammar corrections).
 
-When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as only generic languages like `"en"` or `"de"` will be detected and thus no spelling errors will be reported.
+When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as only generic languages like `"en"` or `"de"` will be detected and thus no spelling errors might be reported. For some generic language codes like `"es"` (Spanish), spelling errors are reported even though the language codes are generic.
 
 *Type:* `string`
 
@@ -1471,7 +1471,7 @@ API key for Premium API access. Only relevant if [`ltex.languageToolHttpServerUr
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ automatically downloads [ltex-ls-plus from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself.
+If set to an empty string, LTeX+ automatically downloads [ltex-ls from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself.
 
 Use the path to the root directory of ltex-ls-plus (it contains `bin` and `lib` subdirectories).
 
@@ -1485,11 +1485,11 @@ Changes require restarting LTeX+ to take effect.
 
 ## `ltex.ltex-ls.logLevel`
 
-Logging level (verbosity) of the ltex-ls-plus server log, which is accessible via `View` › `Output` › `LTeX Language Server`.
+Logging level (verbosity) of the ltex-ls-plus server log, which is accessible via `View` › `Output` › LTeX Language Server`.
 
 The levels in descending order are `"severe"`, `"warning"`, `"info"`, `"config"`, `"fine"`, `"finer"`, and `"finest"`. All messages that have the specified log level or a higher level are logged.
 
-ltex-ls-plus does not use all log levels.
+ltex-ls does not use all log levels.
 
 *Type:* `string`
 
@@ -1509,7 +1509,7 @@ ltex-ls-plus does not use all log levels.
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls. You can point this setting to an existing Java installation on your computer to use that installation instead.
+If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls-plus. You can point this setting to an existing Java installation on your computer to use that installation instead.
 
 Use the same path as you would use for the `JAVA_HOME` environment variable (it usually contains `bin` and `lib` subdirectories, amongst others).
 
@@ -1635,7 +1635,7 @@ One of `"edit"`, `"save"`, and `"manual"`.
 
 - `"edit"`: Documents are checked when they are opened or edited (on every keystroke), or when the settings change.
 - `"save"`: Documents are checked when they are opened or saved, or when the settings change.
-- `"manual"`: Documents are not checked automatically, except when the settings change. Use commands such as [`LTeX: Check Current Document`](vscode-ltex-plus/commands.html#ltex-check-current-document) to manually trigger checks.
+- `"manual"`: Documents are not checked automatically, except when the settings change. Use commands such as [LTeX: Check Current Document`](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/commands.html#ltex-check-current-document) to manually trigger checks.
 
 *Default:* `"edit"`
 
@@ -1665,7 +1665,7 @@ If set to `true`, an item about the status of LTeX+ is shown permanently in the 
 
 Debug setting to log the communication between language client and server.
 
-When reporting issues, set this to `"verbose"` and open the `LTeX Language Client` log in `View` › `Output`. Append the relevant part to the GitHub issue.
+When reporting issues, set this to `"verbose"` and open the LTeX Language Client` log in `View` › `Output`. Append the relevant part to the GitHub issue.
 
 Changes require restarting LTeX+ to take effect.
 

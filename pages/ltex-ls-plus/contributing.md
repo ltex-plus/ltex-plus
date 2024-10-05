@@ -24,7 +24,7 @@ Thank you for considering contributing to LTeX+. There are many ways to do so:
 If you like LTeX+, but are not able to contribute in any of these ways, there are still some quick and simple alternatives to show your gratitude:
 
 - You can star the [repository on GitHub](https://github.com/ltex-plus/ltex-ls-plus).
-- You can write a positive review of vscode-ltex-plus  on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus) or on [Open VSX](https://open-vsx.org/extension/valentjn/vscode-ltex-plus).
+- You can write a positive review of vscode-ltex-plus on the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus).
 
 ## How to Report Bugs
 
@@ -53,13 +53,13 @@ If you like LTeX+, but are not able to contribute in any of these ways, there ar
 
 ## How to Set Up the Project
 
-[As explained in the FAQ](https://ltex-plus.github.io/ltex-plus/faq.html#whats-the-difference-between-vscode-ltex-plus-ltex-ls-plus-and-languagetool), LTeX+ consists of two components: [vscode-ltex](https://github.com/ltex-plus/vscode-ltex-plus) and [ltex-ls](https://github.com/ltex-plus/ltex-ls-plus). This guide is only about the ltex-ls-plus part. If you want to change vscode-ltex-plus  as well, [be sure to read and follow the contribution guidelines of ltex-ls](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/contributing.html).
+[As explained in the FAQ](https://ltex-plus.github.io/ltex-plus/faq.html#whats-the-difference-between-vscode-ltex-ltex-ls-and-languagetool), LTeX+ consists of two components: [vscode-ltex-plus](https://github.com/ltex-plus/vscode-ltex-plus) and [ltex-ls-plus](https://github.com/ltex-plus/ltex-ls-plus). This guide is only about the ltex-ls-plus part. If you want to change vscode-ltex-plus as well, [be sure to read and follow the contribution guidelines of ltex-ls-plus](https://ltex-plus.github.io/ltex-plus/vscode-ltex/contributing.html).
 
 1. Install VS Code, Git, and Apache Maven.
 2. Fork ltex-ls-plus on GitHub.
-3. Clone the fork: `git clone https://github.com/<YOUR_USERNAME>/ltex-ls.git`
-4. Build the project: `cd ltex-ls-plus && mvn verify`
-5. It's recommended to use IntelliJ IDEA to debug ltex-ls.
+3. Clone the fork: `git clone https://github.com/<YOUR_USERNAME>/ltex-ls-plus.git`
+4. Build the project: `cd ltex-ls-plus && python tools/createCompletionLists.py && mvn verify`
+5. It's recommended to use IntelliJ IDEA to debug ltex-ls-plus.
 
 ## How to Contribute Code
 
@@ -75,7 +75,7 @@ If you like LTeX+, but are not able to contribute in any of these ways, there ar
 
 You can help find bugs before they affect thousands of LTeX+ users by testing pre-releases.
 
-1. Check whether a pre-release is available on the [releases pages of ltex-ls](https://github.com/ltex-plus/ltex-ls-plus/releases) (pre-releases, if there are any, are at the top of the page).
+1. Check whether a pre-release is available on the [releases pages of ltex-ls-plus](https://github.com/ltex-plus/ltex-ls-plus/releases) (pre-releases, if there are any, are at the top of the page).
 2. Download and extract the pre-release.
 3. Check if all currently listed changes in the [changelog on the `develop` branch](https://github.com/ltex-plus/ltex-ls-plus/blob/develop/changelog.xml) work as announced.
 
@@ -85,7 +85,7 @@ Of course, pre-releases are not for productive work, they even may be harmful.
 
 ## How to Edit the Documentation
 
-You can improve the [documentation](https://ltex-plus.github.io/ltex):
+You can improve the [documentation](https://ltex-plus.github.io/ltex-plus):
 
 1. Check whether the page you want to edit is listed in the table below.
    - If yes, then follow the corresponding link to the source.
@@ -100,8 +100,8 @@ You can improve the [documentation](https://ltex-plus.github.io/ltex):
 | ---- | ------- |
 | [Settings](https://ltex-plus.github.io/ltex-plus/settings.html) | [`package.json`](https://github.com/ltex-plus/vscode-ltex-plus/blob/develop/package.json), [`package.nls.json`](https://github.com/ltex-plus/vscode-ltex-plus/blob/develop/package.nls.json) |
 | [Code of Conduct](https://ltex-plus.github.io/ltex-plus/code-of-conduct.html) | [`CODE_OF_CONDUCT.md`](https://github.com/ltex-plus/vscode-ltex-plus/blob/develop/CODE_OF_CONDUCT.md) |
-| [ltex-ls-plus → Changelog](https://ltex-plus.github.io/ltex-plus/ltex-ls-plus/changelog.html) | [`ltex-plus-ls/changelog.xml`](https://github.com/ltex-plus/ltex-ls-plus/blob/develop/changelog.xml) |
-| [ltex-ls-plus → Contributing](https://ltex-plus.github.io/ltex-plus/ltex-ls-plus/contributing.html) | [`ltex-plus-ls/CONTRIBUTING.md`](https://github.com/ltex-plus/ltex-ls-plus/blob/develop/CONTRIBUTING.md) |
+| [ltex-ls-plus → Changelog](https://ltex-plus.github.io/ltex-plus/ltex-ls-plus/changelog.html) | [`ltex-ls-plus/changelog.xml`](https://github.com/ltex-plus/ltex-ls-plus/blob/develop/changelog.xml) |
+| [ltex-ls-plus → Contributing](https://ltex-plus.github.io/ltex-plus/ltex-ls-plus/contributing.html) | [`ltex-ls-plus/CONTRIBUTING.md`](https://github.com/ltex-plus/ltex-ls-plus/blob/develop/CONTRIBUTING.md) |
 
 ## How to Translate the User Interface
 

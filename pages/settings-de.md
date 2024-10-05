@@ -24,7 +24,7 @@ Alle unterstützten Auszeichnungssprachen sind in der Voreinstellung dieser Eins
 
 <!-- ltex-client-specific-de-begin -->
 
-Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [`LTeX: Aktiviere Erweiterung`](vscode-ltex-plus/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
+Die Aktivierungsereignisse werden von dieser Einstellung nicht berührt. Das heißt, dass die Erweiterung aktiviert wird, sobald eine Datei mit einem unterstützten Code-Sprachmodus geöffnet wird. Falls Sie Dateien mit nicht-unterstützten Codi-Sprachmodi überprüfen wollen, müssen Sie eventuell die Erweiterung explizit mithilfe des Befehls [LTeX: Aktiviere Erweiterung`](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/commands-de.html#ltex-aktiviere-erweiterung) aktivieren.
 
 Nach Änderungen muss LTeX+ neugestartet werden.
 
@@ -55,9 +55,9 @@ Einer der folgenden Typen:
 
 ## `ltex.language`
 
-Die Sprache (z. B. `"en-US"`), mit der LanguageTool auf Fehler suchen soll. Benutzen Sie eine bestimmte Variante wie `"en-US"` oder `"de-DE"` anstelle des generischen Sprachcodes wie `"en"` oder `"de"`, um Rechtschreibfehler zu finden (zusätzlich zu Grammatikfehlern).
+Die Sprache (z. B. `"en-US"`), mit der LanguageTool auf Fehler suchen soll. Falls möglich, benutzen Sie eine bestimmte Variante wie `"en-US"` oder `"de-DE"` anstelle des generischen Sprachcodes wie `"en"` oder `"de"`, um Rechtschreibfehler zu finden (zusätzlich zu Grammatikfehlern).
 
-Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und daher keine Rechtschreibfehler gemeldet werden.
+Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und eventuell keine Rechtschreibfehler gemeldet werden. Bei manchen generischen Sprachcodes wie `"es"` (Spanisch) werden Rechtschreibfehler gemeldet, obwohl die Sprachcodes generisch sind.
 
 *Typ:* `string`
 
@@ -1471,7 +1471,7 @@ API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.lang
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls-plus von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-Releases setzen, das Sie selbst heruntergeladen haben.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-plus-Releases setzen, das Sie selbst heruntergeladen haben.
 
 Benutzen Sie dafür den Pfad zum Hauptverzeichnis von ltex-ls-plus (dieses enthält die Unterverzeichnisse `bin` und `lib`).
 
@@ -1485,11 +1485,11 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 ## `ltex.ltex-ls.logLevel`
 
-Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls, das unter `Anzeigen` › `Ausgabe` › `LTeX Language Server` verfügbar ist.
+Protokollierungslevel (Ausführlichkeit) des Server-Protokolls von ltex-ls-plus, das unter `Anzeigen` › `Ausgabe` › LTeX Language Server` verfügbar ist.
 
 Die Levels sind in absteigender Reihenfolge `"severe"`, `"warning"`, `"info"`, `"config"`, `"fine"`, `"finer"`, und `"finest"`. Alle Meldungen, die den angegebenen Level oder einen höheren Level haben, werden protokolliert.
 
-ltex-ls-plus benutzt nicht alle Protokollierungslevel.
+ltex-ls benutzt nicht alle Protokollierungslevel.
 
 *Typ:* `string`
 
@@ -1635,7 +1635,7 @@ Eines von `"edit"`, `"save"` und `"manual"`.
 
 - `"edit"`: Dokumente werden überprüft, wenn sie geöffnet oder bearbeitet werden (bei jedem Tastendruck), oder wenn sich die Einstellungen ändern.
 - `"save"`: Dokumente werden überprüft, wenn sie geöffnet oder gespeichert werden, oder wenn sich die Einstellungen ändern.
-- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [`LTeX: Aktuelles Dokument prüfen`](vscode-ltex-plus/commands-de.html#ltex-aktuelles-dokument-prüfen), um manuell Überprüfungen zu veranlassen.
+- `"manual"`: Dokumente werden nicht automatisch überprüft, außer wenn sich die Einstellungen ändern. Verwenden Sie Befehle wie [LTeX: Aktuelles Dokument prüfen`](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/commands-de.html#ltex-aktuelles-dokument-pr%C3%BCfen), um manuell Überprüfungen zu veranlassen.
 
 *Voreinstellung:* `"edit"`
 
@@ -1665,7 +1665,7 @@ Falls dies auf `true` gesetzt ist, dann wird ein Eintrag über den Status von LT
 
 Debugging-Einstellung, um die Kommunikation zwischen Language Client und Language Server zu protokollieren.
 
-Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll `LTeX Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
+Wenn Sie einen Bug melden, setzen Sie diese Einstellung auf `"verbose"` und öffnen Sie das Protokoll LTeX Language Client` unter `Anzeigen` › `Ausgabe`. Hängen Sie den relevanten Teil an das GitHub-Problem an.
 
 Nach Änderungen muss LTeX+ neugestartet werden.
 

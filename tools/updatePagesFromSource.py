@@ -226,7 +226,7 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
 
 def formatCommand(commandJson: Dict[str, Any], packageNlsJson: Dict[str, str]) -> Optional[str]:
   description = f"%ltex.i18n.commands.{commandJson['command']}.fullMarkdownDescription%"
-  markdown = (f"## LTeX: {formatDescription(commandJson['title'], packageNlsJson)}\n\n"
+  markdown = (f"## `LTeX: {formatDescription(commandJson['title'], packageNlsJson)}`\n\n"
       f"{formatDescription(description, packageNlsJson)}\n")
   return markdown
 

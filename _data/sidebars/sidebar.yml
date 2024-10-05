@@ -37,6 +37,7 @@ entries:
             output: "web"
           - title: "Commands"
             url: "/vscode-ltex-plus/commands.html"
+            output: "web"
           - title: "Deprecation of Java 11"
             url: "/vscode-ltex-plus/deprecation-of-java-11.html"
             output: "web"

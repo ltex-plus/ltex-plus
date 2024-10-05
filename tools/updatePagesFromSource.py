@@ -226,7 +226,7 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
 
 def formatCommand(commandJson: Dict[str, Any], packageNlsJson: Dict[str, str]) -> Optional[str]:
   description = f"%ltex.i18n.commands.{commandJson['command']}.fullMarkdownDescription%"
-  markdown = (f"## `LTeX: {formatDescription(commandJson['title'], packageNlsJson)}`\n\n"
+  markdown = (f"## LTeX: {formatDescription(commandJson['title'], packageNlsJson)}\n\n"
       f"{formatDescription(description, packageNlsJson)}\n")
   return markdown
 
@@ -425,9 +425,9 @@ sidebar: "sidebar"
 
 def main() -> None:
   parser = argparse.ArgumentParser(description="Update Markdown according to vscode-ltex-plus  repo")
-  parser.add_argument("--vscode-ltex-repo", default="../../ltex-plus/vscode-ltex-plus",
+  parser.add_argument("--vscode-ltex-repo", default="../vscode-ltex-plus",
       type=pathlib.Path, help="Path to vscode-ltex-plus repo")
-  parser.add_argument("--ltex-ls-repo", default="../../ltex-plus/ltex-ls-plus",
+  parser.add_argument("--ltex-ls-repo", default="../ltex-ls-plus",
       type=pathlib.Path, help="Path to ltex-ls-plus repo")
   args = parser.parse_args()
 

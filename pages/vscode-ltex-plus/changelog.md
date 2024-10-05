@@ -11,6 +11,16 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.1.0 &#x2014; &#x201c;The LTeX+ LS Recovery Experiment&#x201d; (October 5, 2024)
+
+- &#x1f527; *Change:* New LT<sub>E</sub>X+ logo and branding.
+- &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5 again (see [LT 6.5 release notes](https://github.com/languagetool-org/languagetool/blob/v6.5/languagetool-standalone/CHANGES.md)). LT<sub>E</sub>X+ LS 18.1.0 including Java 21 is now used.
+- &#x1f527; *Change:* Change default maximum Java heap size to 2048 MB.
+
+## 15.0.1 &#x2014; &#x201c;The Rollback Dissolution&#x201d; (September 29, 2024)
+
+- &#x1f41b; *Bug fix:* Serious issues with LT<sub>E</sub>X+ LS 18.1.0. Going back to LT<sub>E</sub>X+ LS 17.0.1 temporarily. &#x2014; [#55](https://github.com/ltex-plus/vscode-ltex-plus/issues/55)
+
 ## 15.0.0 &#x2014; &#x201c;The AArch64 Bifurcation&#x201d; (September 29, 2024)
 
 - &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5 (see [LT 6.5 release notes](https://github.com/languagetool-org/languagetool/blob/v6.5/languagetool-standalone/CHANGES.md)). LT<sub>E</sub>X LS+ 18.1.0 including Java 21 is now used.

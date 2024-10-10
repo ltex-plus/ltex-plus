@@ -22,7 +22,7 @@ Magic comments are special comments which contents are interpreted by LTeX+ and 
 - Org: `# LTeX: SETTINGS`
 - reStructuredText: `.. LTeX: SETTINGS`
 - R Sweave: Same as LaTeX
-- XHTML: No support for magic comments
+- XHTML: Starting from LTeX 15.2.0: `<!-- LTeX: SETTINGS -->`
 - Programming languages: `LTeX: SETTINGS` inside a line comment or a single-line block comment
 
 Magic comments are case-insensitive (except for the setting values), and the spaces in the magic comment line can be any amount of whitespace, even no amount at all.

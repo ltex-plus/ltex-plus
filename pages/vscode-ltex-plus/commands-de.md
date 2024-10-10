@@ -68,12 +68,12 @@ Setzt den aktuellen Zustand der Erweiterung zurück und startet LTeX+ LS neu.
 
 Dies ist äquivalent dazu, das Fenster von VS Code neuzuladen und die Erweiterung zu aktivieren. Benutzen Sie diesen Befehl, falls sich LTeX+ nicht wie erwartet verhält.
 
-## `LTeX: Bug in LTeX+ melden`
+## `LTeX: Bug in LTeX melden`
 
 Zeigt eine Meldung an, die einen Link zu Anweisungen über wie man Bugs in LTeX+ meldet und einen Knopf zum Kopieren eines Bug-Berichts enthält.
 
 Wenn der Knopf gedrückt wird, dann kopiert LTeX+ einen vorausgefüllten Bug-Bericht in die Zwischenablage, die anschließend in das GitHub-Problem eingefügt werden kann.
 
-## `LTeX: Feature in LTeX+ wünschen`
+## `LTeX: Feature in LTeX wünschen`
 
 Erstellt einen neuen Feature-Wunsch für LTeX+, indem die GitHub-Webseite geöffnet wird.

@@ -68,12 +68,12 @@ Resets the current state of the extension and restarts LTeX+ LS.
 
 This is equivalent to reloading the VS Code window and activating the extension. Use this command if LTeX+ does not behave as expected.
 
-## `LTeX: Report Bug in LTeX+`
+## `LTeX: Report Bug in LTeX`
 
 Shows a message box with a link to instructions on how to report bugs in LTeX+ and a button to copy a bug report.
 
 When clicking the button, LTeX+ will copy a pre-filled bug report to the clipboard, which can then be pasted into the GitHub issue.
 
-## `LTeX: Request Feature for LTeX+`
+## `LTeX: Request Feature for LTeX`
 
 Creates a new feature request for LTeX+ by opening the GitHub website.

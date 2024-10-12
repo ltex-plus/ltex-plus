@@ -11,6 +11,11 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.2.0 (upcoming)
+
+- &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [#32](https://github.com/ltex-plus/ltex-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
+- &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
+
 ## 18.1.0 (September 28, 2024)
 
 - &#x1f527; *Change:* Update LanguageTool from 6.0 to 6.5. See [LT release notes of 6.1, 6.2, 6.3, 6.4 and 6.5](https://github.com/languagetool-org/languagetool/blob/master/languagetool-standalone/CHANGES.md).

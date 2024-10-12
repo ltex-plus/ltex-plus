@@ -11,6 +11,12 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.2.0 &#x2014; &#x201c;The (X)HTML HTTP 413 Elevation&#x201d; (upcoming)
+
+- &#x1f527; *Change:* Update to LTeX+ LS 18.1.0
+- &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [#32](https://github.com/ltex-plus/vscode-ltex-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
+- &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
+
 ## 15.1.0 &#x2014; &#x201c;The LTeX+ LS Recovery Experiment&#x201d; (October 5, 2024)
 
 - &#x1f527; *Change:* New LTeX+ logo and branding.

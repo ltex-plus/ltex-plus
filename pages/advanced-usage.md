@@ -27,6 +27,8 @@ Magic comments are special comments which contents are interpreted by LTeX+ and 
 
 Magic comments are case-insensitive (except for the setting values), and the spaces in the magic comment line can be any amount of whitespace, even no amount at all.
 
+Magic commands trigger a reinitialization of LTeX+ due to potentially changed parameters. This causes the text section to be split at the position of the magic command, resulting in two requests being made to the language server. By using multiple trivial magic commands (e.g., `% LTeX:` for LaTeX), you can split a large file into smaller chunks, which are then sent for checking. Although this may slightly alter the output, it can be useful for avoiding API limits of the premium API (see [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri)).
+
 `SETTINGS` has to be replaced with a whitespace-separated list of `KEY=VALUE` pairs. Neither `KEY` nor `VALUE` are enclosed in quotation marks. The following settings are supported:
 
 - `enabled`: One of `true` or `false`. Makes it possible to disable LTeX+ for the rest of the document, or to enable it again.

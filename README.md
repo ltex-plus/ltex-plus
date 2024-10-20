@@ -28,4 +28,4 @@ To build and serve the documentation on your local machine, follow these steps:
 
     This command executes `jekyll serve --livereload -H 0.0.0.0` inside the Docker container and maps port 4000 from the container to the host machine.
 
-Once the server is running, you can access the documentation at [http://0.0.0.0:4000/ltex-plus/](http://0.0.0.0:4000/ltex-plus/). Changes to Markdown files (e.g., [pages/faq.md](pages/faq.md)) will be automatically reflected after refreshing your browser.
+Once the server is running, you can access the documentation at [http://localhost:4000/ltex-plus/](http://localhost:4000/ltex-plus/). Changes to Markdown files (e.g., [pages/faq.md](pages/faq.md)) will be automatically reflected after refreshing your browser.

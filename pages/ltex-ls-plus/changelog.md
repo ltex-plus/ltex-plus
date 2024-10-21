@@ -11,8 +11,10 @@ sidebar: "sidebar"
 toc: false
 ---
 
-## 18.2.0 (upcoming)
+## 18.2.0 (October 19, 2024)
 
+- &#x1f527; *Change:* Update to [most recent Adoptium Java runtimes](https://github.com/adoptium/temurin21-binaries/releases/jdk-21.0.5%2B9-ea-beta/) for Windows aarch64.
+- &#x1f527; *Change:* Use repository [ltex-plus/languagetool-build](https://github.com/ltex-plus/languagetool-build) for building ltex-ls-plus
 - &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [ltex-ls-plus#32](https://github.com/ltex-plus/ltex-ls-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
 - &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
 

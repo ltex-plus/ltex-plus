@@ -11,6 +11,18 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.3.0 &#x2014; &#x201c;The Typst Reflection&#x201d; (November 27, 2024)
+
+- &#x2728; *New:* Add support for Typst &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
+- &#x2728; *New:* Add support for Quarto. &#x2014; [#63](https://github.com/ltex-plus/vscode-ltex-plus/issues/63)
+- &#x2728; *New:* Add support for MDX &#x2014; [#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
+- &#x2728; *New:* Add [`LTeX: Close LTeX+`](commands.html#ltex-close-ltex) command to close the extension and LTeX+ LS &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
+- &#x2728; *New:* Publish LTeX+ on Open VSX: https://open-vsx.org/extension/ltex-plus/vscode-ltex-plus &#x2014; [#83](https://github.com/ltex-plus/vscode-ltex-plus/issues/83)
+- &#x1f41b; *Bug fix:* Fix error message when using the command [`LTeX: Reset and Restart`](commands.html#ltex-reset-and-restart) &#x2014; [#94](https://github.com/ltex-plus/vscode-ltex-plus/issues/94)
+- &#x1f527; *Change:* Settings `ltex.additionalRules.word2VecModel`and `ltex.additionalRules.neuralNetworkModel` are marked as deprecated. They are not used by LanguageTool anymore, see [LanguageTool 6.0 release notes](https://github.com/languagetool-org/languagetool/blob/v6.0/languagetool-standalone/CHANGES.md)
+- &#x1f527; *Change:* Update to LTeX+ LS 18.3.0
+- &#x1f41b; *Bug fix:* Fix spelling errors for Swedish dummies &#x2014; [#89](https://github.com/ltex-plus/vscode-ltex-plus/issues/89)
+
 ## 15.2.0 &#x2014; &#x201c;The (X)HTML HTTP 413 Elevation&#x201d; (October 19, 2024)
 
 - &#x1f527; *Change:* Update to LTeX+ LS 18.2.0

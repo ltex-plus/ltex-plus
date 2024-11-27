@@ -38,7 +38,7 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 - `false`
 - `["latex", "markdown"]`
 
-*Voreinstellung:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave"]`
+*Voreinstellung:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "mdx", "typst", "org", "quarto", "restructuredtext", "rsweave"]`
 
 *Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
 
@@ -1423,27 +1423,11 @@ Optionaler Pfad zu einem Verzeichnis mit Regeln eines Sprachmodells mit *n*-Gram
 
 *Voreinstellung:* `""`
 
-## `ltex.additionalRules.neuralNetworkModel`
-
-Optionaler Pfad zu einem Verzeichnis mit Regeln eines Modells eines bereits trainierten neuronalen Netzwerks.
-
-*Typ:* `string`
-
-*Voreinstellung:* `""`
-
-## `ltex.additionalRules.word2VecModel`
-
-Optionaler Pfad zu einem Verzeichnis mit Regeln eines word2vec-Sprachmodells.
-
-*Typ:* `string`
-
-*Voreinstellung:* `""`
-
 ## `ltex.languageToolHttpServerUri`
 
 Falls dies auf eine nicht-leere Zeichenfolge gesetzt ist, dann verwendet LTeX+ nicht die eingebaute Version von LanguageTool. Stattdessen verbindet sich LTeX+ zu einem externen [LanguageTool-HTTP-Server](http://wiki.languagetool.org/http-server). Setzen Sie diese Einstellung auf die Haupt-URI des Servers und hängen Sie kein `v2/check` oder Ähnliches an.
 
-Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), [`ltex.additionalRules.neuralNetworkModel`](settings-de.html#ltexadditionalrulesneuralnetworkmodel) und [`ltex.additionalRules.word2VecModel`](settings-de.html#ltexadditionalrulesword2vecmodel) ignoriert werden.
+Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), `ltex.additionalRules.neuralNetworkModel` und `ltex.additionalRules.word2VecModel` ignoriert werden.
 
 *Typ:* `string`
 

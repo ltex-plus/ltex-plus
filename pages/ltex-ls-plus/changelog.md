@@ -11,6 +11,15 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.3.0 (November 27, 2024)
+
+- &#x2728; *New:* Add support for Typst (LSP language ID `typst`) &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
+- &#x2728; *New:* Add support for MDX (LSP language ID `mdx`) &#x2014; [vscode-ltex-plus#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
+- &#x2728; *New:* Add Dockerfile
+- &#x1f41b; *Bug fix:* Bundled ltex-cli-plus did not start due to a wrong setting .lsp-cli.json &#x2014; [#40](https://github.com/ltex-plus/ltex-plus/issues/40)
+- &#x1f527; *Change:* Update ltex-cli from https://github.com/valentjn/lsp-cli to https://github.com/ltex-plus/lsp-cli-plus
+- &#x1f41b; *Bug fix:* Fix spelling errors for Swedish dummies &#x2014; [vscode-ltex-plus#89](https://github.com/ltex-plus/vscode-ltex-plus/issues/89)
+
 ## 18.2.0 (October 19, 2024)
 
 - &#x1f527; *Change:* Update to [most recent Adoptium Java runtimes](https://github.com/adoptium/temurin21-binaries/releases/jdk-21.0.5%2B9-ea-beta/) for Windows aarch64.

@@ -1427,7 +1427,9 @@ Optional path to a directory with rules of a language model with *n*-gram occurr
 
 If set to a non-empty string, LTeX+ will not use the bundled, built-in version of LanguageTool. Instead, LTeX+ will connect to an external [LanguageTool HTTP server](http://wiki.languagetool.org/http-server). Set this setting to the root URI of the server, and do not append `v2/check` or similar.
 
-Note that in this mode, the settings [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel), `ltex.additionalRules.neuralNetworkModel`, and `ltex.additionalRules.word2VecModel` will not take any effect.
+Note that in this mode, the setting [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel) will not take any effect.
+
+Please note that the premium API of [languagetool.org](https://languagetool.org) has a size limit per request (see [languagetool.org/http-api/](https://languagetool.org/http-api/)). As a workaround, you can use magic comments to split a larger file into multiple fragments, which are then sent separately for checking (see [Magic comments](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments))
 
 *Type:* `string`
 

@@ -1427,7 +1427,7 @@ Optionaler Pfad zu einem Verzeichnis mit Regeln eines Sprachmodells mit *n*-Gram
 
 Falls dies auf eine nicht-leere Zeichenfolge gesetzt ist, dann verwendet LTeX+ nicht die eingebaute Version von LanguageTool. Stattdessen verbindet sich LTeX+ zu einem externen [LanguageTool-HTTP-Server](http://wiki.languagetool.org/http-server). Setzen Sie diese Einstellung auf die Haupt-URI des Servers und hängen Sie kein `v2/check` oder Ähnliches an.
 
-Beachten Sie, dass in diesem Modus die Einstellungen [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel), `ltex.additionalRules.neuralNetworkModel` und `ltex.additionalRules.word2VecModel` ignoriert werden.
+Beachten Sie, dass in diesem Modus die Einstellung [`ltex.additionalRules.languageModel`](settings-de.html#ltexadditionalruleslanguagemodel) ignoriert wird. Bitte beachten Sie, dass die Premium-API von [languagetool.org](https://languagetool.org) ein Größenlimit pro Anfrage hat (siehe [languagetool.org/http-api/](https://languagetool.org/http-api/)). Als Abhilfe können Sie magische Kommentare verwenden, um eine größere Datei in mehrere Fragmente aufzuteilen, die dann separat zur Überprüfung gesendet werden (siehe [Magische Kommentare](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments))
 
 *Typ:* `string`
 

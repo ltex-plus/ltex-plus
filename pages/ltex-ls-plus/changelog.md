@@ -11,6 +11,16 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.5.0 (upcoming)
+
+
+## 18.4.0 (December 23, 2024)
+
+- &#x2728; *New:* Add support for apacite commands &#x2014; [valentjn/ltex-ls#268](https://github.com/valentjn/ltex-ls/issues/268), Beno&#x00ee;t Pasquier
+- &#x2728; *New:* Add support for \cpageref, \labelcref and variants &#x2014; [valentjn/ltex-ls#266](https://github.com/valentjn/ltex-ls/issues/266), Lo&#x00ef;c Reynier
+- &#x1f41b; *Bug fix:* Improved comment parsing and Rust support &#x2014; [valentjn/ltex-ls#238](https://github.com/valentjn/ltex-ls/issues/238), [valentjn/ltex-ls#224](https://github.com/valentjn/ltex-ls/issues/224), Andrii Savytskyi
+- &#x1f41b; *Bug fix:* Fix spelling errors for Spanish dummies &#x2014; [vscode-ltex-plus#105](https://github.com/ltex-plus/vscode-ltex-plus/issues/105)
+
 ## 18.3.0 (November 27, 2024)
 
 - &#x2728; *New:* Add support for Typst (LSP language ID `typst`) &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
@@ -33,16 +43,16 @@ toc: false
 
 ## 18.0.0 (September 17, 2024)
 
-- &#x1f527; *Change:* Update from Java 11 to 21. Be aware: Starting from LTeX LS+ 18.0.0, Java 21 or higher is required!
+- &#x1f527; *Change:* Update from Java 11 to 21. Be aware: Starting from LTeX+ LS 18.0.0, Java 21 or higher is required!
 - &#x2728; *New:* Add arm64/aarch64 Java runtimes for Linux (e.g. Raspberry Pi), macOS (Apple M1 SoC and its successors) and Windows on ARM.
 
 ## 17.0.1 (August 29, 2024)
 
-- &#x1f41b; *Bug fix:* Silence output to stdout caused by LanguageTool. This issue caused a crash of LTeX LS+ on Linux systems. It's a similar issue to https://github.com/valentjn/vscode-ltex/issues/68
+- &#x1f41b; *Bug fix:* Silence output to stdout caused by LanguageTool. This issue caused a crash of LTeX+ LS on Linux systems. It's a similar issue to https://github.com/valentjn/vscode-ltex/issues/68
 
 ## 17.0.0 (August 24, 2024)
 
-- &#x1f527; *Change:* Rename to LTeX LS+
+- &#x1f527; *Change:* Rename to LTeX+ LS
 - &#x1f527; *Change:* Update bundled Java runtime to 11.0.24+8
 
 ## 16.0.0 (March 19, 2023)

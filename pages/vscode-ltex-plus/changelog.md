@@ -11,12 +11,26 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.5.0 (upcoming)
+
+
+## 15.4.0 &#x2014; &#x201c;The ltex.enabled Decoupling&#x201d; (December 25, 2024)
+
+- &#x1f41b; *Bug fix:* Fix LTeX commands when ltex.enabled is set to false &#x2014; [#106](https://github.com/ltex-plus/vscode-ltex-plus/issues/106)
+- &#x1f41b; *Bug fix:* Fix status bar item symbols after using LTeX: Close LTeX+ command &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
+- &#x1f41b; *Bug fix:* Fix timeout issue for low-end computers &#x2014; [#60](https://github.com/ltex-plus/vscode-ltex-plus/issues/60)
+- &#x1f527; *Change:* Update to LTeX+ LS 18.4.0
+- &#x2728; *New:* Add support for apacite commands &#x2014; [valentjn/ltex-ls#268](https://github.com/valentjn/ltex-ls/issues/268), Beno&#x00ee;t Pasquier
+- &#x2728; *New:* Add support for \cpageref, \labelcref and variants &#x2014; [valentjn/ltex-ls#266](https://github.com/valentjn/ltex-ls/issues/266), Lo&#x00ef;c Reynier
+- &#x1f41b; *Bug fix:* Improved comment parsing and Rust support &#x2014; [valentjn/ltex-ls#238](https://github.com/valentjn/ltex-ls/issues/238), [valentjn/ltex-ls#224](https://github.com/valentjn/ltex-ls/issues/224), Andrii Savytskyi
+- &#x1f41b; *Bug fix:* Fix spelling errors for Spanish dummies &#x2014; [#105](https://github.com/ltex-plus/vscode-ltex-plus/issues/105)
+
 ## 15.3.0 &#x2014; &#x201c;The Typst Reflection&#x201d; (November 27, 2024)
 
 - &#x2728; *New:* Add support for Typst &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
 - &#x2728; *New:* Add support for Quarto. &#x2014; [#63](https://github.com/ltex-plus/vscode-ltex-plus/issues/63)
 - &#x2728; *New:* Add support for MDX &#x2014; [#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
-- &#x2728; *New:* Add [`LTeX: Close LTeX+`](commands.html#ltex-close-ltex) command to close the extension and LTeX+ LS &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
+- &#x2728; *New:* Add LTeX: Close LTeX+ command to close the extension and LTeX+ LS &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
 - &#x2728; *New:* Publish LTeX+ on Open VSX: https://open-vsx.org/extension/ltex-plus/vscode-ltex-plus &#x2014; [#83](https://github.com/ltex-plus/vscode-ltex-plus/issues/83)
 - &#x1f41b; *Bug fix:* Fix error message when using the command [`LTeX: Reset and Restart`](commands.html#ltex-reset-and-restart) &#x2014; [#94](https://github.com/ltex-plus/vscode-ltex-plus/issues/94)
 - &#x1f527; *Change:* Settings `ltex.additionalRules.word2VecModel`and `ltex.additionalRules.neuralNetworkModel` are marked as deprecated. They are not used by LanguageTool anymore, see [LanguageTool 6.0 release notes](https://github.com/languagetool-org/languagetool/blob/v6.0/languagetool-standalone/CHANGES.md)

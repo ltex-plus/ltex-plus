@@ -12,7 +12,7 @@ sidebar: "sidebar"
 
 ## Startup
 
-It is recommended to use the startup scripts `bin/ltex-ls` (Linux, Mac) and `bin\ltex-ls.bat` (Windows) to start LTeX+ LS. These scripts are only part of the released versions (they are not contained in the source repository).
+It is recommended to use the startup scripts `bin/ltex-ls-plus` (Linux, Mac) and `bin\ltex-ls-plus.bat` (Windows) to start LTeX+ LS. These scripts are only part of the released versions (they are not contained in the source repository).
 
 The startup scripts can be controlled by the following environment variables:
 

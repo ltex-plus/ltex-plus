@@ -14,7 +14,7 @@ LTeX+ CLI is contained in LTeX+ LS. To use LTeX+ CLI, [download and install LTeX
 
 ## Startup
 
-It is recommended to use the startup scripts `bin/ltex-cli` (Linux, Mac) and `bin\ltex-cli.bat` (Windows) to start LTeX+ CLI. These scripts are only part of the released versions (they are not contained in the source repository).
+It is recommended to use the startup scripts `bin/ltex-cli-plus` (Linux, Mac) and `bin\ltex-cli-plus.bat` (Windows) to start LTeX+ CLI. These scripts are only part of the released versions (they are not contained in the source repository).
 
 The startup scripts can be controlled by the following environment variables:
 

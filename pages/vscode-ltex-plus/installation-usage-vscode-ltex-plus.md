@@ -13,7 +13,7 @@ sidebar: "sidebar"
 
 ## Download Providers
 
-- Download from within VS Code: Open the *Extensions* panel and type `ltex`
+- Download from within VS Code: Open the *Extensions* panel and type `ltex+`
 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ltex-plus.vscode-ltex-plus) (VS Code uses this for downloading)
 - [Open VSX](https://open-vsx.org/extension/ltex-plus/vscode-ltex-plus)
 - [Releases on GitHub](https://github.com/ltex-plus/vscode-ltex-plus/releases) (+ packages for offline installation)

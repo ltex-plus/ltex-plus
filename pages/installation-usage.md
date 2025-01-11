@@ -36,11 +36,11 @@ LTeX+ is not responsible for the quality of third-party extensions. The list and
 | ------ | --------- | -------------------- |
 | [Emacs](https://www.gnu.org/software/emacs/) + [eglot](https://github.com/joaotavora/eglot) | eglot-ltex | [Instructions](https://github.com/emacs-languagetool/eglot-ltex) |
 | [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | lsp-ltex | [Instructions](https://github.com/emacs-languagetool/lsp-ltex) |
-| [Neovim](https://neovim.io/) | Grammar Guard | [Instructions](https://github.com/brymer-meneses/grammar-guard.nvim) |
-| [Neovim](https://neovim.io/) | nvim-lsp-installer | [Instructions](https://github.com/williamboman/nvim-lsp-installer) |
+| [Neovim](https://neovim.io/) | mason.nvim | [Instructions](https://github.com/williamboman/mason.nvim) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | lbiaggi/ltex.lua | [Instructions](https://gist.github.com/lbiaggi/a3eb761ac2fdbff774b29c88844355b8) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
 | [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/LDAP/LSP-ltex-ls) |
+| [Helix](https://helix-editor.com) | not required | [Instructions](https://github.com/helix-editor/helix/wiki/Language-Server-Configurations) |
 
 ## Via Language Clients
 

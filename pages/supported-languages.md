@@ -23,7 +23,11 @@ LTeX+ supports checking grammar and spelling in the following markup languages. 
 | ConTeXt | `context`&nbsp;∗ | Advanced |
 | LaTeX | `latex`&nbsp;∗ | Extensive |
 | Markdown | `markdown` | Advanced |
+| MDX | `mdx`&nbsp;∗ | Basic |
+| Typst | `typ`&nbsp;∗ | Good |
+| Neorg | `neorg`&nbsp;∗ | Basic |
 | Org | `org`&nbsp;∗ | Good |
+| Quarto | `quarto`&nbsp;∗ | Basic |
 | reStructuredText | `restructuredtext`&nbsp;∗ | Good |
 | R Sweave | `rsweave`&nbsp;∗ | Good |
 | XHTML | `html` | Basic |

@@ -12,8 +12,16 @@ sidebar: "sidebar"
 toc: false
 ---
 
-## 18.5.0 (upcoming)
+## 18.5.0 (April 4, 2025)
 
+- &#x1f527; *Change:* Update LanguageTool 6.6 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.6/languagetool-standalone/CHANGES.md))
+- &#x1f527; *Change:* Update to lsp-cli-plus 2.2.0. See [lsp-cli-plus release notes](https://github.com/ltex-plus/lsp-cli-plus/releases/tag/2.2.0).
+- &#x1f527; *Change:* Update bundled Java runtime from 21.0.4+7 to 21.0.5+11. No separate beta Java runtime build is required anymore for Windows aarch64.
+- &#x2728; *New:* Add support for Neorg (LSP language ID `neorg`) &#x2014; [#55](https://github.com/ltex-plus/ltex-plus/issues/55)
+- &#x2728; *New:* Add support for \NewDoumentCommand, \NewDocumentEnvironment, \NewExpandableDocumentCommand, \NewCommandCopy, \NewEnvironmentCopy, \IfNoValueTF, \IfValueTF, \IfBlankTF, \IfBooleanTF and many more (LaTeX) &#x2014; [#69](https://github.com/ltex-plus/ltex-plus/issues/69)
+- &#x2728; *New:* Add support for AsciiDoc (LSP language IDs `asciidoc`) &#x2014; [vscode-ltex-plus#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)
+- &#x1f41b; *Bug fix:* Fix false positives in Typst &#x2014; [#72](https://github.com/ltex-plus/ltex-plus/issues/72)
+- &#x1f41b; *Bug fix:* Ignore code blocks and raw text in Typst &#x2014; [#74](https://github.com/ltex-plus/ltex-plus/issues/74)
 
 ## 18.4.0 (December 23, 2024)
 

@@ -12,8 +12,17 @@ sidebar: "sidebar"
 toc: false
 ---
 
-## 15.5.0 (upcoming)
+## 15.5.0 &#x2014; &#x201c;The AsciiDoc Sublimation&#x201d; (April 4, 2025)
 
+- &#x2728; *New:* Add support for AsciiDoc &#x2014; [#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)
+- &#x2728; *New:* Add support for \NewDoumentCommand, \NewDocumentEnvironment, \NewExpandableDocumentCommand, \NewCommandCopy, \NewEnvironmentCopy, \IfNoValueTF, \IfValueTF, \IfBlankTF, \IfBooleanTF and many more (LaTeX) &#x2014; [ltex-ls-plus#69](https://github.com/ltex-plus/ltex-ls-plus/issues/69)
+- &#x2728; *New:* Add support for Neorg &#x2014; [ltex-ls-plus#55](https://github.com/ltex-plus/ltex-ls-plus/issues/55)
+- &#x1f527; *Change:* Update LanguageTool 6.6 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.6/languagetool-standalone/CHANGES.md))
+- &#x1f527; *Change:* Update to LTeX+ LS 18.5.0. See [ltex-ls-plus release notes](https://github.com/ltex-plus/ltex-ls-plus/releases/tag/18.5.0).
+- &#x1f527; *Change:* Update bundled Java runtime from 21.0.4+7 to 21.0.5+11. No separate beta Java runtime build is required anymore for Windows aarch64.
+- &#x1f41b; *Bug fix:* Fix false positives in Typst &#x2014; [ltex-ls-plus#72](https://github.com/ltex-plus/ltex-ls-plus/issues/72)
+- &#x1f41b; *Bug fix:* Ignore code blocks and raw text in Typst &#x2014; [ltex-ls-plus#74](https://github.com/ltex-plus/ltex-ls-plus/issues/74)
+- &#x1f41b; *Bug fix:* "Open LTeX+ settings" button on Walkthrough takes to old settings page &#x2014; [#138](https://github.com/ltex-plus/vscode-ltex-plus/issues/138)
 
 ## 15.4.0 &#x2014; &#x201c;The ltex.enabled Decoupling&#x201d; (December 25, 2024)
 

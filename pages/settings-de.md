@@ -39,7 +39,7 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 - `false`
 - `["latex", "markdown"]`
 
-*Voreinstellung:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "mdx", "typst", "org", "quarto", "restructuredtext", "rsweave"]`
+*Voreinstellung:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "mdx", "typst", "asciidoc", "neorg", "org", "quarto", "restructuredtext", "rsweave"]`
 
 *Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
 

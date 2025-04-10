@@ -25,6 +25,7 @@ LTeX+ supports checking grammar and spelling in the following markup languages. 
 | Markdown | `markdown` | Advanced |
 | MDX | `mdx`&nbsp;∗ | Basic |
 | Typst | `typ`&nbsp;∗ | Good |
+| AsciiDoc | `asciidoc`&nbsp;∗ | Basic |
 | Neorg | `neorg`&nbsp;∗ | Basic |
 | Org | `org`&nbsp;∗ | Good |
 | Quarto | `quarto`&nbsp;∗ | Basic |

@@ -20,7 +20,7 @@ Magic comments are special comments which contents are interpreted by LTeX+ and 
 - Markdown: One of the following:
   - `<!-- LTeX: SETTINGS -->`
   - `[comment]: <> "LTeX: SETTINGS"`
-- Typst: `// LTeX: SETTINGS`
+- Typst and AsciiDoc `// LTeX: SETTINGS`
 - Org: `# LTeX: SETTINGS`
 - reStructuredText: `.. LTeX: SETTINGS`
 - R Sweave: Same as LaTeX

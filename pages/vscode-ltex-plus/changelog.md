@@ -12,6 +12,11 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.5.1 &#x2014; &#x201c;The languageToolHttpServerUri Diremption&#x201d; (April 9, 2025)
+
+- &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [ltex-ls-plus#85](https://github.com/ltex-plus/ltex-ls-plus/issues/85)
+- &#x1f527; *Change:* Update to LTeX+ LS 18.5.1. See [ltex-ls-plus release notes](https://github.com/ltex-plus/ltex-ls-plus/releases/tag/18.5.1).
+
 ## 15.5.0 &#x2014; &#x201c;The AsciiDoc Sublimation&#x201d; (April 4, 2025)
 
 - &#x2728; *New:* Add support for AsciiDoc &#x2014; [#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)

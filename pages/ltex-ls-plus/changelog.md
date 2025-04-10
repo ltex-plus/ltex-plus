@@ -12,6 +12,10 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.5.1 (April 9, 2025)
+
+- &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [#85](https://github.com/ltex-plus/ltex-plus/issues/85)
+
 ## 18.5.0 (April 4, 2025)
 
 - &#x1f527; *Change:* Update LanguageTool 6.6 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.6/languagetool-standalone/CHANGES.md))

@@ -12,6 +12,19 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.6.0 (October 13, 2025)
+
+- &#x1f527; *Change:* Update to LanguageTool 6.7 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.7/languagetool-standalone/CHANGES.md))
+- &#x1f527; *Change:* Update to lsp-cli-plus 2.2.1. See [lsp-cli-plus release notes](https://github.com/ltex-plus/lsp-cli-plus/releases/tag/2.2.1).
+- &#x1f527; *Change:* Update bundled Java runtime from 21.0.5+11 to 21.0.8+9
+- &#x2728; *New:* Add support comprehensive magic comments &#x2014; [#102](https://github.com/ltex-plus/ltex-plus/issues/102), [@Nils1729](https://github.com/Nils1729)
+- &#x2728; *New:* Add support for various LaTeX commands &#x2014; [#100](https://github.com/ltex-plus/ltex-plus/issues/100), [Dominik Peters (@DominikPeters)](https://github.com/DominikPeters)
+- &#x1f41b; *Bug fix:* Fix spelling errors for Dutch dummies &#x2014; [vscode-ltex-plus#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
+- &#x1f41b; *Bug fix:* Remove incorrect babel language mapping for estonian &#x2014; [#103](https://github.com/ltex-plus/ltex-plus/issues/103), [Simmo Saan (@sim642)](https://github.com/sim642)
+- &#x1f41b; *Bug fix:* [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) rules should be JSON, not strings &#x2014; [#105](https://github.com/ltex-plus/ltex-plus/issues/105), [Jonathan Chan (@ionathanch)](https://github.com/ionathanch)
+- &#x1f41b; *Bug fix:* Fix spell checking in square brackets for Typst documents &#x2014; [vscode-ltex-plus#142](https://github.com/ltex-plus/vscode-ltex-plus/issues/142)
+- &#x1f41b; *Bug fix:* Fix Typst parsing. E.g. the statement `#set text(lang: "en")` caused the entire document not to be checked. &#x2014; [vscode-ltex-plus#157](https://github.com/ltex-plus/vscode-ltex-plus/issues/157)
+
 ## 18.5.1 (April 9, 2025)
 
 - &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [#85](https://github.com/ltex-plus/ltex-plus/issues/85)
@@ -29,9 +42,9 @@ toc: false
 
 ## 18.4.0 (December 23, 2024)
 
-- &#x2728; *New:* Add support for apacite commands &#x2014; [valentjn/ltex-ls#268](https://github.com/valentjn/ltex-ls/issues/268), Beno&#x00ee;t Pasquier
-- &#x2728; *New:* Add support for \cpageref, \labelcref and variants &#x2014; [valentjn/ltex-ls#266](https://github.com/valentjn/ltex-ls/issues/266), Lo&#x00ef;c Reynier
-- &#x1f41b; *Bug fix:* Improved comment parsing and Rust support &#x2014; [valentjn/ltex-ls#238](https://github.com/valentjn/ltex-ls/issues/238), [valentjn/ltex-ls#224](https://github.com/valentjn/ltex-ls/issues/224), Andrii Savytskyi
+- &#x2728; *New:* Add support for apacite commands &#x2014; [valentjn/ltex-ls#268](https://github.com/valentjn/ltex-ls/issues/268), [Beno&#x00ee;t Pasquier (@briochemc)](https://github.com/briochemc)
+- &#x2728; *New:* Add support for \cpageref, \labelcref and variants &#x2014; [valentjn/ltex-ls#266](https://github.com/valentjn/ltex-ls/issues/266), [Lo&#x00ef;c Reynier (@loicreynier)](https://github.com/loicreynier)
+- &#x1f41b; *Bug fix:* Improved comment parsing and Rust support &#x2014; [valentjn/ltex-ls#238](https://github.com/valentjn/ltex-ls/issues/238), [valentjn/ltex-ls#224](https://github.com/valentjn/ltex-ls/issues/224), [Andrii Savytskyi (@qRoC)](https://github.com/qRoC)
 - &#x1f41b; *Bug fix:* Fix spelling errors for Spanish dummies &#x2014; [vscode-ltex-plus#105](https://github.com/ltex-plus/vscode-ltex-plus/issues/105)
 
 ## 18.3.0 (November 27, 2024)

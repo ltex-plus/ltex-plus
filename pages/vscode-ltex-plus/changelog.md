@@ -12,6 +12,19 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.6.0 &#x2014; &#x201c;The Comprehensive Magic Comments Oscillation&#x201d; (October 15, 2025)
+
+- &#x2728; *New:* Add support comprehensive magic comments &#x2014; [ltex-ls-plus#102](https://github.com/ltex-plus/ltex-ls-plus/issues/102), [@Nils1729](https://github.com/Nils1729)
+- &#x2728; *New:* Add support for various LaTeX commands &#x2014; [ltex-ls-plus#100](https://github.com/ltex-plus/ltex-ls-plus/issues/100), [Dominik Peters (@DominikPeters)](https://github.com/DominikPeters)
+- &#x1f527; *Change:* Update LanguageTool 6.7 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.7/languagetool-standalone/CHANGES.md))
+- &#x1f527; *Change:* Update to LTeX+ LS 18.6.0. See [ltex-ls-plus release notes](https://github.com/ltex-plus/ltex-ls-plus/releases/tag/18.6.0).
+- &#x1f527; *Change:* Update bundled Java runtime from 21.0.5+11 to 21.0.8+9
+- &#x1f41b; *Bug fix:* Fix spelling errors for Dutch dummies &#x2014; [#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
+- &#x1f41b; *Bug fix:* Remove incorrect babel language mapping for estonian &#x2014; [ltex-ls-plus#103](https://github.com/ltex-plus/ltex-ls-plus/issues/103), [Simmo Saan (@sim642)](https://github.com/sim642)
+- &#x1f41b; *Bug fix:* [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) rules should be JSON, not strings &#x2014; [ltex-ls-plus#105](https://github.com/ltex-plus/ltex-ls-plus/issues/105), [Jonathan Chan (@ionathanch)](https://github.com/ionathanch)
+- &#x1f41b; *Bug fix:* Fix spell checking in square brackets for Typst documents &#x2014; [#142](https://github.com/ltex-plus/vscode-ltex-plus/issues/142)
+- &#x1f41b; *Bug fix:* Fix Typst parsing. E.g. the statement `#set text(lang: "en")` caused the entire document not to be checked. &#x2014; [#157](https://github.com/ltex-plus/vscode-ltex-plus/issues/157)
+
 ## 15.5.1 &#x2014; &#x201c;The languageToolHttpServerUri Diremption&#x201d; (April 9, 2025)
 
 - &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [ltex-ls-plus#85](https://github.com/ltex-plus/ltex-ls-plus/issues/85)

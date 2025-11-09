@@ -12,6 +12,11 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 18.6.1 (October 19, 2025)
+
+- &#x1f41b; *Bug fix:* Fix Hidden False Positives in vscode-ltex-plus &#x2014; [vscode-ltex-plus#165](https://github.com/ltex-plus/vscode-ltex-plus/issues/165)
+- &#x1f41b; *Bug fix:* Fix magic comments: Allow multiple settings per comment &#x2014; [ltex-ls-plus#119](https://github.com/ltex-plus/ltex-ls-plus/issues/119), [@Nils1729](https://github.com/Nils1729)
+
 ## 18.6.0 (October 13, 2025)
 
 - &#x1f527; *Change:* Update to LanguageTool 6.7 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.7/languagetool-standalone/CHANGES.md))

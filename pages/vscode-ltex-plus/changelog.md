@@ -12,6 +12,12 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.6.1 &#x2014; &#x201c;The False Positive Manipulation&#x201d; (October 19, 2025)
+
+- &#x1f527; *Change:* Update to LTeX+ LS 18.6.1
+- &#x1f41b; *Bug fix:* Fix Hidden False Positives in vscode-ltex-plus &#x2014; [#165](https://github.com/ltex-plus/vscode-ltex-plus/issues/165)
+- &#x1f41b; *Bug fix:* Fix magic comments: Allow multiple settings per comment &#x2014; [ltex-ls-plus#119](https://github.com/ltex-plus/ltex-ls-plus/issues/119), [@Nils1729](https://github.com/Nils1729)
+
 ## 15.6.0 &#x2014; &#x201c;The Comprehensive Magic Comments Oscillation&#x201d; (October 15, 2025)
 
 - &#x2728; *New:* Add support comprehensive magic comments &#x2014; [ltex-ls-plus#102](https://github.com/ltex-plus/ltex-ls-plus/issues/102), [@Nils1729](https://github.com/Nils1729)

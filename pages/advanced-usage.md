@@ -31,44 +31,44 @@ Magic comments are case-insensitive (except for the setting values), and the spa
 
 Magic commands trigger a reinitialization of LTeX+ due to potentially changed parameters. This causes the text section to be split at the position of the magic command, resulting in two requests being made to the language server. By using multiple trivial magic commands (e.g., `% LTeX:` for LaTeX), you can split a large file into smaller chunks, which are then sent for checking. Although this may slightly alter the output, it can be useful for avoiding API limits of the premium API (see [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri)).
 
-`SETTINGS` has to be replaced with a whitespace-separated list of `KEY=VALUE` pairs. Neither `KEY` nor `VALUE` are enclosed in quotation marks. Use `KEY=#` to restore the global setting. The following settings are supported:
+`SETTINGS` has to be replaced with a whitespace-separated list of `KEY=VALUE` pairs. Neither `KEY` nor `VALUE` are enclosed in quotation marks. Use `KEY=#` to restore the global setting. Magic comments settings will be applied for the rest of the document. The following settings are supported:
 
 - `enabled`: One of `true` or `false`. Makes it possible to disable LTeX+ for the rest of the document, or to enable it again.
 
   *Example:* `enabled=false`
 
-- `language`: Changes the value of [`ltex.language`](settings.html#ltexlanguage) for the rest of the document.
+- `language`: Changes the value of [`ltex.language`](settings.html#ltexlanguage).
 
   *Example:* `language=de-DE`
 
-- `enablePickyRules`: Changes the value of [`ltex.additionalRules.enablePickyRules`](settings.html#ltexadditionalrulesenablepickyrules) for the rest of the document.
+- `enablePickyRules`: Changes the value of [`ltex.additionalRules.enablePickyRules`](settings.html#ltexadditionalrulesenablepickyrules).
 
   *Example:* `enablePickyRules=true`
 
-- `logLevel`: Changes the value of [`ltex.ltex-ls.logLevel`](settings.html#ltexltex-lsloglevel) for the rest of the document.
+- `logLevel`: Changes the value of [`ltex.ltex-ls.logLevel`](settings.html#ltexltex-lsloglevel).
 
   *Example:* `logLevel=finer`
 
-- `latex.commands.`: Changes the value of [`ltex.latex.commands`](settings.html#ltexlatexcommands) for the rest of the document.
+- `latex.commands.`: Changes the value of [`ltex.latex.commands`](settings.html#ltexlatexcommands).
 
   *Example:* `latex.commands.\textbf{}=ignore`
 
-- `latex.environments.`: Changes the value of [`ltex.latex.environments`](settings.html#ltexlatexenvironments) for the rest of the document.
+- `latex.environments.`: Changes the value of [`ltex.latex.environments`](settings.html#ltexlatexenvironments).
 
   *Example:* `latex.environments.center=default`
 
-- `markdown.nodes.`: Changes the value of [`ltex.markdown.nodes`](settings.html#ltexmarkdownnodes) for the rest of the document.
+- `markdown.nodes.`: Changes the value of [`ltex.markdown.nodes`](settings.html#ltexmarkdownnodes).
 
   *Example:* `markdown.nodes.StrongEmphasis=ignore`
 
-The following magic comments can be cumulative. If you want to add a setting, use `KEY+=VALUE`. If you want to remove a setting, use `KEY-=VALUE`. Use `KEY#=VALUE` to have VALUE in a set if and only if it is in the global set (undo magic commands for this KEY and VALUE).
+The following magic comments can be cumulative. If you want to add a setting, use `KEY+=VALUE`. If you want to remove a setting, use `KEY-=VALUE`. Use `KEY#=VALUE` to undo the magic comment and use the global defaults again.
 
 - `dictionary`: Adds or removes a word from the dictionary
 
   *Example:* `dictionary+=Reynoutria`
   *Example:* `dictionary-=Reynoutria`
 
-- `rules`: Adds or removes a word from the dictionary
+- `rules`: Activates or deactivates a rule
 
   *Example:* `rules+=EN_A_VS_AN`
   *Example:* `rules-=EN_A_VS_AN`

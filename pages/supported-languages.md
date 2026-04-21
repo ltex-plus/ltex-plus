@@ -24,7 +24,7 @@ LTeX+ supports checking grammar and spelling in the following markup languages. 
 | LaTeX | `latex`&nbsp;∗ | Extensive |
 | Markdown | `markdown` | Advanced |
 | MDX | `mdx`&nbsp;∗ | Basic |
-| Typst | `typ`&nbsp;∗ | Good |
+| Typst | `typst`&nbsp;∗ | Good |
 | AsciiDoc | `asciidoc`&nbsp;∗ | Basic |
 | Neorg | `neorg`&nbsp;∗ | Basic |
 | Org | `org`&nbsp;∗ | Good |
@@ -52,7 +52,7 @@ C++&nbsp;(`cpp`),
 Clojure&nbsp;(`clojure`),
 CoffeeScript&nbsp;(`coffeescript`),
 Dart&nbsp;(`dart`),
-Elixir&nbsp;(`elixier`&nbsp;∗)
+Elixir&nbsp;(`elixir`&nbsp;∗),
 Elm&nbsp;(`elm`&nbsp;∗),
 Erlang&nbsp;(`erlang`&nbsp;∗),
 F#&nbsp;(`fsharp`),

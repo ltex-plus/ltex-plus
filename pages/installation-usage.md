@@ -35,12 +35,12 @@ LTeX+ is not responsible for the quality of third-party extensions. The list and
 | Editor | Extension | Link to instructions |
 | ------ | --------- | -------------------- |
 | [Emacs](https://www.gnu.org/software/emacs/) + [eglot](https://github.com/joaotavora/eglot) | eglot-ltex-plus | [Instructions](https://github.com/emacs-languagetool/eglot-ltex-plus) |
+| [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | emacs-ltex-plus&nbsp;∗ | [Instructions](https://github.com/alberti42/emacs-ltex-plus) |
 | [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | lsp-ltex-plus | [Instructions](https://github.com/emacs-languagetool/lsp-ltex-plus) |
-| [Neovim](https://neovim.io/) | mason.nvim | [Instructions](https://github.com/williamboman/mason.nvim) |
-| [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | lbiaggi/ltex.lua | [Instructions](https://gist.github.com/lbiaggi/a3eb761ac2fdbff774b29c88844355b8) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
-| [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/LDAP/LSP-ltex-ls) |
-| [Helix](https://helix-editor.com) | not required | [Instructions](https://github.com/helix-editor/helix/wiki/Language-Server-Configurations) |
+| [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/sublimelsp/LSP-ltex-ls) |
+
+∗ [`emacs-ltex-plus`](https://github.com/alberti42/emacs-ltex-plus) is a 2026 rewrite from scratch of the previous [`lsp-ltex-plus`](https://github.com/emacs-languagetool/lsp-ltex-plus), which was originally developed for the predecessor (and now archived) [LTeX](https://github.com/valentjn/ltex-ls) project.
 
 ## Via Language Clients
 
@@ -49,6 +49,16 @@ If your editor is not yet supported by an extension, but it supports the [Langua
 Typically, the editor starts LTeX+ LS during startup (either locally or remotely), it sends LTeX+ LS your L<sup>A</sup>T<sub>E</sub>X or Markdown document, and LTeX+ LS will respond with a list of the grammar and spelling errors in it. The communication between server and editor is done using the LSP, with a language client as a communication endpoint that runs in the editor.
 
 If your editor already supports the LSP (either natively or via an extension), then writing a language client for LTeX+ should be possible with almost no overhead. If your editor doesn't support the LSP, then you can write a language client yourself that communicates with LTeX+ LS according to the [LSP specification](https://microsoft.github.io/language-server-protocol/).
+
+### Community Resources and Native LSP Integration
+
+Some editors support LSP natively and some community resources help you wire LTeX+ LS into your setup without a dedicated plugin. These aren't full editor extensions — you still configure the language client yourself — but they can shortcut the installation or give you a working starting point.
+
+| Resource | Editor | What it is |
+| -------- | ------ | ---------- |
+| [Language Server Configurations](https://github.com/helix-editor/helix/wiki/Language-Server-Configurations) | [Helix](https://helix-editor.com) | Helix speaks LSP natively; point its config at `ltex-ls-plus` and you're done — no plugin required |
+| [mason.nvim](https://github.com/williamboman/mason.nvim) | [Neovim](https://neovim.io/) | Package manager that can install the `ltex-ls-plus` binary; you still need an LSP client to use it |
+| [lbiaggi/ltex.lua](https://gist.github.com/lbiaggi/a3eb761ac2fdbff774b29c88844355b8) | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | Community configuration snippet (gist) wiring LTeX+ LS into nvim-lspconfig |
 
 ## Via Command Line
 

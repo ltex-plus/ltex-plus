@@ -1430,7 +1430,7 @@ If set to a non-empty string, LTeX+ will not use the bundled, built-in version o
 
 Note that in this mode, the setting [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel) will not take any effect.
 
-Please note that the premium API of [languagetool.org](https://languagetool.org) has a size limit per request (see [languagetool.org/http-api/](https://languagetool.org/http-api/)). As a workaround, you can use magic comments to split a larger file into multiple fragments, which are then sent separately for checking (see [Magic comments](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments))
+Please note that the premium API of [languagetool.org](https://languagetool.org) has a size limit per request (see [languagetool.org/http-api/](https://languagetool.org/http-api/)). As a workaround, you can use magic comments to split a larger file into multiple fragments, which are then sent separately for checking (see [Magic comments](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments)).
 
 *Type:* `string`
 

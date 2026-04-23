@@ -64,6 +64,9 @@ a[href^="http://"]:not(.btn, .no-external),
 a[href^="https://"]:not(.btn, .no-external) {
   padding-right:17px;
 }
+a[href^="https://ltex-plus.github.io/ltex-plus"]:not(.btn) {
+  padding-right:0;
+}
 
 /* images */
 @media only screen and (min-width:900px),

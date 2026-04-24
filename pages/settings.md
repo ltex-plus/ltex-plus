@@ -1426,15 +1426,15 @@ Optional path to a directory with rules of a language model with *n*-gram occurr
 
 ## `ltex.languageToolHttpServerUri`
 
-If set to a non-empty string, LTeX+ will not use the bundled, built-in version of LanguageTool. Instead, LTeX+ will connect to an external [LanguageTool HTTP server](http://wiki.languagetool.org/http-server). Set this setting to the root URI of the server, and do not append `v2/check` or similar.
+If set to a non-empty string, LTeX+ will not use the bundled, built-in version of LanguageTool. Instead, LTeX+ will connect to an external [LanguageTool HTTP server](https://dev.languagetool.org/http-server). Set this to the root URI of the server — for example, `https://api.languagetoolplus.com` for LanguageTool's hosted API, or `http://localhost:8081` for a self-hosted server. LTeX+ automatically appends the API path (`/v2/check`), so the URI should not include it.
 
 Note that in this mode, the setting [`ltex.additionalRules.languageModel`](settings.html#ltexadditionalruleslanguagemodel) will not take any effect.
 
-Please note that the premium API of [languagetool.org](https://languagetool.org) has a size limit per request (see [languagetool.org/http-api/](https://languagetool.org/http-api/)). As a workaround, you can use magic comments to split a larger file into multiple fragments, which are then sent separately for checking (see [Magic comments](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments))
+Please note that the premium API of [languagetool.org](https://languagetool.org) has a size limit per request (see [languagetool.org/http-api/](https://languagetool.org/http-api/)). As a workaround, you can use magic comments to split a larger file into multiple fragments, which are then sent separately for checking (see [Magic comments](https://ltex-plus.github.io/ltex-plus/advanced-usage.html#magic-comments)).
 
 *Type:* `string`
 
-*Example:* `"http://localhost:8081/"`
+*Examples:* `"https://api.languagetoolplus.com"` (hosted API), `"http://localhost:8081"` (self-hosted)
 
 *Default:* `""`
 

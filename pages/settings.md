@@ -134,9 +134,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -164,9 +164,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -194,9 +194,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -228,9 +228,9 @@ The JSON string currently has the form `{"rule": "<RULE>", "sentence": "<SENTENC
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 

@@ -231,10 +231,8 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
     markdown += f"\n*{packageNlsJson['default']}:* {formatAsJson(settingJson['default'])}\n"
 
   if (type_ in ["array", "object"]) or (not isinstance(type_, str)):
-    markdown += (f"\n*{packageNlsJson['fullTypeDescription']}:* "
-        f"<button class='expandable-button btn btn-default'>{packageNlsJson['clickToShowHide']}"
-        "</button>\n\n<div markdown='1' style='display:none;'>\n\n"
-        f"{formatFullType(settingJson, packageNlsJson)}\n</div>\n\n")
+    markdown += (f"\n*{packageNlsJson['fullTypeDescription']}:*\n\n"
+        f"{formatFullType(settingJson, packageNlsJson)}\n")
 
   return markdown
 

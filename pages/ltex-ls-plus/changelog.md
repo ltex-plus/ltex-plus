@@ -14,42 +14,49 @@ toc: false
 
 ## 18.7.0 (upcoming)
 
+- &#x1f41b; *Bug fix:* Normalize [`ltex.language`](../settings.html#ltexlanguage) input so regional variants (e.g. `fr-FR`, `it-IT`, `es-ES`) are mapped to the registered LanguageTool tag rather than silently disabling checking. Also accepts case variants of the `"auto"` sentinel (`"Auto"`, `"AUTO"`) and trims leading/trailing whitespace.
 - &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [vscode-ltex-plus#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
-- &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [vscode-ltex-plus#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [vscode-ltex-plus#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
-- &#x2728; *New:* Spell check content blocks in Typst &#x2014; [ltex-ls-plus#128](https://github.com/ltex-plus/ltex-ls-plus/issues/128)
+- &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [vscode-ltex-plus#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [vscode-ltex-plus#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
+- &#x2728; *New:* Spell check content blocks in Typst &#x2014; [#128](https://github.com/ltex-plus/ltex-ls-plus/issues/128)
+- &#x2728; *New:* Add code language aliases for neovim support &#x2014; [#131](https://github.com/ltex-plus/ltex-ls-plus/issues/131), [@demenik](https://github.com/demenik)
+- &#x2728; *New:* Create official docker images on release#142 &#x2014; [#142](https://github.com/ltex-plus/ltex-ls-plus/issues/142), [Malik Tuwebti (@Tuwebti)](https://github.com/Tuwebti)
+- &#x1f41b; *Bug fix:* Fix: spell-check text in org-mode `#+CAPTION` affiliated keyword &#x2014; [#149](https://github.com/ltex-plus/ltex-ls-plus/issues/149), [Andrea Alberti (@alberti42)](https://github.com/alberti42)
+- &#x1f41b; *Bug fix:* Offer the "Add to dictionary" code action for spell-check matches produced by LanguageTool's `QB_NEW_*_ORTHOGRAPHY_*`, `AI_*_GGEC_REPLACEMENT_ORTHOGRAPHY_*`, and `ES_SIMPLE_REPLACE_*` rule families (Premium/HTTP tier plus Spanish common-typo rules). Also split multi-word collapsed match spans on whitespace so each misspelled word is added to the user dictionary individually instead of as a single phrase. &#x2014; [Andrea Alberti (@alberti42)](https://github.com/alberti42)
+- &#x1f527; *Change:* Update to lsp-cli-plus 2.2.2. See [lsp-cli-plus release notes](https://github.com/ltex-plus/lsp-cli-plus/releases/tag/2.2.2).
+- &#x1f527; *Change:* Update bundled Java runtime from 21.0.8+9 to 21.0.10+7
 
 ## 18.6.1 (October 19, 2025)
 
 - &#x1f41b; *Bug fix:* Fix Hidden False Positives in vscode-ltex-plus &#x2014; [vscode-ltex-plus#165](https://github.com/ltex-plus/vscode-ltex-plus/issues/165)
-- &#x1f41b; *Bug fix:* Fix magic comments: Allow multiple settings per comment &#x2014; [ltex-ls-plus#119](https://github.com/ltex-plus/ltex-ls-plus/issues/119), [@Nils1729](https://github.com/Nils1729)
+- &#x1f41b; *Bug fix:* Fix magic comments: Allow multiple settings per comment &#x2014; [#119](https://github.com/ltex-plus/ltex-ls-plus/issues/119), [@Nils1729](https://github.com/Nils1729)
 
 ## 18.6.0 (October 13, 2025)
 
 - &#x1f527; *Change:* Update to LanguageTool 6.7 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.7/languagetool-standalone/CHANGES.md))
 - &#x1f527; *Change:* Update to lsp-cli-plus 2.2.1. See [lsp-cli-plus release notes](https://github.com/ltex-plus/lsp-cli-plus/releases/tag/2.2.1).
 - &#x1f527; *Change:* Update bundled Java runtime from 21.0.5+11 to 21.0.8+9
-- &#x2728; *New:* Add support comprehensive magic comments &#x2014; [ltex-ls-plus#102](https://github.com/ltex-plus/ltex-ls-plus/issues/102), [@Nils1729](https://github.com/Nils1729)
-- &#x2728; *New:* Add support for various LaTeX commands &#x2014; [ltex-ls-plus#100](https://github.com/ltex-plus/ltex-ls-plus/issues/100), [Dominik Peters (@DominikPeters)](https://github.com/DominikPeters)
+- &#x2728; *New:* Add support comprehensive magic comments &#x2014; [#102](https://github.com/ltex-plus/ltex-ls-plus/issues/102), [@Nils1729](https://github.com/Nils1729)
+- &#x2728; *New:* Add support for various LaTeX commands &#x2014; [#100](https://github.com/ltex-plus/ltex-ls-plus/issues/100), [Dominik Peters (@DominikPeters)](https://github.com/DominikPeters)
 - &#x1f41b; *Bug fix:* Fix spelling errors for Dutch dummies &#x2014; [vscode-ltex-plus#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
-- &#x1f41b; *Bug fix:* Remove incorrect babel language mapping for estonian &#x2014; [ltex-ls-plus#103](https://github.com/ltex-plus/ltex-ls-plus/issues/103), [Simmo Saan (@sim642)](https://github.com/sim642)
-- &#x1f41b; *Bug fix:* [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) rules should be JSON, not strings &#x2014; [ltex-ls-plus#105](https://github.com/ltex-plus/ltex-ls-plus/issues/105), [Jonathan Chan (@ionathanch)](https://github.com/ionathanch)
+- &#x1f41b; *Bug fix:* Remove incorrect babel language mapping for estonian &#x2014; [#103](https://github.com/ltex-plus/ltex-ls-plus/issues/103), [Simmo Saan (@sim642)](https://github.com/sim642)
+- &#x1f41b; *Bug fix:* [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) rules should be JSON, not strings &#x2014; [#105](https://github.com/ltex-plus/ltex-ls-plus/issues/105), [Jonathan Chan (@ionathanch)](https://github.com/ionathanch)
 - &#x1f41b; *Bug fix:* Fix spell checking in square brackets for Typst documents &#x2014; [vscode-ltex-plus#142](https://github.com/ltex-plus/vscode-ltex-plus/issues/142)
 - &#x1f41b; *Bug fix:* Fix Typst parsing. E.g. the statement `#set text(lang: "en")` caused the entire document not to be checked. &#x2014; [vscode-ltex-plus#157](https://github.com/ltex-plus/vscode-ltex-plus/issues/157)
 
 ## 18.5.1 (April 9, 2025)
 
-- &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [ltex-ls-plus#85](https://github.com/ltex-plus/ltex-ls-plus/issues/85)
+- &#x1f41b; *Bug fix:* Fix slash issue in HTTP URI &#x2014; [#85](https://github.com/ltex-plus/ltex-ls-plus/issues/85)
 
 ## 18.5.0 (April 4, 2025)
 
 - &#x1f527; *Change:* Update LanguageTool 6.6 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.6/languagetool-standalone/CHANGES.md))
 - &#x1f527; *Change:* Update to lsp-cli-plus 2.2.0. See [lsp-cli-plus release notes](https://github.com/ltex-plus/lsp-cli-plus/releases/tag/2.2.0).
 - &#x1f527; *Change:* Update bundled Java runtime from 21.0.4+7 to 21.0.5+11. No separate beta Java runtime build is required anymore for Windows aarch64.
-- &#x2728; *New:* Add support for Neorg (LSP language ID `neorg`) &#x2014; [ltex-ls-plus#55](https://github.com/ltex-plus/ltex-ls-plus/issues/55)
-- &#x2728; *New:* Add support for \NewDoumentCommand, \NewDocumentEnvironment, \NewExpandableDocumentCommand, \NewCommandCopy, \NewEnvironmentCopy, \IfNoValueTF, \IfValueTF, \IfBlankTF, \IfBooleanTF and many more (LaTeX) &#x2014; [ltex-ls-plus#69](https://github.com/ltex-plus/ltex-ls-plus/issues/69)
+- &#x2728; *New:* Add support for Neorg (LSP language ID `neorg`) &#x2014; [#55](https://github.com/ltex-plus/ltex-ls-plus/issues/55)
+- &#x2728; *New:* Add support for \NewDoumentCommand, \NewDocumentEnvironment, \NewExpandableDocumentCommand, \NewCommandCopy, \NewEnvironmentCopy, \IfNoValueTF, \IfValueTF, \IfBlankTF, \IfBooleanTF and many more (LaTeX) &#x2014; [#69](https://github.com/ltex-plus/ltex-ls-plus/issues/69)
 - &#x2728; *New:* Add support for AsciiDoc (LSP language IDs `asciidoc`) &#x2014; [vscode-ltex-plus#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)
-- &#x1f41b; *Bug fix:* Fix false positives in Typst &#x2014; [ltex-ls-plus#72](https://github.com/ltex-plus/ltex-ls-plus/issues/72)
-- &#x1f41b; *Bug fix:* Ignore code blocks and raw text in Typst &#x2014; [ltex-ls-plus#74](https://github.com/ltex-plus/ltex-ls-plus/issues/74)
+- &#x1f41b; *Bug fix:* Fix false positives in Typst &#x2014; [#72](https://github.com/ltex-plus/ltex-ls-plus/issues/72)
+- &#x1f41b; *Bug fix:* Ignore code blocks and raw text in Typst &#x2014; [#74](https://github.com/ltex-plus/ltex-ls-plus/issues/74)
 
 ## 18.4.0 (December 23, 2024)
 
@@ -60,10 +67,10 @@ toc: false
 
 ## 18.3.0 (November 27, 2024)
 
-- &#x2728; *New:* Add support for Typst (LSP language ID `typst`) &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
+- &#x2728; *New:* Add support for Typst (LSP language ID `typst`) &#x2014; [#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
 - &#x2728; *New:* Add support for MDX (LSP language ID `mdx`) &#x2014; [vscode-ltex-plus#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
 - &#x2728; *New:* Add Dockerfile
-- &#x1f41b; *Bug fix:* Bundled ltex-cli-plus did not start due to a wrong setting .lsp-cli.json &#x2014; [ltex-ls-plus#40](https://github.com/ltex-plus/ltex-ls-plus/issues/40)
+- &#x1f41b; *Bug fix:* Bundled ltex-cli-plus did not start due to a wrong setting .lsp-cli.json &#x2014; [#40](https://github.com/ltex-plus/ltex-ls-plus/issues/40)
 - &#x1f527; *Change:* Update ltex-cli from https://github.com/valentjn/lsp-cli to https://github.com/ltex-plus/lsp-cli-plus
 - &#x1f41b; *Bug fix:* Fix spelling errors for Swedish dummies &#x2014; [vscode-ltex-plus#89](https://github.com/ltex-plus/vscode-ltex-plus/issues/89)
 
@@ -71,7 +78,7 @@ toc: false
 
 - &#x1f527; *Change:* Update to [most recent Adoptium Java runtimes](https://github.com/adoptium/temurin21-binaries/releases/jdk-21.0.5%2B9-ea-beta/) for Windows aarch64.
 - &#x1f527; *Change:* Use repository [ltex-plus/languagetool-build](https://github.com/ltex-plus/languagetool-build) for building ltex-ls-plus
-- &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [ltex-ls-plus#32](https://github.com/ltex-plus/ltex-ls-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
+- &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [#32](https://github.com/ltex-plus/ltex-ls-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
 - &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
 
 ## 18.1.0 (September 28, 2024)

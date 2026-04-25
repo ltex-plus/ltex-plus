@@ -12,6 +12,13 @@ sidebar: "sidebar"
 toc: false
 ---
 
+## 15.7.0 (upcoming)
+
+- &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
+- &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
+- &#x1f41b; *Bug fix:* Interpolate environment variables in path options &#x2014; [#190](https://github.com/ltex-plus/vscode-ltex-plus/issues/190), [Anton (@theblueplum)](https://github.com/theblueplum)
+- &#x2728; *New:* Spell check content blocks in Typst &#x2014; [ltex-ls-plus#128](https://github.com/ltex-plus/ltex-ls-plus/issues/128)
+
 ## 15.6.1 &#x2014; &#x201c;The False Positive Manipulation&#x201d; (October 19, 2025)
 
 - &#x1f527; *Change:* Update to LTeX+ LS 18.6.1

@@ -44,6 +44,9 @@ i18nStrings = {
         "fullTypeDescription" : "Full type description",
         "objectWithArbitraryPropertyNames" : "Object with arbitrary property names, "
           "where the value of each property has the following type",
+        "objectKeyedByLanguageCode" : "Object keyed by language code "
+          "(see `ltex.language` for accepted values), "
+          "where the value of each property has the following type",
         "objectWithTheFollowingProperties" : "Object with the following properties",
         "oneOfTheFollowingTypes" : "One of the following types",
         "oneOfTheFollowingValues" : "One of the following values",
@@ -65,6 +68,9 @@ i18nStrings = {
         "examples" : "Beispiele",
         "fullTypeDescription" : "Vollständige Beschreibung des Typs",
         "objectWithArbitraryPropertyNames" : "Objekt mit beliebigen Eigenschaftsnamen, "
+          "wobei die Werte jeder Eigenschaft folgenden Typ hat",
+        "objectKeyedByLanguageCode" : "Objekt mit Sprachcode als Eigenschaftsname "
+          "(siehe `ltex.language` für gültige Werte), "
           "wobei die Werte jeder Eigenschaft folgenden Typ hat",
         "objectWithTheFollowingProperties" : "Objekt mit folgenden Eigenschaften",
         "oneOfTheFollowingTypes" : "Einer der folgenden Typen",
@@ -153,6 +159,14 @@ def formatFullType(settingJson: Dict[str, Any], packageNlsJson: Dict[str, str],
       assert "^.*$" in settingJson["patternProperties"]
       propertyType = settingJson["patternProperties"]["^.*$"]
       markdown += f"{packageNlsJson['objectWithArbitraryPropertyNames']}:\n\n"
+      markdown += f"{indent * ' '}- {formatFullType(propertyType, packageNlsJson, indent+2)}"
+    elif (("enum" in settingJson.get("propertyNames", {})) and
+        all(re.match(r"^[a-z]{2,3}(-[A-Za-z\-]+)*$", k)
+            for k in settingJson["propertyNames"]["enum"])):
+      propsDict = settingJson.get("properties", {})
+      firstKey = next(iter(propsDict))
+      propertyType = {k: v for k, v in propsDict[firstKey].items() if k != "markdownDescription"}
+      markdown += f"{packageNlsJson['objectKeyedByLanguageCode']}:\n\n"
       markdown += f"{indent * ' '}- {formatFullType(propertyType, packageNlsJson, indent+2)}"
     else:
       markdown += f"{packageNlsJson['objectWithTheFollowingProperties']}:\n\n"

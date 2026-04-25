@@ -199,6 +199,34 @@ def formatFullType(settingJson: Dict[str, Any], packageNlsJson: Dict[str, str],
 
 
 
+def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
+      enumDescriptions: Sequence[Any], packageNlsJson: Dict[str, str]
+      ) -> Tuple[Sequence[Any], Sequence[Any]]:
+  aliasOfByCode: Dict[str, str] = {}
+  for code in enum:
+    if not isinstance(code, str): continue
+    nlsCode = code if len(code) > 0 else "emptyString"
+    aliasKey = f"ltex.i18n.configuration.{settingName}.{nlsCode}.aliasOf"
+    if aliasKey in packageNlsJson:
+      aliasOfByCode[code] = packageNlsJson[aliasKey]
+  if not aliasOfByCode: return enum, enumDescriptions
+
+  aliasesByCanonical: Dict[str, list] = {}
+  for alias, canonical in aliasOfByCode.items():
+    aliasesByCanonical.setdefault(canonical, []).append(alias)
+
+  newEnum, newDescriptions = [], []
+  for code, desc in zip(enum, enumDescriptions):
+    if code in aliasOfByCode: continue
+    if code in aliasesByCanonical:
+      aliasList = ", ".join(formatAsJson(a) for a in sorted(aliasesByCanonical[code]))
+      desc = f"{desc} (also accepts: {aliasList})" if desc is not None else None
+    newEnum.append(code)
+    newDescriptions.append(desc)
+  return newEnum, newDescriptions
+
+
+
 def formatSetting(settingName: str, settingJson: Dict[str, Any],
       packageNlsJson: Dict[str, str]) -> Optional[str]:
   if "markdownDescription" not in settingJson: return None
@@ -220,6 +248,8 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
     enumDescriptions = (settingJson["markdownEnumDescriptions"]
         if "markdownEnumDescriptions" in settingJson else
         settingJson.get("enumDescriptions", len(enum) * [None]))
+    enum, enumDescriptions = mergeAliasesIntoCanonical(
+        settingName, enum, enumDescriptions, packageNlsJson)
     markdown += f"\n*{packageNlsJson['possibleValues']}:*\n\n{formatEnum(enum, enumDescriptions, packageNlsJson)}\n"
 
   if len(examples) == 1:
@@ -267,17 +297,33 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
   packageNlsJsonPath = vscodeLtexRepoDirPath.joinpath("package.nls.json")
   packageNlsJson = json.loads(common.readFile(packageNlsJsonPath))
   languages: Dict[str, str] = {}
+  aliasesByCanonical: Dict[str, list] = {}
 
   for key in packageNlsJson:
     regexMatch = re.match(
         r"^ltex\.i18n\.configuration\.ltex\.language\.([^.]+?)\.markdownEnumDescription$", key)
     if regexMatch is None: continue
-    languages[regexMatch.group(1)] = packageNlsJson[key]
+    code = regexMatch.group(1)
+    if code == "auto": continue
+    aliasKey = f"ltex.i18n.configuration.ltex.language.{code}.aliasOf"
+    if aliasKey in packageNlsJson:
+      canonical = packageNlsJson[aliasKey]
+      aliasesByCanonical.setdefault(canonical, []).append(code)
+    else:
+      languages[code] = packageNlsJson[key]
 
-  languages = {x: y for x, y in sorted(languages.items(), key=lambda z: z[1]) if x != "auto"}
+  languages = {x: y for x, y in sorted(languages.items(), key=lambda z: z[1])}
+
+  def formatLanguage(code: str, name: str) -> str:
+    aliases = sorted(aliasesByCanonical.get(code, []))
+    if aliases:
+      aliasList = ", ".join(f"`{a}`" for a in aliases)
+      return f"{name}&nbsp;(`{code}`, also accepts: {aliasList})"
+    return f"{name}&nbsp;(`{code}`)"
+
   languagesMarkdown = ("<!-- ltex-natural-languages-begin -->\n\n"
       "{}\n\n<!-- ltex-natural-languages-end -->".format(
-        ", ".join(f"{y}&nbsp;(`{x}`)" for x, y in languages.items())))
+        ", ".join(formatLanguage(x, y) for x, y in languages.items())))
 
   dstPath = pagesRepoDirPath.joinpath("pages", "supported-languages.md")
   markdown = common.readFile(dstPath)

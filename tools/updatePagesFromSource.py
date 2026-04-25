@@ -259,7 +259,11 @@ def formatSetting(settingName: str, settingJson: Dict[str, Any],
         settingName, enum, enumDescriptions, packageNlsJson)
     markdown += f"\n*{packageNlsJson['possibleValues']}:*\n\n{formatEnum(enum, enumDescriptions, packageNlsJson)}\n"
 
-  if len(examples) == 1:
+  fullMarkdownExamplesKey = f"ltex.i18n.configuration.{settingName}.fullMarkdownExamples"
+  if fullMarkdownExamplesKey in packageNlsJson:
+    markdown += (f"\n*{packageNlsJson['examples']}:* "
+        f"{packageNlsJson[fullMarkdownExamplesKey]}\n")
+  elif len(examples) == 1:
     markdown += f"\n*{packageNlsJson['example']}:* {formatAsJson(examples[0])}\n"
   elif len(examples) >= 2:
     markdown += f"\n*{packageNlsJson['examples']}:*\n\n{formatList(examples)}\n"

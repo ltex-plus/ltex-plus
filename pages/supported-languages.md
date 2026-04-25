@@ -91,9 +91,19 @@ Apart from code languages like markup and programming languages, there is also t
 
 By default, LTeX+ uses American English (`en-US`) when checking documents. If your documents are written in a different language, change [`ltex.language`](settings.html#ltexlanguage). In addition, there are ways to change the checking language in the middle of documents. For details, see the questions [“How can I check multiple languages at once?”](faq.html#how-can-i-check-multiple-languages-at-once) and [“Why does LTeX+ check in a different language than expected?”](faq.html#why-does-ltex-check-in-a-different-language-than-expected) in the FAQ.
 
-Use a specific variant like `en-US` or `de-DE` instead of the generic language code like `en` or `de` to obtain spelling corrections (in addition to grammar corrections).
+Most users want **both** spell-check and grammar check, so understanding this next distinction matters. LanguageTool's language codes look like BCP-47 tags (`en`, `en-US`, `fr`, `fr-FR`, …) but they do not behave uniformly, and the code you choose decides whether you get both or only grammar:
 
-The natural languages supported by LTeX+ are identical to those supported by [LanguageTool](https://languagetool.org/), which is LTeX+'s backend. Therefore, the supported languages (and how well they are supported) might change if a new LTeX+ version comes with an updated version of LanguageTool. The following languages are currently supported:
+* For **English, German, and Portuguese**, the bare codes `en`, `de`, and `pt` are grammar-only umbrella classes — they carry no spelling dictionary. To also get spell-check you must pick a regional variant: `en-US`, `en-GB`, `de-DE`, `de-AT`, `pt-BR`, `pt-PT`, and so on. This is the single most common source of confusion.
+* For **most other languages** (`es`, `fr`, `it`, `nl`, `ru`, `uk`, and the rest of the list below), the bare code is already a full spell + grammar checker. You can write `fr` or `fr-FR` interchangeably and get the same coverage; variants like `es-AR` (Argentinian voseo) or `nl-BE` (Belgian Dutch) are optional regional refinements (different vocabulary, regional spellings, or region-specific grammar).
+* A few languages (**Catalan**) have no bare form at all: `ca-ES` is the canonical code, with further variants `ca-ES-valencia` and `ca-ES-balear`.
+
+Rule of thumb: if a language appears more than once in the list below (e.g. both `en` and `en-US`), the bare form is grammar-only; prefer the variant.
+
+The natural languages supported by LTeX+ are identical to those supported by [LanguageTool](https://languagetool.org/), which is LTeX+'s backend. Therefore, the supported languages (and how well they are supported) might change if a new LTeX+ version comes with an updated version of LanguageTool.
+
+Two annotations appear in the list below. `(also accepts: <code>)` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `fr-FR` is treated as `fr`, so the two codes are interchangeable). `(server-only)` marks a code accepted only when checking against a remote LanguageTool server, hosted or self-hosted via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri), not by the bundled checker.
+
+The following languages are currently supported:
 
 <!-- ltex-natural-languages-begin -->
 

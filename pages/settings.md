@@ -64,7 +64,7 @@ Rule of thumb: if a language appears more than once in the list below (e.g. both
 
 When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as only generic languages like `"en"` or `"de"` will be detected and thus no spelling errors might be reported. For some generic language codes like `"es"` (Spanish), spelling errors are reported even though the language codes are generic.
 
-Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"fr-FR"` is treated as `"fr"`, so the two codes are interchangeable). `(remote-only)` marks a code accepted only when checking against a remote LanguageTool server, hosted or self-hosted via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri), not by the bundled checker.
+Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"fr-FR"` is treated as `"fr"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
 
 *Type:* `string`
 
@@ -106,7 +106,7 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
 - `"pl-PL"`: Polish
@@ -449,7 +449,7 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
 - `"pl-PL"`: Polish

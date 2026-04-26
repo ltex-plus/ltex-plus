@@ -225,7 +225,7 @@ def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
     if code in aliasesByCanonical:
       aliasList = ", ".join(formatAsJson(a) for a in sorted(aliasesByCanonical[code]))
       suffixes.append(f"also accepts: {aliasList}")
-    if code in remoteOnlyCodes: suffixes.append("remote-only")
+    if code in remoteOnlyCodes: suffixes.append("only on api.languagetoolplus.com")
     if suffixes and desc is not None:
       desc = f"{desc} ({'; '.join(suffixes)})"
     newEnum.append(code)
@@ -334,7 +334,7 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
     if aliases:
       aliasList = ", ".join(f"`{a}`" for a in aliases)
       parts.append(f"also accepts: {aliasList}")
-    if code in remoteOnlyCodes: parts.append("remote-only")
+    if code in remoteOnlyCodes: parts.append("only on api.languagetoolplus.com")
     return f"{name}&nbsp;({', '.join(parts)})"
 
   languagesMarkdown = ("<!-- ltex-natural-languages-begin -->\n\n"

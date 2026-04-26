@@ -64,7 +64,7 @@ Faustregel: Erscheint eine Sprache mehr als einmal in der Liste unten (z. B. sow
 
 Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und eventuell keine Rechtschreibfehler gemeldet werden. Bei manchen generischen Sprachcodes wie `"es"` (Spanisch) werden Rechtschreibfehler gemeldet, obwohl die Sprachcodes generisch sind.
 
-In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"fr-FR"` wie `"fr"` behandelt, die beiden Codes sind also austauschbar). `(remote-only)` markiert einen Code, der nur dann akzeptiert wird, wenn gegen einen entfernten LanguageTool-Server geprüft wird (gehostet oder selbst gehostet via [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri)), nicht vom mitgelieferten Prüfer.
+In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"fr-FR"` wie `"fr"` behandelt, die beiden Codes sind also austauschbar). `(only on api.languagetoolplus.com)` markiert einen Code, der nur von LanguageTools eigener gehosteter API erkannt wird. Der mitgelieferte Prüfer und selbst gehostete Instanzen des Open-Source-LanguageTool-Servers verwenden denselben Code-Satz und erkennen diese Codes nicht — auch nicht, wenn sie über [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) erreichbar sind.
 
 *Typ:* `string`
 
@@ -106,7 +106,7 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
 - `"pl-PL"`: Polish
@@ -449,7 +449,7 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
 - `"pl-PL"`: Polish

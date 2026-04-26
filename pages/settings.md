@@ -56,7 +56,7 @@ The language LanguageTool should check against. Pick the BCP-47 code that best m
 
 For backward compatibility LanguageTool also accepts a few legacy bare codes such as `"fr"`, `"it"`, `"de"`, or `"en"` that resolve to a regional variant via prefix-fallback; these are not advertised below and should not be used in new configurations.
 
-When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as detection is coarse and falls back to language families that may carry no spelling dictionary, so spelling errors might not be reported.
+When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as detection is coarse and falls back to language families that may carry no spelling dictionary, so spelling errors might not be reported. For documents that switch language partway through, use in-document [magic comments](advanced-usage.html#magic-comments) instead — for example, in Markdown: `<!-- LTeX: language=de-DE -->`. The exact syntax depends on the document type.
 
 Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"no"` is treated as `"nb"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
 

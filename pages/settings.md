@@ -52,19 +52,13 @@ One of the following types:
 
 ## `ltex.language`
 
-The language (e.g., `"en-US"`) LanguageTool should check against.
+The language LanguageTool should check against. Pick the BCP-47 code that best matches your text (e.g., `"en-US"`, `"fr-FR"`, `"de-DE"`, `"ca-ES-valencia"`).
 
-Most users want **both** spell-check and grammar check, so understanding this next distinction matters. LanguageTool's language codes look like BCP-47 tags (`"en"`, `"en-US"`, `"fr"`, `"fr-FR"`, …) but they do not behave uniformly, and the code you choose decides whether you get both or only grammar:
+For backward compatibility LanguageTool also accepts a few legacy bare codes such as `"fr"`, `"it"`, `"de"`, or `"en"` that resolve to a regional variant via prefix-fallback; these are not advertised below and should not be used in new configurations.
 
-* For **English, German, and Portuguese**, the bare codes `"en"`, `"de"`, `"pt"` are grammar-only umbrella classes — they carry no spelling dictionary. To also get spell-check you must pick a regional variant: `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-AT"`, `"pt-BR"`, `"pt-PT"`, and so on. This is the single most common source of confusion.
-* For **most other languages** (`"es"`, `"fr"`, `"it"`, `"nl"`, `"ru"`, `"uk"`, and the rest of the list below), the bare code is already a full spell + grammar checker. You can write `"fr"` or `"fr-FR"` interchangeably and get the same coverage; variants like `"es-AR"` (Argentinian voseo) or `"nl-BE"` (Belgian Dutch) are optional regional grammar disambiguators, not a spell-check precondition.
-* A few languages (**Catalan**) have no bare form at all: `"ca-ES"` is the canonical code, with further variants `"ca-ES-valencia"` and `"ca-ES-balear"`.
+When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as detection is coarse and falls back to language families that may carry no spelling dictionary, so spelling errors might not be reported.
 
-Rule of thumb: if a language appears more than once in the list below (e.g. both `"en"` and `"en-US"`), the bare form is grammar-only; prefer the variant.
-
-When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as only generic languages like `"en"` or `"de"` will be detected and thus no spelling errors might be reported. For some generic language codes like `"es"` (Spanish), spelling errors are reported even though the language codes are generic.
-
-Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"fr-FR"` is treated as `"fr"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
+Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"no"` is treated as `"nb"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
 
 *Type:* `string`
 
@@ -80,13 +74,11 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 - `"ca-ES-valencia"`: Catalan (Valencian)
 - `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German (also accepts: `"de-LU"`)
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
 - `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -94,23 +86,22 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish (also accepts: `"es-ES"`)
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian (also accepts: `"fa-IR"`)
-- `"fr"`: French (also accepts: `"fr-FR"`)
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
 - `"fr-BE"`: French (Belgium)
 - `"fr-CA"`: French (Canada)
 - `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian (also accepts: `"it-IT"`)
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
 - `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
-- `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -119,7 +110,7 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish (also accepts: `"sv-SE"`)
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -423,13 +414,11 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"ca-ES-valencia"`: Catalan (Valencian)
 - `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German (also accepts: `"de-LU"`)
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
 - `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -437,23 +426,22 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish (also accepts: `"es-ES"`)
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian (also accepts: `"fa-IR"`)
-- `"fr"`: French (also accepts: `"fr-FR"`)
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
 - `"fr-BE"`: French (Belgium)
 - `"fr-CA"`: French (Canada)
 - `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian (also accepts: `"it-IT"`)
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
 - `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
-- `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -462,7 +450,7 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish (also accepts: `"sv-SE"`)
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian

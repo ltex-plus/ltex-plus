@@ -199,20 +199,45 @@ def formatFullType(settingJson: Dict[str, Any], packageNlsJson: Dict[str, str],
 
 
 
+# Legacy LT codes that LT still accepts but no longer documents as recommended.
+# Bare codes like `fr` resolve to a checker, but the modern fully-spelled form
+# (`fr-FR`) is preferred. Codes like `de`, `pt`, `en` are grammar-only umbrellas
+# whose regional variants give the actual spell-check coverage. `de-LU` is an
+# alias that prefix-falls-back to grammar-only `de` with no real-world reason
+# to recommend it.
+HIDDEN_CODES = frozenset({
+    "en", "de", "pt", "fr", "it", "es", "nl", "sv", "fa", "de-LU"})
+
+
 def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
       enumDescriptions: Sequence[Any], packageNlsJson: Dict[str, str]
       ) -> Tuple[Sequence[Any], Sequence[Any]]:
   aliasOfByCode: Dict[str, str] = {}
   remoteOnlyCodes: set = set()
+  promotedDescriptions: Dict[str, str] = {}
   for code in enum:
     if not isinstance(code, str): continue
     nlsCode = code if len(code) > 0 else "emptyString"
     prefix = f"ltex.i18n.configuration.{settingName}.{nlsCode}"
     if f"{prefix}.aliasOf" in packageNlsJson:
-      aliasOfByCode[code] = packageNlsJson[f"{prefix}.aliasOf"]
+      canonical = packageNlsJson[f"{prefix}.aliasOf"]
+      if canonical in HIDDEN_CODES:
+        # Promote the alias to standalone canonical, using the hidden
+        # canonical's description (so we render "Italian" rather than
+        # "Italian (alias of `it`)" for the now-canonical `it-IT`).
+        canonicalNls = canonical if len(canonical) > 0 else "emptyString"
+        canonicalKey = (f"ltex.i18n.configuration.{settingName}."
+            f"{canonicalNls}.markdownEnumDescription")
+        if canonicalKey in packageNlsJson:
+          promotedDescriptions[code] = packageNlsJson[canonicalKey]
+      else:
+        aliasOfByCode[code] = canonical
     if packageNlsJson.get(f"{prefix}.remoteOnly") == "true":
       remoteOnlyCodes.add(code)
-  if not aliasOfByCode and not remoteOnlyCodes: return enum, enumDescriptions
+  hiddenInEnum = HIDDEN_CODES.intersection(enum)
+  if (not aliasOfByCode and not remoteOnlyCodes and not hiddenInEnum
+        and not promotedDescriptions):
+    return enum, enumDescriptions
 
   aliasesByCanonical: Dict[str, list] = {}
   for alias, canonical in aliasOfByCode.items():
@@ -220,7 +245,9 @@ def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
 
   newEnum, newDescriptions = [], []
   for code, desc in zip(enum, enumDescriptions):
+    if code in HIDDEN_CODES: continue
     if code in aliasOfByCode: continue
+    if code in promotedDescriptions: desc = promotedDescriptions[code]
     suffixes = []
     if code in aliasesByCanonical:
       aliasList = ", ".join(formatAsJson(a) for a in sorted(aliasesByCanonical[code]))
@@ -317,10 +344,17 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
     if regexMatch is None: continue
     code = regexMatch.group(1)
     if code == "auto": continue
+    if code in HIDDEN_CODES: continue
     prefix = f"ltex.i18n.configuration.ltex.language.{code}"
     if f"{prefix}.aliasOf" in packageNlsJson:
       canonical = packageNlsJson[f"{prefix}.aliasOf"]
-      aliasesByCanonical.setdefault(canonical, []).append(code)
+      if canonical in HIDDEN_CODES:
+        # Promote to standalone canonical using the hidden canonical's name.
+        canonicalKey = (f"ltex.i18n.configuration.ltex.language."
+            f"{canonical}.markdownEnumDescription")
+        languages[code] = packageNlsJson.get(canonicalKey, packageNlsJson[key])
+      else:
+        aliasesByCanonical.setdefault(canonical, []).append(code)
     else:
       languages[code] = packageNlsJson[key]
     if packageNlsJson.get(f"{prefix}.remoteOnly") == "true":

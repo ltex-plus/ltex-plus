@@ -52,19 +52,13 @@ Einer der folgenden Typen:
 
 ## `ltex.language`
 
-Die Sprache (z. B. `"en-US"`), mit der LanguageTool auf Fehler suchen soll.
+Die Sprache, mit der LanguageTool auf Fehler suchen soll. Wählen Sie den BCP-47-Code, der am besten zu Ihrem Text passt (z. B. `"en-US"`, `"fr-FR"`, `"de-DE"`, `"ca-ES-valencia"`).
 
-Die meisten Benutzer wollen **sowohl** Rechtschreib- als auch Grammatikprüfung, weshalb die folgende Unterscheidung wichtig ist. LanguageTools Sprachcodes sehen wie BCP-47-Tags aus (`"en"`, `"en-US"`, `"fr"`, `"fr-FR"`, …), verhalten sich aber nicht einheitlich, und der Code, den Sie wählen, entscheidet, ob Sie beides bekommen oder nur Grammatik:
+Aus Gründen der Rückwärtskompatibilität akzeptiert LanguageTool zusätzlich einige veraltete nackte Codes wie `"fr"`, `"it"`, `"de"` oder `"en"`, die per Präfix-Fallback auf eine regionale Variante auflösen; diese werden unten nicht beworben und sollten in neuen Konfigurationen nicht verwendet werden.
 
-* Bei **Englisch, Deutsch und Portugiesisch** sind die nackten Codes `"en"`, `"de"`, `"pt"` reine Grammatik-Sammelklassen — sie enthalten kein Rechtschreibwörterbuch. Um auch Rechtschreibprüfung zu bekommen, müssen Sie eine regionale Variante wählen: `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-AT"`, `"pt-BR"`, `"pt-PT"` und so weiter. Dies ist die mit Abstand häufigste Verwechslungsquelle.
-* Bei **den meisten anderen Sprachen** (`"es"`, `"fr"`, `"it"`, `"nl"`, `"ru"`, `"uk"` und dem Rest der Liste unten) ist der nackte Code bereits ein vollständiger Rechtschreib- und Grammatikprüfer. Sie können `"fr"` oder `"fr-FR"` austauschbar schreiben und erhalten die gleiche Abdeckung; Varianten wie `"es-AR"` (argentinischer Voseo) oder `"nl-BE"` (belgisches Niederländisch) sind optionale regionale Grammatik-Disambiguierer und keine Voraussetzung für die Rechtschreibprüfung.
-* Einige wenige Sprachen (**Katalanisch**) haben gar keine nackte Form: `"ca-ES"` ist der kanonische Code, mit weiteren Varianten `"ca-ES-valencia"` und `"ca-ES-balear"`.
+Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da die Erkennung grob ist und auf Sprachfamilien zurückfällt, die kein Rechtschreibwörterbuch enthalten — Rechtschreibfehler werden in diesem Fall möglicherweise nicht gemeldet.
 
-Faustregel: Erscheint eine Sprache mehr als einmal in der Liste unten (z. B. sowohl `"en"` als auch `"en-US"`), ist die nackte Form grammatik-only; wählen Sie die Variante.
-
-Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und eventuell keine Rechtschreibfehler gemeldet werden. Bei manchen generischen Sprachcodes wie `"es"` (Spanisch) werden Rechtschreibfehler gemeldet, obwohl die Sprachcodes generisch sind.
-
-In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"fr-FR"` wie `"fr"` behandelt, die beiden Codes sind also austauschbar). `(only on api.languagetoolplus.com)` markiert einen Code, der nur von LanguageTools eigener gehosteter API erkannt wird. Der mitgelieferte Prüfer und selbst gehostete Instanzen des Open-Source-LanguageTool-Servers verwenden denselben Code-Satz und erkennen diese Codes nicht — auch nicht, wenn sie über [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) erreichbar sind.
+In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"no"` wie `"nb"` behandelt, die beiden Codes sind also austauschbar). `(only on api.languagetoolplus.com)` markiert einen Code, der nur von LanguageTools eigener gehosteter API erkannt wird. Der mitgelieferte Prüfer und selbst gehostete Instanzen des Open-Source-LanguageTool-Servers verwenden denselben Code-Satz und erkennen diese Codes nicht — auch nicht, wenn sie über [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) erreichbar sind.
 
 *Typ:* `string`
 
@@ -80,13 +74,11 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 - `"ca-ES-valencia"`: Catalan (Valencian)
 - `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German (also accepts: `"de-LU"`)
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
 - `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -94,23 +86,22 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish (also accepts: `"es-ES"`)
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian (also accepts: `"fa-IR"`)
-- `"fr"`: French (also accepts: `"fr-FR"`)
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
 - `"fr-BE"`: French (Belgium)
 - `"fr-CA"`: French (Canada)
 - `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian (also accepts: `"it-IT"`)
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
 - `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
-- `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -119,7 +110,7 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish (also accepts: `"sv-SE"`)
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -423,13 +414,11 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"ca-ES-valencia"`: Catalan (Valencian)
 - `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German (also accepts: `"de-LU"`)
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
 - `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -437,23 +426,22 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish (also accepts: `"es-ES"`)
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian (also accepts: `"fa-IR"`)
-- `"fr"`: French (also accepts: `"fr-FR"`)
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
 - `"fr-BE"`: French (Belgium)
 - `"fr-CA"`: French (Canada)
 - `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian (also accepts: `"it-IT"`)
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
 - `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
-- `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -462,7 +450,7 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish (also accepts: `"sv-SE"`)
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian

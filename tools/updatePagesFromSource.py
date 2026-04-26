@@ -203,16 +203,16 @@ def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
       enumDescriptions: Sequence[Any], packageNlsJson: Dict[str, str]
       ) -> Tuple[Sequence[Any], Sequence[Any]]:
   aliasOfByCode: Dict[str, str] = {}
-  serverOnlyCodes: set = set()
+  remoteOnlyCodes: set = set()
   for code in enum:
     if not isinstance(code, str): continue
     nlsCode = code if len(code) > 0 else "emptyString"
     prefix = f"ltex.i18n.configuration.{settingName}.{nlsCode}"
     if f"{prefix}.aliasOf" in packageNlsJson:
       aliasOfByCode[code] = packageNlsJson[f"{prefix}.aliasOf"]
-    if packageNlsJson.get(f"{prefix}.serverOnly") == "true":
-      serverOnlyCodes.add(code)
-  if not aliasOfByCode and not serverOnlyCodes: return enum, enumDescriptions
+    if packageNlsJson.get(f"{prefix}.remoteOnly") == "true":
+      remoteOnlyCodes.add(code)
+  if not aliasOfByCode and not remoteOnlyCodes: return enum, enumDescriptions
 
   aliasesByCanonical: Dict[str, list] = {}
   for alias, canonical in aliasOfByCode.items():
@@ -222,10 +222,10 @@ def mergeAliasesIntoCanonical(settingName: str, enum: Sequence[Any],
   for code, desc in zip(enum, enumDescriptions):
     if code in aliasOfByCode: continue
     suffixes = []
-    if code in serverOnlyCodes: suffixes.append("server-only")
     if code in aliasesByCanonical:
       aliasList = ", ".join(formatAsJson(a) for a in sorted(aliasesByCanonical[code]))
       suffixes.append(f"also accepts: {aliasList}")
+    if code in remoteOnlyCodes: suffixes.append("remote-only")
     if suffixes and desc is not None:
       desc = f"{desc} ({'; '.join(suffixes)})"
     newEnum.append(code)
@@ -309,7 +309,7 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
   packageNlsJson = json.loads(common.readFile(packageNlsJsonPath))
   languages: Dict[str, str] = {}
   aliasesByCanonical: Dict[str, list] = {}
-  serverOnlyCodes: set = set()
+  remoteOnlyCodes: set = set()
 
   for key in packageNlsJson:
     regexMatch = re.match(
@@ -323,18 +323,18 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
       aliasesByCanonical.setdefault(canonical, []).append(code)
     else:
       languages[code] = packageNlsJson[key]
-    if packageNlsJson.get(f"{prefix}.serverOnly") == "true":
-      serverOnlyCodes.add(code)
+    if packageNlsJson.get(f"{prefix}.remoteOnly") == "true":
+      remoteOnlyCodes.add(code)
 
   languages = {x: y for x, y in sorted(languages.items(), key=lambda z: z[1])}
 
   def formatLanguage(code: str, name: str) -> str:
     parts = [f"`{code}`"]
-    if code in serverOnlyCodes: parts.append("server-only")
     aliases = sorted(aliasesByCanonical.get(code, []))
     if aliases:
       aliasList = ", ".join(f"`{a}`" for a in aliases)
       parts.append(f"also accepts: {aliasList}")
+    if code in remoteOnlyCodes: parts.append("remote-only")
     return f"{name}&nbsp;({', '.join(parts)})"
 
   languagesMarkdown = ("<!-- ltex-natural-languages-begin -->\n\n"

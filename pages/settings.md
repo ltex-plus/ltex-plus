@@ -104,10 +104,9 @@ When using the language code `"auto"`, LTeX+ will try to detect the language of 
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (server-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
-- `"no"`: Norwegian (Bokmål) (server-only)
 - `"pl-PL"`: Polish
 - `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
@@ -448,10 +447,9 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (server-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
-- `"no"`: Norwegian (Bokmål) (server-only)
 - `"pl-PL"`: Polish
 - `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)

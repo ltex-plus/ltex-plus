@@ -104,10 +104,9 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprach
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (server-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
-- `"no"`: Norwegian (Bokmål) (server-only)
 - `"pl-PL"`: Polish
 - `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
@@ -448,10 +447,9 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"it"`: Italian (also accepts: `"it-IT"`)
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nb"`: Norwegian (Bokmål) (server-only)
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; remote-only)
 - `"nl"`: Dutch (also accepts: `"nl-NL"`)
 - `"nl-BE"`: Dutch (Belgium)
-- `"no"`: Norwegian (Bokmål) (server-only)
 - `"pl-PL"`: Polish
 - `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)

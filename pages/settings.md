@@ -515,7 +515,7 @@ API key for Premium API access. Only relevant if [`ltex.languageToolHttpServerUr
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ automatically downloads [ltex-ls from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself. Environment variables prefixed with `$` will be interpolated.
+If set to an empty string, LTeX+ automatically downloads [ltex-ls from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself. `$VAR` is replaced with the value of the environment variable.
 
 Use the path to the root directory of ltex-ls-plus (it contains `bin` and `lib` subdirectories).
 
@@ -553,7 +553,7 @@ ltex-ls does not use all log levels.
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls-plus. You can point this setting to an existing Java installation on your computer to use that installation instead. Environment variables prefixed with `$` will be interpolated.
+If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls-plus. You can point this setting to an existing Java installation on your computer to use that installation instead. `$VAR` is replaced with the value of the environment variable.
 
 Use the same path as you would use for the `JAVA_HOME` environment variable (it usually contains `bin` and `lib` subdirectories, amongst others).
 

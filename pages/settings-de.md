@@ -513,7 +513,7 @@ API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.lang
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-plus-Releases setzen, das Sie selbst heruntergeladen haben.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-plus-Releases setzen, das Sie selbst heruntergeladen haben. `$VAR` wird durch den Wert der Umgebungsvariable ersetzt.
 
 Benutzen Sie dafür den Pfad zum Hauptverzeichnis von ltex-ls-plus (dieses enthält die Unterverzeichnisse `bin` und `lib`).
 
@@ -551,7 +551,7 @@ ltex-ls benutzt nicht alle Protokollierungslevel.
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX+ eine Java-Distribution, die in ltex-ls-plus enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX+ eine Java-Distribution, die in ltex-ls-plus enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen. `$VAR` wird durch den Wert der Umgebungsvariable ersetzt.
 
 Benutzen Sie denselben Pfad, den Sie für die Umgebungsvariable `JAVA_HOME` benutzen würden (dieser enthält üblicherweise neben anderen die Unterverzeichnisse `bin` und `lib`).
 

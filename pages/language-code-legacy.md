@@ -15,7 +15,7 @@ toc: false
 
 ## Background
 
-[ltex-ls-plus#150](https://github.com/ltex-plus/ltex-ls-plus/pull/150) is the change that made the modern fully-spelled codes (`fr-FR`, `it-IT`, `es-ES`, `nl-NL`, `sv-SE`, `fa-IR`) work reliably with the bundled checker. Before that PR landed in 18.7.x, those codes were not accepted in many configurations and could silently disable checking. On older releases the working values were the bare ISO 639-1 codes; the documentation you are reading on the [Supported Languages](supported-languages.html) page does not apply directly to those versions.
+Starting with ltex-ls-plus 18.7.x, the modern fully-spelled codes (`fr-FR`, `it-IT`, `es-ES`, `nl-NL`, `sv-SE`, `fa-IR`) are accepted reliably by the bundled checker. On earlier releases those codes were not accepted in many configurations and could silently disable checking; the documentation you are reading on the [Supported Languages](supported-languages.html) and [Settings](settings.html) pages does not apply directly to those versions.
 
 ## Umbrella codes
 
@@ -30,7 +30,7 @@ The same logic still applies on 18.7.x — pick the most specific code that matc
 
 - **Bare ISO 639-1 codes** (`fr`, `it`, `es`, `nl`, `sv`, `fa`, `pt`, …) for languages that are not in the umbrella set above. These ran both grammar and spell-checking and were the safe default on older releases.
 - **Region-specific canonicals** (`en-US`, `en-GB`, `de-DE`, `de-AT`, `de-CH`, `fr-CA`, `fr-CH`, `fr-BE`, `pt-BR`, `pt-PT`, `pt-AO`, `pt-MZ`, `es-AR`, `nl-BE`, `ca-ES`, `ca-ES-valencia`, `ca-ES-balear`, …) were exact-match codes and worked identically across older and newer releases.
-- **Modern fully-spelled codes** (`fr-FR`, `it-IT`, `es-ES`, `nl-NL`, `sv-SE`, `fa-IR`) were **not** generally accepted on older releases — that is the gap [ltex-ls-plus#150](https://github.com/ltex-plus/ltex-ls-plus/pull/150) closes. If you are on an older release and one of these silently disables checking, switch to the bare ISO 639-1 form (e.g., `fr` instead of `fr-FR`).
+- **Modern fully-spelled codes** (`fr-FR`, `it-IT`, `es-ES`, `nl-NL`, `sv-SE`, `fa-IR`) were **not** generally accepted on older releases — that is the gap closed in 18.7.x. If you are on an older release and one of these silently disables checking, switch to the bare ISO 639-1 form (e.g., `fr` instead of `fr-FR`).
 - **Hosted-API-only codes** (`nb`, `no` for Norwegian) require [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) pointed at LanguageTool's hosted API (`https://api.languagetoolplus.com`); this has not changed across versions.
 
 ## Practical recommendation

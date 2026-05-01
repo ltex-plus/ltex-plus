@@ -402,6 +402,15 @@ def updateChangelog(sourceRepoDirPath: pathlib.Path, sourceRepoName: str,
   process = subprocess.run(convertChangelogArguments, stdout=subprocess.PIPE)
   markdown = process.stdout.decode().replace("\r\n", "\n")
 
+  # convertChangelog.py drops the repo prefix for issues in the source repo
+  # itself (e.g. `#119` instead of `ltex-ls-plus#119`), which is the right
+  # shorthand for the in-repo CHANGELOG.md but ambiguous on the docs site,
+  # where the page aggregates issues from multiple repos. Re-expand it.
+  markdown = re.sub(
+      rf"\[#(\d+)\]\(https://github\.com/ltex-plus/{re.escape(sourceRepoName)}/issues/\1\)",
+      rf"[{sourceRepoName}#\1](https://github.com/ltex-plus/{sourceRepoName}/issues/\1)",
+      markdown)
+
   copyMarkdown(markdown,
       pagesRepoDirPath.joinpath("pages", sourceRepoName, "changelog.md"), """---{}
 title: "Changelog"

@@ -258,7 +258,7 @@ def updateSupportedLanguages(vscodeLtexRepoDirPath: pathlib.Path,
 
   for key in packageNlsJson:
     regexMatch = re.match(
-        "^ltex\.i18n\.configuration\.ltex\.language\.([^.]+?)\.markdownEnumDescription$", key)
+        r"^ltex\.i18n\.configuration\.ltex\.language\.([^.]+?)\.markdownEnumDescription$", key)
     if regexMatch is None: continue
     languages[regexMatch.group(1)] = packageNlsJson[key]
 

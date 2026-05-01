@@ -15,7 +15,7 @@ toc: false
 ## 15.6.1 &#x2014; &#x201c;The False Positive Manipulation&#x201d; (October 19, 2025)
 
 - &#x1f527; *Change:* Update to LTeX+ LS 18.6.1
-- &#x1f41b; *Bug fix:* Fix Hidden False Positives in vscode-ltex-plus &#x2014; [#165](https://github.com/ltex-plus/vscode-ltex-plus/issues/165)
+- &#x1f41b; *Bug fix:* Fix Hidden False Positives in vscode-ltex-plus &#x2014; [vscode-ltex-plus#165](https://github.com/ltex-plus/vscode-ltex-plus/issues/165)
 - &#x1f41b; *Bug fix:* Fix magic comments: Allow multiple settings per comment &#x2014; [ltex-ls-plus#119](https://github.com/ltex-plus/ltex-ls-plus/issues/119), [@Nils1729](https://github.com/Nils1729)
 
 ## 15.6.0 &#x2014; &#x201c;The Comprehensive Magic Comments Oscillation&#x201d; (October 15, 2025)
@@ -25,11 +25,11 @@ toc: false
 - &#x1f527; *Change:* Update LanguageTool 6.7 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.7/languagetool-standalone/CHANGES.md))
 - &#x1f527; *Change:* Update to LTeX+ LS 18.6.0. See [ltex-ls-plus release notes](https://github.com/ltex-plus/ltex-ls-plus/releases/tag/18.6.0).
 - &#x1f527; *Change:* Update bundled Java runtime from 21.0.5+11 to 21.0.8+9
-- &#x1f41b; *Bug fix:* Fix spelling errors for Dutch dummies &#x2014; [#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
+- &#x1f41b; *Bug fix:* Fix spelling errors for Dutch dummies &#x2014; [vscode-ltex-plus#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
 - &#x1f41b; *Bug fix:* Remove incorrect babel language mapping for estonian &#x2014; [ltex-ls-plus#103](https://github.com/ltex-plus/ltex-ls-plus/issues/103), [Simmo Saan (@sim642)](https://github.com/sim642)
 - &#x1f41b; *Bug fix:* [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) rules should be JSON, not strings &#x2014; [ltex-ls-plus#105](https://github.com/ltex-plus/ltex-ls-plus/issues/105), [Jonathan Chan (@ionathanch)](https://github.com/ionathanch)
-- &#x1f41b; *Bug fix:* Fix spell checking in square brackets for Typst documents &#x2014; [#142](https://github.com/ltex-plus/vscode-ltex-plus/issues/142)
-- &#x1f41b; *Bug fix:* Fix Typst parsing. E.g. the statement `#set text(lang: "en")` caused the entire document not to be checked. &#x2014; [#157](https://github.com/ltex-plus/vscode-ltex-plus/issues/157)
+- &#x1f41b; *Bug fix:* Fix spell checking in square brackets for Typst documents &#x2014; [vscode-ltex-plus#142](https://github.com/ltex-plus/vscode-ltex-plus/issues/142)
+- &#x1f41b; *Bug fix:* Fix Typst parsing. E.g. the statement `#set text(lang: "en")` caused the entire document not to be checked. &#x2014; [vscode-ltex-plus#157](https://github.com/ltex-plus/vscode-ltex-plus/issues/157)
 
 ## 15.5.1 &#x2014; &#x201c;The languageToolHttpServerUri Diremption&#x201d; (April 9, 2025)
 
@@ -38,7 +38,7 @@ toc: false
 
 ## 15.5.0 &#x2014; &#x201c;The AsciiDoc Sublimation&#x201d; (April 4, 2025)
 
-- &#x2728; *New:* Add support for AsciiDoc &#x2014; [#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)
+- &#x2728; *New:* Add support for AsciiDoc &#x2014; [vscode-ltex-plus#128](https://github.com/ltex-plus/vscode-ltex-plus/issues/128)
 - &#x2728; *New:* Add support for \NewDoumentCommand, \NewDocumentEnvironment, \NewExpandableDocumentCommand, \NewCommandCopy, \NewEnvironmentCopy, \IfNoValueTF, \IfValueTF, \IfBlankTF, \IfBooleanTF and many more (LaTeX) &#x2014; [ltex-ls-plus#69](https://github.com/ltex-plus/ltex-ls-plus/issues/69)
 - &#x2728; *New:* Add support for Neorg &#x2014; [ltex-ls-plus#55](https://github.com/ltex-plus/ltex-ls-plus/issues/55)
 - &#x1f527; *Change:* Update LanguageTool 6.6 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.6/languagetool-standalone/CHANGES.md))
@@ -46,36 +46,36 @@ toc: false
 - &#x1f527; *Change:* Update bundled Java runtime from 21.0.4+7 to 21.0.5+11. No separate beta Java runtime build is required anymore for Windows aarch64.
 - &#x1f41b; *Bug fix:* Fix false positives in Typst &#x2014; [ltex-ls-plus#72](https://github.com/ltex-plus/ltex-ls-plus/issues/72)
 - &#x1f41b; *Bug fix:* Ignore code blocks and raw text in Typst &#x2014; [ltex-ls-plus#74](https://github.com/ltex-plus/ltex-ls-plus/issues/74)
-- &#x1f41b; *Bug fix:* "Open LTeX+ settings" button on Walkthrough takes to old settings page &#x2014; [#138](https://github.com/ltex-plus/vscode-ltex-plus/issues/138)
+- &#x1f41b; *Bug fix:* "Open LTeX+ settings" button on Walkthrough takes to old settings page &#x2014; [vscode-ltex-plus#138](https://github.com/ltex-plus/vscode-ltex-plus/issues/138)
 
 ## 15.4.0 &#x2014; &#x201c;The ltex.enabled Decoupling&#x201d; (December 25, 2024)
 
-- &#x1f41b; *Bug fix:* Fix LTeX commands when ltex.enabled is set to false &#x2014; [#106](https://github.com/ltex-plus/vscode-ltex-plus/issues/106)
-- &#x1f41b; *Bug fix:* Fix status bar item symbols after using LTeX: Close LTeX+ command &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
-- &#x1f41b; *Bug fix:* Fix timeout issue for low-end computers &#x2014; [#60](https://github.com/ltex-plus/vscode-ltex-plus/issues/60)
+- &#x1f41b; *Bug fix:* Fix LTeX commands when ltex.enabled is set to false &#x2014; [vscode-ltex-plus#106](https://github.com/ltex-plus/vscode-ltex-plus/issues/106)
+- &#x1f41b; *Bug fix:* Fix status bar item symbols after using LTeX: Close LTeX+ command &#x2014; [vscode-ltex-plus#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
+- &#x1f41b; *Bug fix:* Fix timeout issue for low-end computers &#x2014; [vscode-ltex-plus#60](https://github.com/ltex-plus/vscode-ltex-plus/issues/60)
 - &#x1f527; *Change:* Update to LTeX+ LS 18.4.0
 - &#x2728; *New:* Add support for apacite commands &#x2014; [valentjn/ltex-ls#268](https://github.com/valentjn/ltex-ls/issues/268), Beno&#x00ee;t Pasquier
 - &#x2728; *New:* Add support for \cpageref, \labelcref and variants &#x2014; [valentjn/ltex-ls#266](https://github.com/valentjn/ltex-ls/issues/266), Lo&#x00ef;c Reynier
 - &#x1f41b; *Bug fix:* Improved comment parsing and Rust support &#x2014; [valentjn/ltex-ls#238](https://github.com/valentjn/ltex-ls/issues/238), [valentjn/ltex-ls#224](https://github.com/valentjn/ltex-ls/issues/224), Andrii Savytskyi
-- &#x1f41b; *Bug fix:* Fix spelling errors for Spanish dummies &#x2014; [#105](https://github.com/ltex-plus/vscode-ltex-plus/issues/105)
+- &#x1f41b; *Bug fix:* Fix spelling errors for Spanish dummies &#x2014; [vscode-ltex-plus#105](https://github.com/ltex-plus/vscode-ltex-plus/issues/105)
 
 ## 15.3.0 &#x2014; &#x201c;The Typst Reflection&#x201d; (November 27, 2024)
 
-- &#x2728; *New:* Add support for Typst &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
-- &#x2728; *New:* Add support for Quarto. &#x2014; [#63](https://github.com/ltex-plus/vscode-ltex-plus/issues/63)
-- &#x2728; *New:* Add support for MDX &#x2014; [#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
-- &#x2728; *New:* Add LTeX: Close LTeX+ command to close the extension and LTeX+ LS &#x2014; [#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
-- &#x2728; *New:* Publish LTeX+ on Open VSX: https://open-vsx.org/extension/ltex-plus/vscode-ltex-plus &#x2014; [#83](https://github.com/ltex-plus/vscode-ltex-plus/issues/83)
-- &#x1f41b; *Bug fix:* Fix error message when using the command [`LTeX: Reset and Restart`](commands.html#ltex-reset-and-restart) &#x2014; [#94](https://github.com/ltex-plus/vscode-ltex-plus/issues/94)
+- &#x2728; *New:* Add support for Typst &#x2014; [ltex-ls-plus#39](https://github.com/ltex-plus/ltex-ls-plus/issues/39), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49)
+- &#x2728; *New:* Add support for Quarto. &#x2014; [vscode-ltex-plus#63](https://github.com/ltex-plus/vscode-ltex-plus/issues/63)
+- &#x2728; *New:* Add support for MDX &#x2014; [vscode-ltex-plus#88](https://github.com/ltex-plus/vscode-ltex-plus/issues/88)
+- &#x2728; *New:* Add LTeX: Close LTeX+ command to close the extension and LTeX+ LS &#x2014; [vscode-ltex-plus#73](https://github.com/ltex-plus/vscode-ltex-plus/issues/73)
+- &#x2728; *New:* Publish LTeX+ on Open VSX: https://open-vsx.org/extension/ltex-plus/vscode-ltex-plus &#x2014; [vscode-ltex-plus#83](https://github.com/ltex-plus/vscode-ltex-plus/issues/83)
+- &#x1f41b; *Bug fix:* Fix error message when using the command [`LTeX: Reset and Restart`](commands.html#ltex-reset-and-restart) &#x2014; [vscode-ltex-plus#94](https://github.com/ltex-plus/vscode-ltex-plus/issues/94)
 - &#x1f527; *Change:* Settings `ltex.additionalRules.word2VecModel`and `ltex.additionalRules.neuralNetworkModel` are marked as deprecated. They are not used by LanguageTool anymore, see [LanguageTool 6.0 release notes](https://github.com/languagetool-org/languagetool/blob/v6.0/languagetool-standalone/CHANGES.md)
 - &#x1f527; *Change:* Update to LTeX+ LS 18.3.0
-- &#x1f41b; *Bug fix:* Fix spelling errors for Swedish dummies &#x2014; [#89](https://github.com/ltex-plus/vscode-ltex-plus/issues/89)
+- &#x1f41b; *Bug fix:* Fix spelling errors for Swedish dummies &#x2014; [vscode-ltex-plus#89](https://github.com/ltex-plus/vscode-ltex-plus/issues/89)
 
 ## 15.2.0 &#x2014; &#x201c;The (X)HTML HTTP 413 Elevation&#x201d; (October 19, 2024)
 
 - &#x1f527; *Change:* Update to LTeX+ LS 18.2.0
 - &#x2728; *New:* Add support for magic comments in (X)HTML files. &#x2014; [ltex-ls-plus#32](https://github.com/ltex-plus/ltex-ls-plus/issues/32), [Jonas Wischeropp (@JonasWischeropp)](https://github.com/JonasWischeropp)
-- &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
+- &#x1f41b; *Bug fix:* Shorten JSON sent to HTTP server in order to HTTP 413 errors. &#x2014; [valentjn/ltex-ls#228](https://github.com/valentjn/ltex-ls/issues/228), [valentjn/ltex-ls#215](https://github.com/valentjn/ltex-ls/issues/215), [vscode-ltex-plus#49](https://github.com/ltex-plus/vscode-ltex-plus/issues/49), [Tim Ruffing (@real-or-random)](https://github.com/real-or-random)
 
 ## 15.1.0 &#x2014; &#x201c;The LTeX+ LS Recovery Experiment&#x201d; (October 5, 2024)
 
@@ -85,7 +85,7 @@ toc: false
 
 ## 15.0.1 &#x2014; &#x201c;The Rollback Dissolution&#x201d; (September 29, 2024)
 
-- &#x1f41b; *Bug fix:* Serious issues with LTeX+ LS 18.1.0. Going back to LTeX+ LS 17.0.1 temporarily. &#x2014; [#55](https://github.com/ltex-plus/vscode-ltex-plus/issues/55)
+- &#x1f41b; *Bug fix:* Serious issues with LTeX+ LS 18.1.0. Going back to LTeX+ LS 17.0.1 temporarily. &#x2014; [vscode-ltex-plus#55](https://github.com/ltex-plus/vscode-ltex-plus/issues/55)
 
 ## 15.0.0 &#x2014; &#x201c;The AArch64 Bifurcation&#x201d; (September 29, 2024)
 
@@ -100,7 +100,7 @@ toc: false
 
 - &#x1f41b; *Bug fix:* Fix the dump of LTeX+ LS if spaces are in the user profile. &#x2014; [valentjn/vscode-ltex#887](https://github.com/valentjn/vscode-ltex/issues/887)
 - &#x1f41b; *Bug fix:* Incorrectly, compatibility with VS Code lower than 1.82 was claimed in version 14.0.0, but this was not the case. Starting from LTeX+ 14.0.0, VS Code 1.82 or higher is required.
-- &#x1f41b; *Bug fix:* Update link to create new issues on Github. &#x2014; [#22](https://github.com/ltex-plus/vscode-ltex-plus/issues/22)
+- &#x1f41b; *Bug fix:* Update link to create new issues on Github. &#x2014; [vscode-ltex-plus#22](https://github.com/ltex-plus/vscode-ltex-plus/issues/22)
 
 ## 14.0.0 &#x2014; &#x201c;The Language Tool Schism&#x201d; (September 1, 2024)
 
@@ -332,7 +332,7 @@ toc: false
 - &#x1f527; *Change:* Rename `addToDictionary` &#x2192; `dictionary` in [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget)
 - &#x1f527; *Change:* Rename `disableRule` &#x2192; `disabledRules` in [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget)
 - &#x1f527; *Change:* Rename `ignoreRuleInSentence` &#x2192; `hiddenFalsePositives` in [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget)
-- &#x2728; *New:* Add `userExternalFile`, `workspaceExternalFile`, and `workspaceFolderExternalFile` enumeration values to [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget), which enables saving settings to external files (see [documentation](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)) &#x2014; [valentjn/vscode-ltex#144](https://github.com/valentjn/vscode-ltex/issues/144), [#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
+- &#x2728; *New:* Add `userExternalFile`, `workspaceExternalFile`, and `workspaceFolderExternalFile` enumeration values to [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget), which enables saving settings to external files (see [documentation](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)) &#x2014; [valentjn/vscode-ltex#144](https://github.com/valentjn/vscode-ltex/issues/144), [vscode-ltex-plus#145](https://github.com/ltex-plus/vscode-ltex-plus/issues/145)
 - &#x1f527; *Change:* Change default of [`ltex.configurationTarget`](../settings.html#ltexconfigurationtarget) for `dictionary`, `disabledRules`, and `hiddenFalsePositives` to `workspaceFolderExternalFile`
 - &#x2728; *New:* Add [`ltex.statusBarItem`](../settings.html#ltexstatusbaritem) to permanently display LTeX's status in the status bar &#x2014; [valentjn/vscode-ltex#141](https://github.com/valentjn/vscode-ltex/issues/141)
 - &#x2728; *New:* Add [`ltex.checkFrequency`](../settings.html#ltexcheckfrequency) to control when LTeX checks documents &#x2014; [valentjn/vscode-ltex#142](https://github.com/valentjn/vscode-ltex/issues/142)

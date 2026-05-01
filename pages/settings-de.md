@@ -1432,7 +1432,10 @@ Beachten Sie, dass in diesem Modus die Einstellung [`ltex.additionalRules.langua
 
 *Typ:* `string`
 
-*Beispiele:* `"https://api.languagetoolplus.com"` (gehostete API), `"http://localhost:8081"` (selbst gehostet)
+*Beispiele:*
+
+- `"https://api.languagetoolplus.com"`
+- `"http://localhost:8081"`
 
 *Voreinstellung:* `""`
 

@@ -1559,13 +1559,23 @@ Changes require restarting LTeX+ to take effect.
 
 ## `ltex.completionEnabled`
 
-Controls whether completion is enabled (also known as auto-completion, quick suggestions, and IntelliSense).
+Controls whether completion is enabled (also known as auto-completion, quick suggestions, and [IntelliSense](https://code.visualstudio.com/docs/editing/intellisense)).
 
-If this setting is enabled, then a list of words is displayed that complete the currently typed word (whenever the editor sends a completion request).
+If this setting is enabled, then a list of words is displayed that complete the currently typed word (whenever the editor sends a completion request). The word list is generated from the hunspell dictionaries bundled with LanguageTool. Completion is handled locally by LTeX+, so it behaves the same regardless of whether [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
+
+Completion lists are currently only available for the following languages: `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-NZ`, `en-US`, and `en-ZA`.
+
+**Known limitations:**
+
+- **Limited language coverage.** Other languages are not supported yet; support could be added in future releases.
+- **No frequency ranking.** The list for each language is an alphabetical dump of all hunspell-derived word forms. Common words do not surface first — typing `gu` may suggest obscure entries like `guacharo`, `guaiacols`, `guaiacums`, or `guanacos` before more common words such as `guarantee` or `guard`.
+- **Inflected and rare forms included.** German lists exceed one million entries due to compounds and inflections, and English lists include uncommon or hyphenated word forms.
 
 <!-- ltex-client-specific-begin -->
 
-In VS Code, completion is enabled by default while typing (via `editor.quickSuggestions`). Therefore, this setting is disabled by default, as constantly displaying completion lists might annoy the user. It is recommended to enable this setting, but disable `editor.quickSuggestions`. Then, LTeX+ completions can be requested by pressing `Ctrl+Space`.
+In VS Code, completion is triggered automatically while typing (via `editor.quickSuggestions`), with a delay controlled by `editor.quickSuggestionsDelay` (default: 10 ms). If you find the resulting completion lists too noisy, you can silence VS Code's quick suggestions for prose (e.g., by setting `"editor.quickSuggestions": { "other": false }`) and request LTeX+ completions on demand by pressing `Ctrl+Space` instead.
+
+These options can also be customized per [language identifier](https://code.visualstudio.com/docs/languages/identifiers) (e.g., for `[markdown]`). See [IntelliSense in VS Code](https://code.visualstudio.com/docs/editing/intellisense) for further customization options.
 
 <!-- ltex-client-specific-end -->
 

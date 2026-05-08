@@ -599,13 +599,23 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 ## `ltex.completionEnabled`
 
-Steuert, ob Vervollständigung aktiviert ist (auch bekannt als Auto-Vervollständigung, Schnellvorschläge und IntelliSense).
+Steuert, ob Vervollständigung aktiviert ist (auch bekannt als Auto-Vervollständigung, Schnellvorschläge und [IntelliSense](https://code.visualstudio.com/docs/editing/intellisense)).
 
-Falls diese Einstellung aktiviert ist, dann wird eine Liste von Wörtern angezeigt, die das aktuelle Wort ergänzen (jedes Mal, wenn der Editor eine Vervollständigungs-Anfrage sendet).
+Falls diese Einstellung aktiviert ist, dann wird eine Liste von Wörtern angezeigt, die das aktuelle Wort ergänzen (jedes Mal, wenn der Editor eine Vervollständigungs-Anfrage sendet). Die Wortliste wird aus den mit LanguageTool ausgelieferten Hunspell-Wörterbüchern erzeugt. Vervollständigung wird lokal von LTeX+ verarbeitet und verhält sich daher unabhängig davon, ob [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
+
+Vervollständigungs-Listen sind derzeit nur für die folgenden Sprachen verfügbar: `de-AT`, `de-CH`, `de-DE`, `en-AU`, `en-CA`, `en-GB`, `en-NZ`, `en-US` und `en-ZA`.
+
+**Bekannte Einschränkungen:**
+
+- **Eingeschränkte Sprachabdeckung.** Andere Sprachen werden noch nicht unterstützt; Unterstützung könnte in zukünftigen Versionen hinzugefügt werden.
+- **Keine Sortierung nach Häufigkeit.** Die Liste für jede Sprache ist eine alphabetische Ausgabe aller aus Hunspell abgeleiteten Wortformen. Häufige Wörter erscheinen nicht zuerst — die Eingabe von `gu` kann eher seltene Einträge wie `guacharo`, `guaiacols`, `guaiacums`, oder `guanacos` vor häufigeren Wörtern wie `guarantee` oder `guard` vorschlagen.
+- **Flektierte und seltene Formen enthalten.** Deutsche Listen umfassen aufgrund von Komposita und Flexionen über eine Million Einträge, und englische Listen enthalten ungewöhnliche oder mit Bindestrich verbundene Wortformen.
 
 <!-- ltex-client-specific-begin -->
 
-In VS Code ist Vervollständigung während des Tippens standardmäßig aktiviert (via `editor.quickSuggestions`). Daher ist diese Einstellung standardmäßig deaktiviert, weil ständig angezeigte Vervollständigungs-Listen den Benutzer stören könnten. Es wird empfohlen, diese Einstellung zu aktivieren, aber `editor.quickSuggestions` zu deaktivieren. Dann können LTeX+-Vervollständigungen durch Drücken von `Strg+Leertaste` angefordert werden.
+In VS Code wird die Vervollständigung während des Tippens automatisch ausgelöst (via `editor.quickSuggestions`), mit einer durch `editor.quickSuggestionsDelay` gesteuerten Verzögerung (Voreinstellung: 10 ms). Wenn Sie diese Einstellung aktivieren und die daraus resultierenden Vervollständigungs-Listen als zu störend empfinden, können Sie die Schnellvorschläge von VS Code für Fließtext deaktivieren (z. B. durch `"editor.quickSuggestions": { "other": false }`) und LTeX+-Vervollständigungen stattdessen bei Bedarf durch Drücken von `Strg+Leertaste` anfordern.
+
+Diese Optionen können auch pro [Sprachkennung](https://code.visualstudio.com/docs/languages/identifiers) angepasst werden (z. B. für `[markdown]`). Siehe [IntelliSense in VS Code](https://code.visualstudio.com/docs/editing/intellisense) für weitere Anpassungsmöglichkeiten.
 
 <!-- ltex-client-specific-end -->
 

@@ -14,6 +14,9 @@ toc: false
 
 ## 15.7.0 (upcoming)
 
+- &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
+- &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
+- &#x1f41b; *Bug fix:* Interpolate environment variables in path options &#x2014; [#190](https://github.com/ltex-plus/vscode-ltex-plus/issues/190), [Anton (@theblueplum)](https://github.com/theblueplum)
 - &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [vscode-ltex-plus#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
 - &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [vscode-ltex-plus#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [vscode-ltex-plus#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
 - &#x1f41b; *Bug fix:* Interpolate environment variables in path options &#x2014; [vscode-ltex-plus#190](https://github.com/ltex-plus/vscode-ltex-plus/issues/190), [Anton (@theblueplum)](https://github.com/theblueplum)

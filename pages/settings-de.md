@@ -41,9 +41,7 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 *Voreinstellung:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "mdx", "typst", "asciidoc", "neorg", "org", "quarto", "restructuredtext", "rsweave"]`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Einer der folgenden Typen:
 
@@ -52,13 +50,15 @@ Einer der folgenden Typen:
 
   - Skalar vom Typ `string`
 
-</div>
-
 ## `ltex.language`
 
-Die Sprache (z. B. `"en-US"`), mit der LanguageTool auf Fehler suchen soll. Falls möglich, benutzen Sie eine bestimmte Variante wie `"en-US"` oder `"de-DE"` anstelle des generischen Sprachcodes wie `"en"` oder `"de"`, um Rechtschreibfehler zu finden (zusätzlich zu Grammatikfehlern).
+Die Sprache, mit der LanguageTool auf Fehler suchen soll. Wählen Sie den BCP-47-Code, der am besten zu Ihrem Text passt (z. B. `"en-US"`, `"fr-FR"`, `"de-DE"`, `"ca-ES-valencia"`).
 
-Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da nur generische Sprachen wie `"en"` oder `"de"` erkannt werden und eventuell keine Rechtschreibfehler gemeldet werden. Bei manchen generischen Sprachcodes wie `"es"` (Spanisch) werden Rechtschreibfehler gemeldet, obwohl die Sprachcodes generisch sind.
+Die modernen, vollständig ausgeschriebenen Codes `"fr-FR"`, `"it-IT"`, `"es-ES"`, `"nl-NL"`, `"sv-SE"` und `"fa-IR"` erfordern ltex-ls-plus 18.7.x oder neuer; in früheren Versionen wurden diese speziellen Codes nicht akzeptiert, während die meisten anderen erweiterten Codes wie `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-CH"` und `"de-AT"` bereits funktionierten. Eine bestmögliche Beschreibung, wie Sprachcodes in jenen Versionen behandelt wurden, finden Sie unter [Language Codes in Older Versions](language-code-legacy.html). Aktuelle Versionen akzeptieren weiterhin die veralteten nackten Codes (`"fr"`, `"it"`, `"de"`, `"en"`, …) aus Gründen der Rückwärtskompatibilität, sie werden unten jedoch nicht mehr beworben und sollten in neuen Konfigurationen nicht verwendet werden.
+
+Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da die Erkennung grob ist und auf Sprachfamilien zurückfällt, die kein Rechtschreibwörterbuch enthalten — Rechtschreibfehler werden in diesem Fall möglicherweise nicht gemeldet. Verwenden Sie für Dokumente, die mitten im Text die Sprache wechseln, stattdessen In-Dokument-[Magic Comments](advanced-usage.html#magic-comments) — zum Beispiel in Markdown: `<!-- LTeX: language=de-DE -->`. Die genaue Syntax hängt vom Dokumenttyp ab.
+
+In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"no"` wie `"nb"` behandelt, die beiden Codes sind also austauschbar). `(only on api.languagetoolplus.com)` markiert einen Code, der nur von LanguageTools eigener gehosteter API erkannt wird. Der mitgelieferte Prüfer und selbst gehostete Instanzen des Open-Source-LanguageTool-Servers verwenden denselben Code-Satz und erkennen diese Codes nicht — auch nicht, wenn sie über [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) erreichbar sind.
 
 *Typ:* `string`
 
@@ -70,15 +70,15 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprach
 - `"be-BY"`: Belarusian
 - `"br-FR"`: Breton
 - `"ca-ES"`: Catalan
+- `"ca-ES-balear"`: Catalan (Balearic)
 - `"ca-ES-valencia"`: Catalan (Valencian)
+- `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
-- `"de-DE-x-simple-language"`: Simple German
+- `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -86,19 +86,22 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprach
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian
-- `"fr"`: French
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
+- `"fr-BE"`: French (Belgium)
+- `"fr-CA"`: French (Canada)
+- `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nl"`: Dutch
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -107,7 +110,7 @@ Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprach
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -123,9 +126,9 @@ Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{
 
 <!-- ltex-client-specific-de-begin -->
 
-Diese Einstellung ist eine Multi-Scope-Einstellung. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+Diese Einstellung ist eine [Multi-Scope-Einstellung](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-Diese Einstellung unterstützt externe Dateien. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+Diese Einstellung unterstützt [externe Dateien](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -137,249 +140,13 @@ Standardmäßig werden keine zusätzlichen Schreibfehler ignoriert.
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
+*Vollständige Beschreibung des Typs:*
 
-<div markdown='1' style='display:none;'>
+Objekt mit Sprachcode als Eigenschaftsname (siehe [`ltex.language`](settings-de.html#ltexlanguage) für gültige Werte), wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
-Objekt mit folgenden Eigenschaften:
-
-- `"ar"`: Liste von zusätzlichen Wörtern der Sprache `ar` (Arabic), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
+- Array, bei dem jeder Eintrag folgenden Typ hat:
 
   - Skalar vom Typ `string`
-- `"ast-ES"`: Liste von zusätzlichen Wörtern der Sprache `ast-ES` (Asturian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"be-BY"`: Liste von zusätzlichen Wörtern der Sprache `be-BY` (Belarusian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"br-FR"`: Liste von zusätzlichen Wörtern der Sprache `br-FR` (Breton), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES"`: Liste von zusätzlichen Wörtern der Sprache `ca-ES` (Catalan), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES-valencia"`: Liste von zusätzlichen Wörtern der Sprache `ca-ES-valencia` (Catalan (Valencian)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"da-DK"`: Liste von zusätzlichen Wörtern der Sprache `da-DK` (Danish), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de"`: Liste von zusätzlichen Wörtern der Sprache `de` (German), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-AT"`: Liste von zusätzlichen Wörtern der Sprache `de-AT` (German (Austria)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-CH"`: Liste von zusätzlichen Wörtern der Sprache `de-CH` (German (Swiss)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE"`: Liste von zusätzlichen Wörtern der Sprache `de-DE` (German (Germany)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE-x-simple-language"`: Liste von zusätzlichen Wörtern der Sprache `de-DE-x-simple-language` (Simple German), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"el-GR"`: Liste von zusätzlichen Wörtern der Sprache `el-GR` (Greek), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en"`: Liste von zusätzlichen Wörtern der Sprache `en` (English), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-AU"`: Liste von zusätzlichen Wörtern der Sprache `en-AU` (English (Australian)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-CA"`: Liste von zusätzlichen Wörtern der Sprache `en-CA` (English (Canadian)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-GB"`: Liste von zusätzlichen Wörtern der Sprache `en-GB` (English (GB)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-NZ"`: Liste von zusätzlichen Wörtern der Sprache `en-NZ` (English (New Zealand)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-US"`: Liste von zusätzlichen Wörtern der Sprache `en-US` (English (US)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-ZA"`: Liste von zusätzlichen Wörtern der Sprache `en-ZA` (English (South African)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"eo"`: Liste von zusätzlichen Wörtern der Sprache `eo` (Esperanto), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es"`: Liste von zusätzlichen Wörtern der Sprache `es` (Spanish), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es-AR"`: Liste von zusätzlichen Wörtern der Sprache `es-AR` (Spanish (voseo)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fa"`: Liste von zusätzlichen Wörtern der Sprache `fa` (Persian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fr"`: Liste von zusätzlichen Wörtern der Sprache `fr` (French), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ga-IE"`: Liste von zusätzlichen Wörtern der Sprache `ga-IE` (Irish), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"gl-ES"`: Liste von zusätzlichen Wörtern der Sprache `gl-ES` (Galician), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"it"`: Liste von zusätzlichen Wörtern der Sprache `it` (Italian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ja-JP"`: Liste von zusätzlichen Wörtern der Sprache `ja-JP` (Japanese), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"km-KH"`: Liste von zusätzlichen Wörtern der Sprache `km-KH` (Khmer), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl"`: Liste von zusätzlichen Wörtern der Sprache `nl` (Dutch), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl-BE"`: Liste von zusätzlichen Wörtern der Sprache `nl-BE` (Dutch (Belgium)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pl-PL"`: Liste von zusätzlichen Wörtern der Sprache `pl-PL` (Polish), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt"`: Liste von zusätzlichen Wörtern der Sprache `pt` (Portuguese), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-AO"`: Liste von zusätzlichen Wörtern der Sprache `pt-AO` (Portuguese (Angola preAO)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-BR"`: Liste von zusätzlichen Wörtern der Sprache `pt-BR` (Portuguese (Brazil)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-MZ"`: Liste von zusätzlichen Wörtern der Sprache `pt-MZ` (Portuguese (Moçambique preAO)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-PT"`: Liste von zusätzlichen Wörtern der Sprache `pt-PT` (Portuguese (Portugal)), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ro-RO"`: Liste von zusätzlichen Wörtern der Sprache `ro-RO` (Romanian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ru-RU"`: Liste von zusätzlichen Wörtern der Sprache `ru-RU` (Russian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sk-SK"`: Liste von zusätzlichen Wörtern der Sprache `sk-SK` (Slovak), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sl-SI"`: Liste von zusätzlichen Wörtern der Sprache `sl-SI` (Slovenian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sv"`: Liste von zusätzlichen Wörtern der Sprache `sv` (Swedish), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ta-IN"`: Liste von zusätzlichen Wörtern der Sprache `ta-IN` (Tamil), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"tl-PH"`: Liste von zusätzlichen Wörtern der Sprache `tl-PH` (Tagalog), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"uk-UA"`: Liste von zusätzlichen Wörtern der Sprache `uk-UA` (Ukrainian), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"zh-CN"`: Liste von zusätzlichen Wörtern der Sprache `zh-CN` (Chinese), die nicht als Schreibfehler gewertet werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-
-</div>
 
 ## `ltex.disabledRules`
 
@@ -389,9 +156,9 @@ Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{
 
 <!-- ltex-client-specific-de-begin -->
 
-Diese Einstellung ist eine Multi-Scope-Einstellung. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+Diese Einstellung ist eine [Multi-Scope-Einstellung](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-Diese Einstellung unterstützt externe Dateien. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+Diese Einstellung unterstützt [externe Dateien](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -403,249 +170,13 @@ Standardmäßig werden keine zusätzlichen Regeln deaktiviert.
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
+*Vollständige Beschreibung des Typs:*
 
-<div markdown='1' style='display:none;'>
+Objekt mit Sprachcode als Eigenschaftsname (siehe [`ltex.language`](settings-de.html#ltexlanguage) für gültige Werte), wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
-Objekt mit folgenden Eigenschaften:
-
-- `"ar"`: Liste von zusätzlichen Regeln der Sprache `ar` (Arabic), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
+- Array, bei dem jeder Eintrag folgenden Typ hat:
 
   - Skalar vom Typ `string`
-- `"ast-ES"`: Liste von zusätzlichen Regeln der Sprache `ast-ES` (Asturian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"be-BY"`: Liste von zusätzlichen Regeln der Sprache `be-BY` (Belarusian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"br-FR"`: Liste von zusätzlichen Regeln der Sprache `br-FR` (Breton), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES"`: Liste von zusätzlichen Regeln der Sprache `ca-ES` (Catalan), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES-valencia"`: Liste von zusätzlichen Regeln der Sprache `ca-ES-valencia` (Catalan (Valencian)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"da-DK"`: Liste von zusätzlichen Regeln der Sprache `da-DK` (Danish), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de"`: Liste von zusätzlichen Regeln der Sprache `de` (German), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-AT"`: Liste von zusätzlichen Regeln der Sprache `de-AT` (German (Austria)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-CH"`: Liste von zusätzlichen Regeln der Sprache `de-CH` (German (Swiss)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE"`: Liste von zusätzlichen Regeln der Sprache `de-DE` (German (Germany)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE-x-simple-language"`: Liste von zusätzlichen Regeln der Sprache `de-DE-x-simple-language` (Simple German), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"el-GR"`: Liste von zusätzlichen Regeln der Sprache `el-GR` (Greek), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en"`: Liste von zusätzlichen Regeln der Sprache `en` (English), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-AU"`: Liste von zusätzlichen Regeln der Sprache `en-AU` (English (Australian)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-CA"`: Liste von zusätzlichen Regeln der Sprache `en-CA` (English (Canadian)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-GB"`: Liste von zusätzlichen Regeln der Sprache `en-GB` (English (GB)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-NZ"`: Liste von zusätzlichen Regeln der Sprache `en-NZ` (English (New Zealand)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-US"`: Liste von zusätzlichen Regeln der Sprache `en-US` (English (US)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-ZA"`: Liste von zusätzlichen Regeln der Sprache `en-ZA` (English (South African)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"eo"`: Liste von zusätzlichen Regeln der Sprache `eo` (Esperanto), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es"`: Liste von zusätzlichen Regeln der Sprache `es` (Spanish), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es-AR"`: Liste von zusätzlichen Regeln der Sprache `es-AR` (Spanish (voseo)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fa"`: Liste von zusätzlichen Regeln der Sprache `fa` (Persian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fr"`: Liste von zusätzlichen Regeln der Sprache `fr` (French), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ga-IE"`: Liste von zusätzlichen Regeln der Sprache `ga-IE` (Irish), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"gl-ES"`: Liste von zusätzlichen Regeln der Sprache `gl-ES` (Galician), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"it"`: Liste von zusätzlichen Regeln der Sprache `it` (Italian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ja-JP"`: Liste von zusätzlichen Regeln der Sprache `ja-JP` (Japanese), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"km-KH"`: Liste von zusätzlichen Regeln der Sprache `km-KH` (Khmer), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl"`: Liste von zusätzlichen Regeln der Sprache `nl` (Dutch), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl-BE"`: Liste von zusätzlichen Regeln der Sprache `nl-BE` (Dutch (Belgium)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pl-PL"`: Liste von zusätzlichen Regeln der Sprache `pl-PL` (Polish), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt"`: Liste von zusätzlichen Regeln der Sprache `pt` (Portuguese), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-AO"`: Liste von zusätzlichen Regeln der Sprache `pt-AO` (Portuguese (Angola preAO)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-BR"`: Liste von zusätzlichen Regeln der Sprache `pt-BR` (Portuguese (Brazil)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-MZ"`: Liste von zusätzlichen Regeln der Sprache `pt-MZ` (Portuguese (Moçambique preAO)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-PT"`: Liste von zusätzlichen Regeln der Sprache `pt-PT` (Portuguese (Portugal)), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ro-RO"`: Liste von zusätzlichen Regeln der Sprache `ro-RO` (Romanian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ru-RU"`: Liste von zusätzlichen Regeln der Sprache `ru-RU` (Russian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sk-SK"`: Liste von zusätzlichen Regeln der Sprache `sk-SK` (Slovak), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sl-SI"`: Liste von zusätzlichen Regeln der Sprache `sl-SI` (Slovenian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sv"`: Liste von zusätzlichen Regeln der Sprache `sv` (Swedish), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ta-IN"`: Liste von zusätzlichen Regeln der Sprache `ta-IN` (Tamil), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"tl-PH"`: Liste von zusätzlichen Regeln der Sprache `tl-PH` (Tagalog), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"uk-UA"`: Liste von zusätzlichen Regeln der Sprache `uk-UA` (Ukrainian), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"zh-CN"`: Liste von zusätzlichen Regeln der Sprache `zh-CN` (Chinese), die deaktiviert werden sollen (falls standardmäßig durch LanguageTool aktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-
-</div>
 
 ## `ltex.enabledRules`
 
@@ -655,9 +186,9 @@ Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{
 
 <!-- ltex-client-specific-de-begin -->
 
-Diese Einstellung ist eine Multi-Scope-Einstellung. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+Diese Einstellung ist eine [Multi-Scope-Einstellung](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-Diese Einstellung unterstützt externe Dateien. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+Diese Einstellung unterstützt [externe Dateien](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -669,249 +200,13 @@ Standardmäßig werden keine zusätzlichen Regeln aktiviert.
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
+*Vollständige Beschreibung des Typs:*
 
-<div markdown='1' style='display:none;'>
+Objekt mit Sprachcode als Eigenschaftsname (siehe [`ltex.language`](settings-de.html#ltexlanguage) für gültige Werte), wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
-Objekt mit folgenden Eigenschaften:
-
-- `"ar"`: Liste von zusätzlichen Regeln der Sprache `ar` (Arabic), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
+- Array, bei dem jeder Eintrag folgenden Typ hat:
 
   - Skalar vom Typ `string`
-- `"ast-ES"`: Liste von zusätzlichen Regeln der Sprache `ast-ES` (Asturian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"be-BY"`: Liste von zusätzlichen Regeln der Sprache `be-BY` (Belarusian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"br-FR"`: Liste von zusätzlichen Regeln der Sprache `br-FR` (Breton), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES"`: Liste von zusätzlichen Regeln der Sprache `ca-ES` (Catalan), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES-valencia"`: Liste von zusätzlichen Regeln der Sprache `ca-ES-valencia` (Catalan (Valencian)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"da-DK"`: Liste von zusätzlichen Regeln der Sprache `da-DK` (Danish), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de"`: Liste von zusätzlichen Regeln der Sprache `de` (German), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-AT"`: Liste von zusätzlichen Regeln der Sprache `de-AT` (German (Austria)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-CH"`: Liste von zusätzlichen Regeln der Sprache `de-CH` (German (Swiss)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE"`: Liste von zusätzlichen Regeln der Sprache `de-DE` (German (Germany)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE-x-simple-language"`: Liste von zusätzlichen Regeln der Sprache `de-DE-x-simple-language` (Simple German), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"el-GR"`: Liste von zusätzlichen Regeln der Sprache `el-GR` (Greek), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en"`: Liste von zusätzlichen Regeln der Sprache `en` (English), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-AU"`: Liste von zusätzlichen Regeln der Sprache `en-AU` (English (Australian)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-CA"`: Liste von zusätzlichen Regeln der Sprache `en-CA` (English (Canadian)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-GB"`: Liste von zusätzlichen Regeln der Sprache `en-GB` (English (GB)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-NZ"`: Liste von zusätzlichen Regeln der Sprache `en-NZ` (English (New Zealand)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-US"`: Liste von zusätzlichen Regeln der Sprache `en-US` (English (US)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-ZA"`: Liste von zusätzlichen Regeln der Sprache `en-ZA` (English (South African)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"eo"`: Liste von zusätzlichen Regeln der Sprache `eo` (Esperanto), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es"`: Liste von zusätzlichen Regeln der Sprache `es` (Spanish), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es-AR"`: Liste von zusätzlichen Regeln der Sprache `es-AR` (Spanish (voseo)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fa"`: Liste von zusätzlichen Regeln der Sprache `fa` (Persian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fr"`: Liste von zusätzlichen Regeln der Sprache `fr` (French), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ga-IE"`: Liste von zusätzlichen Regeln der Sprache `ga-IE` (Irish), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"gl-ES"`: Liste von zusätzlichen Regeln der Sprache `gl-ES` (Galician), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"it"`: Liste von zusätzlichen Regeln der Sprache `it` (Italian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ja-JP"`: Liste von zusätzlichen Regeln der Sprache `ja-JP` (Japanese), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"km-KH"`: Liste von zusätzlichen Regeln der Sprache `km-KH` (Khmer), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl"`: Liste von zusätzlichen Regeln der Sprache `nl` (Dutch), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl-BE"`: Liste von zusätzlichen Regeln der Sprache `nl-BE` (Dutch (Belgium)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pl-PL"`: Liste von zusätzlichen Regeln der Sprache `pl-PL` (Polish), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt"`: Liste von zusätzlichen Regeln der Sprache `pt` (Portuguese), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-AO"`: Liste von zusätzlichen Regeln der Sprache `pt-AO` (Portuguese (Angola preAO)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-BR"`: Liste von zusätzlichen Regeln der Sprache `pt-BR` (Portuguese (Brazil)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-MZ"`: Liste von zusätzlichen Regeln der Sprache `pt-MZ` (Portuguese (Moçambique preAO)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-PT"`: Liste von zusätzlichen Regeln der Sprache `pt-PT` (Portuguese (Portugal)), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ro-RO"`: Liste von zusätzlichen Regeln der Sprache `ro-RO` (Romanian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ru-RU"`: Liste von zusätzlichen Regeln der Sprache `ru-RU` (Russian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sk-SK"`: Liste von zusätzlichen Regeln der Sprache `sk-SK` (Slovak), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sl-SI"`: Liste von zusätzlichen Regeln der Sprache `sl-SI` (Slovenian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sv"`: Liste von zusätzlichen Regeln der Sprache `sv` (Swedish), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ta-IN"`: Liste von zusätzlichen Regeln der Sprache `ta-IN` (Tamil), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"tl-PH"`: Liste von zusätzlichen Regeln der Sprache `tl-PH` (Tagalog), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"uk-UA"`: Liste von zusätzlichen Regeln der Sprache `uk-UA` (Ukrainian), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"zh-CN"`: Liste von zusätzlichen Regeln der Sprache `zh-CN` (Chinese), die aktiviert werden sollen (falls standardmäßig durch LanguageTool deaktiviert).
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-
-</div>
 
 ## `ltex.hiddenFalsePositives`
 
@@ -925,9 +220,9 @@ Die JSON-Zeichenfolge hat momentan die Form `{"rule": "<REGEL>", "sentence": "<S
 
 <!-- ltex-client-specific-de-begin -->
 
-Diese Einstellung ist eine Multi-Scope-Einstellung. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+Diese Einstellung ist eine [Multi-Scope-Einstellung](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-Diese Einstellung unterstützt externe Dateien. [Siehe die Dokumentation für Details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+Diese Einstellung unterstützt [externe Dateien](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -939,249 +234,13 @@ Die Leistung kann darunter leiden, falls diese Liste sehr lang ist.
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
+*Vollständige Beschreibung des Typs:*
 
-<div markdown='1' style='display:none;'>
+Objekt mit Sprachcode als Eigenschaftsname (siehe [`ltex.language`](settings-de.html#ltexlanguage) für gültige Werte), wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
-Objekt mit folgenden Eigenschaften:
-
-- `"ar"`: Liste von falschen Fehlern der Sprache `ar` (Arabic), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
+- Array, bei dem jeder Eintrag folgenden Typ hat:
 
   - Skalar vom Typ `string`
-- `"ast-ES"`: Liste von falschen Fehlern der Sprache `ast-ES` (Asturian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"be-BY"`: Liste von falschen Fehlern der Sprache `be-BY` (Belarusian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"br-FR"`: Liste von falschen Fehlern der Sprache `br-FR` (Breton), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES"`: Liste von falschen Fehlern der Sprache `ca-ES` (Catalan), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ca-ES-valencia"`: Liste von falschen Fehlern der Sprache `ca-ES-valencia` (Catalan (Valencian)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"da-DK"`: Liste von falschen Fehlern der Sprache `da-DK` (Danish), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de"`: Liste von falschen Fehlern der Sprache `de` (German), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-AT"`: Liste von falschen Fehlern der Sprache `de-AT` (German (Austria)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-CH"`: Liste von falschen Fehlern der Sprache `de-CH` (German (Swiss)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE"`: Liste von falschen Fehlern der Sprache `de-DE` (German (Germany)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"de-DE-x-simple-language"`: Liste von falschen Fehlern der Sprache `de-DE-x-simple-language` (Simple German), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"el-GR"`: Liste von falschen Fehlern der Sprache `el-GR` (Greek), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en"`: Liste von falschen Fehlern der Sprache `en` (English), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-AU"`: Liste von falschen Fehlern der Sprache `en-AU` (English (Australian)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-CA"`: Liste von falschen Fehlern der Sprache `en-CA` (English (Canadian)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-GB"`: Liste von falschen Fehlern der Sprache `en-GB` (English (GB)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-NZ"`: Liste von falschen Fehlern der Sprache `en-NZ` (English (New Zealand)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-US"`: Liste von falschen Fehlern der Sprache `en-US` (English (US)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"en-ZA"`: Liste von falschen Fehlern der Sprache `en-ZA` (English (South African)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"eo"`: Liste von falschen Fehlern der Sprache `eo` (Esperanto), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es"`: Liste von falschen Fehlern der Sprache `es` (Spanish), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"es-AR"`: Liste von falschen Fehlern der Sprache `es-AR` (Spanish (voseo)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fa"`: Liste von falschen Fehlern der Sprache `fa` (Persian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"fr"`: Liste von falschen Fehlern der Sprache `fr` (French), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ga-IE"`: Liste von falschen Fehlern der Sprache `ga-IE` (Irish), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"gl-ES"`: Liste von falschen Fehlern der Sprache `gl-ES` (Galician), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"it"`: Liste von falschen Fehlern der Sprache `it` (Italian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ja-JP"`: Liste von falschen Fehlern der Sprache `ja-JP` (Japanese), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"km-KH"`: Liste von falschen Fehlern der Sprache `km-KH` (Khmer), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl"`: Liste von falschen Fehlern der Sprache `nl` (Dutch), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"nl-BE"`: Liste von falschen Fehlern der Sprache `nl-BE` (Dutch (Belgium)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pl-PL"`: Liste von falschen Fehlern der Sprache `pl-PL` (Polish), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt"`: Liste von falschen Fehlern der Sprache `pt` (Portuguese), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-AO"`: Liste von falschen Fehlern der Sprache `pt-AO` (Portuguese (Angola preAO)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-BR"`: Liste von falschen Fehlern der Sprache `pt-BR` (Portuguese (Brazil)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-MZ"`: Liste von falschen Fehlern der Sprache `pt-MZ` (Portuguese (Moçambique preAO)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"pt-PT"`: Liste von falschen Fehlern der Sprache `pt-PT` (Portuguese (Portugal)), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ro-RO"`: Liste von falschen Fehlern der Sprache `ro-RO` (Romanian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ru-RU"`: Liste von falschen Fehlern der Sprache `ru-RU` (Russian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sk-SK"`: Liste von falschen Fehlern der Sprache `sk-SK` (Slovak), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sl-SI"`: Liste von falschen Fehlern der Sprache `sl-SI` (Slovenian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"sv"`: Liste von falschen Fehlern der Sprache `sv` (Swedish), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"ta-IN"`: Liste von falschen Fehlern der Sprache `ta-IN` (Tamil), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"tl-PH"`: Liste von falschen Fehlern der Sprache `tl-PH` (Tagalog), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"uk-UA"`: Liste von falschen Fehlern der Sprache `uk-UA` (Ukrainian), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-- `"zh-CN"`: Liste von falschen Fehlern der Sprache `zh-CN` (Chinese), die verborgen werden sollen.
-
-  Array, bei dem jeder Eintrag folgenden Typ hat:
-
-  - Skalar vom Typ `string`
-
-</div>
 
 ## `ltex.bibtex.fields`
 
@@ -1197,15 +256,11 @@ Einige gebräuchliche Felder werden bereits ignoriert, selbst, wenn Sie diese Ei
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
 - Skalar vom Typ `boolean`
-
-</div>
 
 ## `ltex.latex.commands`
 
@@ -1227,9 +282,7 @@ Viele gebräuchliche Befehle werden standardmäßig bereits gesondert behandelt,
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
@@ -1240,8 +293,6 @@ Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folge
   - `"dummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX+ nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
   - `"pluralDummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Plural-Dummy-Wort ersetzt (d. h. `Dummies`). Siehe die Beschreibung von `"dummy"`.
   - `"vowelDummy"`: Der ganze Befehl zusammen mit seinen Argumenten wird durch ein Vokal-Dummy-Wort ersetzt (d. h. `Ina`). Siehe die Beschreibung von `"dummy"`.
-
-</div>
 
 ## `ltex.latex.environments`
 
@@ -1257,9 +308,7 @@ Manche Umgebungen werden standardmäßig bereits gesondert behandelt, selbst, we
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
@@ -1267,8 +316,6 @@ Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folge
 
   - `"default"`: Die Umgebung wird so behandelt, wie unbekannte Umgebungen standardmäßig behandelt werden: Die Argumente der Umgebung werden ignoriert, aber der Inhalt der Umgebung wird nicht ignoriert.
   - `"ignore"`: Die ganze Umgebung zusammen mit ihren Argumenten und ihrem Inhalt wird ignoriert.
-
-</div>
 
 ## `ltex.markdown.nodes`
 
@@ -1286,9 +333,7 @@ Manche gebräuchlichen Knotentypen werden standardmäßig bereits gesondert beha
 
 *Voreinstellung:* `{}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folgenden Typ hat:
 
@@ -1299,8 +344,6 @@ Objekt mit beliebigen Eigenschaftsnamen, wobei die Werte jeder Eigenschaft folge
   - `"dummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Dummy-Wort ersetzt (d. h. `Dummy0`, `Dummy1` usw.). LTeX+ nutzt diesen Mechanismus intern für Gleichungen, Literaturverweise, Referenzen und ähnliche Konstrukte, die Teil der Satzstruktur sind und für die LanguageTool einen Fehler anzeigen würde, wenn man sie einfach im überprüften Text weglassen würde.
   - `"pluralDummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Plural-Dummy-Wort ersetzt (d. h. `Dummies`). Siehe die Beschreibung von `"dummy"`.
   - `"vowelDummy"`: Der ganze Knoten zusammen mit seinen `Text`-Blättern wird durch ein Vokal-Dummy-Wort ersetzt (d. h. `Ina`). Siehe die Beschreibung von `"dummy"`.
-
-</div>
 
 ## `ltex.configurationTarget`
 
@@ -1314,9 +357,7 @@ Steuert, welche `settings.json` oder externe Einstellungsdatei ([siehe die Dokum
 
 *Voreinstellung:* `{"dictionary": "workspaceFolderExternalFile", "disabledRules": "workspaceFolderExternalFile", "hiddenFalsePositives": "workspaceFolderExternalFile"}`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Objekt mit folgenden Eigenschaften:
 
@@ -1345,8 +386,6 @@ Objekt mit folgenden Eigenschaften:
   - `"workspaceExternalFile"`: Wenn ein falscher Fehler verborgen wird, verändere die erste externe Einstellungsdatei in der Arbeitsbereich-Konfiguration, falls gerade ein Arbeitsbereich geöffnet ist, ansonsten die analoge Datei in der Benutzer-Konfiguration.
   - `"workspaceFolderExternalFile"`: Wenn ein falscher Fehler verborgen wird, verändere die erste externe Einstellungsdatei in der Arbeitsbereichsordner-Konfiguration, falls gerade ein Arbeitsbereichsordner geöffnet ist, ansonsten die analoge Datei in der Arbeitsbereich-Konfiguration, falls gerade ein Arbeitsbereich geöffnet ist, ansonsten die analoge Datei in der Benutzer-Konfiguration.
 
-</div>
-
 ## `ltex.additionalRules.enablePickyRules`
 
 Aktiviere LanguageTool-Regeln, die als pedantisch ("picky") markiert und standardmäßig deaktiviert sind, z. B. Regeln bzgl. Passiv, Satzlänge etc., mit dem Nachteil von mehr falschen Fehlern.
@@ -1371,15 +410,15 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"be-BY"`: Belarusian
 - `"br-FR"`: Breton
 - `"ca-ES"`: Catalan
+- `"ca-ES-balear"`: Catalan (Balearic)
 - `"ca-ES-valencia"`: Catalan (Valencian)
+- `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
-- `"de-DE-x-simple-language"`: Simple German
+- `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -1387,19 +426,22 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian
-- `"fr"`: French
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
+- `"fr-BE"`: French (Belgium)
+- `"fr-CA"`: French (Canada)
+- `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nl"`: Dutch
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -1408,7 +450,7 @@ Falls diese Einstellung gesetzt ist, werden zusätzliche Regeln verwendet, um fa
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -1459,7 +501,7 @@ API-Schlüssel für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.lang
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-plus-Releases setzen, das Sie selbst heruntergeladen haben.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann lädt LTeX+ automatisch [ltex-ls von GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases) herunter, speichert es im Erweiterungsordner, und benutzt es für die Textüberprüfung. Sie können diese Einstellung auf den Ort eines ltex-ls-plus-Releases setzen, das Sie selbst heruntergeladen haben. `$VAR` wird durch den Wert der Umgebungsvariable ersetzt.
 
 Benutzen Sie dafür den Pfad zum Hauptverzeichnis von ltex-ls-plus (dieses enthält die Unterverzeichnisse `bin` und `lib`).
 
@@ -1497,7 +539,7 @@ ltex-ls benutzt nicht alle Protokollierungslevel.
 
 <!-- ltex-client-specific-de-begin -->
 
-Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX+ eine Java-Distribution, die in ltex-ls-plus enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen.
+Falls dies auf eine leere Zeichenfolge gesetzt ist, dann benutzt LTeX+ eine Java-Distribution, die in ltex-ls-plus enthalten ist. Sie können diese Einstellung auf den Ort einer bereits bestehenden Java-Installation setzen, um stattdessen diese Java-Installation zu benutzen. `$VAR` wird durch den Wert der Umgebungsvariable ersetzt.
 
 Benutzen Sie denselben Pfad, den Sie für die Umgebungsvariable `JAVA_HOME` benutzen würden (dieser enthält üblicherweise neben anderen die Unterverzeichnisse `bin` und `lib`).
 
@@ -1598,9 +640,7 @@ Diese Einstellung kann entweder ein String mit der Schwere sein, die für alle S
 
 *Voreinstellung:* `"information"`
 
-*Vollständige Beschreibung des Typs:* <button class='expandable-button btn btn-default'>Klick zum Zeigen/Verbergen</button>
-
-<div markdown='1' style='display:none;'>
+*Vollständige Beschreibung des Typs:*
 
 Einer der folgenden Typen:
 
@@ -1618,8 +658,6 @@ Einer der folgenden Typen:
     - `"warning"`: Fehler mit der Schwere `warning` sind üblicherweise mit einer gelben geschlängelten Linie unterstrichen und erscheinen im Editor, in der Minimap, im Probleme-Reiter und im Explorer.
     - `"information"`: Fehler mit der Schwere `information` sind üblicherweise mit einer blauen geschlängelten Linie unterstrichen und erscheinen im Editor, in der Minimap und im Probleme-Reiter, aber nicht im Explorer.
     - `"hint"`: Fehler mit der Schwere `hint` sind nicht unterstrichen (nur unauffällig markiert) und erscheinen nur im Editor, aber nicht in der Minimap, im Probleme-Reiter oder im Explorer.
-
-</div>
 
 ## `ltex.checkFrequency`
 

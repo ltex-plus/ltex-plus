@@ -41,9 +41,7 @@ Changes require restarting LTeX+ to take effect.
 
 *Default:* `["bibtex", "context", "context.tex", "html", "latex", "markdown", "mdx", "typst", "asciidoc", "neorg", "org", "quarto", "restructuredtext", "rsweave"]`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 One of the following types:
 
@@ -52,13 +50,15 @@ One of the following types:
 
   - Scalar of type `string`
 
-</div>
-
 ## `ltex.language`
 
-The language (e.g., `"en-US"`) LanguageTool should check against. If possible, use a specific variant like `"en-US"` or `"de-DE"` instead of the generic language code like `"en"` or `"de"` to obtain spelling corrections (in addition to grammar corrections).
+The language LanguageTool should check against. Pick the BCP-47 code that best matches your text (e.g., `"en-US"`, `"fr-FR"`, `"de-DE"`, `"ca-ES-valencia"`).
 
-When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as only generic languages like `"en"` or `"de"` will be detected and thus no spelling errors might be reported. For some generic language codes like `"es"` (Spanish), spelling errors are reported even though the language codes are generic.
+The modern fully-spelled codes `"fr-FR"`, `"it-IT"`, `"es-ES"`, `"nl-NL"`, `"sv-SE"`, and `"fa-IR"` require ltex-ls-plus 18.7.x or newer; on earlier releases these specific codes were rejected, while most other extended codes such as `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-CH"`, and `"de-AT"` already worked. For a best-effort description of how language codes were handled on those versions, see [Language Codes in Older Versions](language-code-legacy.html). Current versions still accept the legacy bare codes (`"fr"`, `"it"`, `"de"`, `"en"`, …) for backward compatibility but they are no longer advertised below and should not be used in new configurations.
+
+When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as detection is coarse and falls back to language families that may carry no spelling dictionary, so spelling errors might not be reported. For documents that switch language partway through, use in-document [magic comments](advanced-usage.html#magic-comments) instead — for example, in Markdown: `<!-- LTeX: language=de-DE -->`. The exact syntax depends on the document type.
+
+Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"no"` is treated as `"nb"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
 
 *Type:* `string`
 
@@ -70,15 +70,15 @@ When using the language code `"auto"`, LTeX+ will try to detect the language of 
 - `"be-BY"`: Belarusian
 - `"br-FR"`: Breton
 - `"ca-ES"`: Catalan
+- `"ca-ES-balear"`: Catalan (Balearic)
 - `"ca-ES-valencia"`: Catalan (Valencian)
+- `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
-- `"de-DE-x-simple-language"`: Simple German
+- `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -86,19 +86,22 @@ When using the language code `"auto"`, LTeX+ will try to detect the language of 
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian
-- `"fr"`: French
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
+- `"fr-BE"`: French (Belgium)
+- `"fr-CA"`: French (Canada)
+- `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nl"`: Dutch
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -107,7 +110,7 @@ When using the language code `"auto"`, LTeX+ will try to detect the language of 
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -123,9 +126,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -137,249 +140,13 @@ By default, no additional spelling errors will be ignored.
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
+*Full type description:*
 
-<div markdown='1' style='display:none;'>
+Object keyed by language code (see [`ltex.language`](settings.html#ltexlanguage) for accepted values), where the value of each property has the following type:
 
-Object with the following properties:
-
-- `"ar"`: List of additional `ar` (Arabic) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
+- Array where each entry has the following type:
 
   - Scalar of type `string`
-- `"ast-ES"`: List of additional `ast-ES` (Asturian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"be-BY"`: List of additional `be-BY` (Belarusian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"br-FR"`: List of additional `br-FR` (Breton) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES"`: List of additional `ca-ES` (Catalan) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES-valencia"`: List of additional `ca-ES-valencia` (Catalan (Valencian)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"da-DK"`: List of additional `da-DK` (Danish) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de"`: List of additional `de` (German) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-AT"`: List of additional `de-AT` (German (Austria)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-CH"`: List of additional `de-CH` (German (Swiss)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE"`: List of additional `de-DE` (German (Germany)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE-x-simple-language"`: List of additional `de-DE-x-simple-language` (Simple German) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"el-GR"`: List of additional `el-GR` (Greek) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en"`: List of additional `en` (English) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-AU"`: List of additional `en-AU` (English (Australian)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-CA"`: List of additional `en-CA` (English (Canadian)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-GB"`: List of additional `en-GB` (English (GB)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-NZ"`: List of additional `en-NZ` (English (New Zealand)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-US"`: List of additional `en-US` (English (US)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-ZA"`: List of additional `en-ZA` (English (South African)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"eo"`: List of additional `eo` (Esperanto) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es"`: List of additional `es` (Spanish) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es-AR"`: List of additional `es-AR` (Spanish (voseo)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fa"`: List of additional `fa` (Persian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fr"`: List of additional `fr` (French) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ga-IE"`: List of additional `ga-IE` (Irish) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"gl-ES"`: List of additional `gl-ES` (Galician) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"it"`: List of additional `it` (Italian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ja-JP"`: List of additional `ja-JP` (Japanese) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"km-KH"`: List of additional `km-KH` (Khmer) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl"`: List of additional `nl` (Dutch) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl-BE"`: List of additional `nl-BE` (Dutch (Belgium)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pl-PL"`: List of additional `pl-PL` (Polish) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt"`: List of additional `pt` (Portuguese) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-AO"`: List of additional `pt-AO` (Portuguese (Angola preAO)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-BR"`: List of additional `pt-BR` (Portuguese (Brazil)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-MZ"`: List of additional `pt-MZ` (Portuguese (Moçambique preAO)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-PT"`: List of additional `pt-PT` (Portuguese (Portugal)) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ro-RO"`: List of additional `ro-RO` (Romanian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ru-RU"`: List of additional `ru-RU` (Russian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sk-SK"`: List of additional `sk-SK` (Slovak) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sl-SI"`: List of additional `sl-SI` (Slovenian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sv"`: List of additional `sv` (Swedish) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ta-IN"`: List of additional `ta-IN` (Tamil) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"tl-PH"`: List of additional `tl-PH` (Tagalog) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"uk-UA"`: List of additional `uk-UA` (Ukrainian) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"zh-CN"`: List of additional `zh-CN` (Chinese) words that should not be counted as spelling errors.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-
-</div>
 
 ## `ltex.disabledRules`
 
@@ -389,9 +156,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -403,249 +170,13 @@ By default, no additional rules will be disabled.
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
+*Full type description:*
 
-<div markdown='1' style='display:none;'>
+Object keyed by language code (see [`ltex.language`](settings.html#ltexlanguage) for accepted values), where the value of each property has the following type:
 
-Object with the following properties:
-
-- `"ar"`: List of additional `ar` (Arabic) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
+- Array where each entry has the following type:
 
   - Scalar of type `string`
-- `"ast-ES"`: List of additional `ast-ES` (Asturian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"be-BY"`: List of additional `be-BY` (Belarusian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"br-FR"`: List of additional `br-FR` (Breton) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES"`: List of additional `ca-ES` (Catalan) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES-valencia"`: List of additional `ca-ES-valencia` (Catalan (Valencian)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"da-DK"`: List of additional `da-DK` (Danish) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de"`: List of additional `de` (German) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-AT"`: List of additional `de-AT` (German (Austria)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-CH"`: List of additional `de-CH` (German (Swiss)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE"`: List of additional `de-DE` (German (Germany)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE-x-simple-language"`: List of additional `de-DE-x-simple-language` (Simple German) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"el-GR"`: List of additional `el-GR` (Greek) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en"`: List of additional `en` (English) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-AU"`: List of additional `en-AU` (English (Australian)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-CA"`: List of additional `en-CA` (English (Canadian)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-GB"`: List of additional `en-GB` (English (GB)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-NZ"`: List of additional `en-NZ` (English (New Zealand)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-US"`: List of additional `en-US` (English (US)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-ZA"`: List of additional `en-ZA` (English (South African)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"eo"`: List of additional `eo` (Esperanto) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es"`: List of additional `es` (Spanish) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es-AR"`: List of additional `es-AR` (Spanish (voseo)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fa"`: List of additional `fa` (Persian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fr"`: List of additional `fr` (French) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ga-IE"`: List of additional `ga-IE` (Irish) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"gl-ES"`: List of additional `gl-ES` (Galician) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"it"`: List of additional `it` (Italian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ja-JP"`: List of additional `ja-JP` (Japanese) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"km-KH"`: List of additional `km-KH` (Khmer) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl"`: List of additional `nl` (Dutch) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl-BE"`: List of additional `nl-BE` (Dutch (Belgium)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pl-PL"`: List of additional `pl-PL` (Polish) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt"`: List of additional `pt` (Portuguese) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-AO"`: List of additional `pt-AO` (Portuguese (Angola preAO)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-BR"`: List of additional `pt-BR` (Portuguese (Brazil)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-MZ"`: List of additional `pt-MZ` (Portuguese (Moçambique preAO)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-PT"`: List of additional `pt-PT` (Portuguese (Portugal)) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ro-RO"`: List of additional `ro-RO` (Romanian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ru-RU"`: List of additional `ru-RU` (Russian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sk-SK"`: List of additional `sk-SK` (Slovak) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sl-SI"`: List of additional `sl-SI` (Slovenian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sv"`: List of additional `sv` (Swedish) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ta-IN"`: List of additional `ta-IN` (Tamil) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"tl-PH"`: List of additional `tl-PH` (Tagalog) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"uk-UA"`: List of additional `uk-UA` (Ukrainian) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"zh-CN"`: List of additional `zh-CN` (Chinese) rules that should be disabled (if enabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-
-</div>
 
 ## `ltex.enabledRules`
 
@@ -655,9 +186,9 @@ This setting is language-specific, so use an object of the format `{"<LANGUAGE1>
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -669,249 +200,13 @@ By default, no additional rules will be enabled.
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
+*Full type description:*
 
-<div markdown='1' style='display:none;'>
+Object keyed by language code (see [`ltex.language`](settings.html#ltexlanguage) for accepted values), where the value of each property has the following type:
 
-Object with the following properties:
-
-- `"ar"`: List of additional `ar` (Arabic) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
+- Array where each entry has the following type:
 
   - Scalar of type `string`
-- `"ast-ES"`: List of additional `ast-ES` (Asturian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"be-BY"`: List of additional `be-BY` (Belarusian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"br-FR"`: List of additional `br-FR` (Breton) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES"`: List of additional `ca-ES` (Catalan) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES-valencia"`: List of additional `ca-ES-valencia` (Catalan (Valencian)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"da-DK"`: List of additional `da-DK` (Danish) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de"`: List of additional `de` (German) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-AT"`: List of additional `de-AT` (German (Austria)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-CH"`: List of additional `de-CH` (German (Swiss)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE"`: List of additional `de-DE` (German (Germany)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE-x-simple-language"`: List of additional `de-DE-x-simple-language` (Simple German) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"el-GR"`: List of additional `el-GR` (Greek) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en"`: List of additional `en` (English) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-AU"`: List of additional `en-AU` (English (Australian)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-CA"`: List of additional `en-CA` (English (Canadian)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-GB"`: List of additional `en-GB` (English (GB)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-NZ"`: List of additional `en-NZ` (English (New Zealand)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-US"`: List of additional `en-US` (English (US)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-ZA"`: List of additional `en-ZA` (English (South African)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"eo"`: List of additional `eo` (Esperanto) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es"`: List of additional `es` (Spanish) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es-AR"`: List of additional `es-AR` (Spanish (voseo)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fa"`: List of additional `fa` (Persian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fr"`: List of additional `fr` (French) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ga-IE"`: List of additional `ga-IE` (Irish) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"gl-ES"`: List of additional `gl-ES` (Galician) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"it"`: List of additional `it` (Italian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ja-JP"`: List of additional `ja-JP` (Japanese) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"km-KH"`: List of additional `km-KH` (Khmer) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl"`: List of additional `nl` (Dutch) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl-BE"`: List of additional `nl-BE` (Dutch (Belgium)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pl-PL"`: List of additional `pl-PL` (Polish) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt"`: List of additional `pt` (Portuguese) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-AO"`: List of additional `pt-AO` (Portuguese (Angola preAO)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-BR"`: List of additional `pt-BR` (Portuguese (Brazil)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-MZ"`: List of additional `pt-MZ` (Portuguese (Moçambique preAO)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-PT"`: List of additional `pt-PT` (Portuguese (Portugal)) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ro-RO"`: List of additional `ro-RO` (Romanian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ru-RU"`: List of additional `ru-RU` (Russian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sk-SK"`: List of additional `sk-SK` (Slovak) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sl-SI"`: List of additional `sl-SI` (Slovenian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sv"`: List of additional `sv` (Swedish) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ta-IN"`: List of additional `ta-IN` (Tamil) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"tl-PH"`: List of additional `tl-PH` (Tagalog) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"uk-UA"`: List of additional `uk-UA` (Ukrainian) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"zh-CN"`: List of additional `zh-CN` (Chinese) rules that should be enabled (if disabled by default by LanguageTool).
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-
-</div>
 
 ## `ltex.hiddenFalsePositives`
 
@@ -925,9 +220,9 @@ The JSON string currently has the form `{"rule": "<RULE>", "sentence": "<SENTENC
 
 <!-- ltex-client-specific-begin -->
 
-This setting is a multi-scope setting. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings)
+This setting is a [multi-scope setting](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#multi-scope-settings).
 
-This setting supports external files. [See the documentation for details.](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files)
+This setting supports [external files](https://ltex-plus.github.io/ltex-plus/vscode-ltex-plus/setting-scopes-files.html#external-setting-files).
 
 <!-- ltex-client-specific-end -->
 
@@ -939,249 +234,13 @@ If this list is very large, performance may suffer.
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
+*Full type description:*
 
-<div markdown='1' style='display:none;'>
+Object keyed by language code (see [`ltex.language`](settings.html#ltexlanguage) for accepted values), where the value of each property has the following type:
 
-Object with the following properties:
-
-- `"ar"`: List of `ar` (Arabic) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
+- Array where each entry has the following type:
 
   - Scalar of type `string`
-- `"ast-ES"`: List of `ast-ES` (Asturian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"be-BY"`: List of `be-BY` (Belarusian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"br-FR"`: List of `br-FR` (Breton) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES"`: List of `ca-ES` (Catalan) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ca-ES-valencia"`: List of `ca-ES-valencia` (Catalan (Valencian)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"da-DK"`: List of `da-DK` (Danish) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de"`: List of `de` (German) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-AT"`: List of `de-AT` (German (Austria)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-CH"`: List of `de-CH` (German (Swiss)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE"`: List of `de-DE` (German (Germany)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"de-DE-x-simple-language"`: List of `de-DE-x-simple-language` (Simple German) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"el-GR"`: List of `el-GR` (Greek) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en"`: List of `en` (English) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-AU"`: List of `en-AU` (English (Australian)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-CA"`: List of `en-CA` (English (Canadian)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-GB"`: List of `en-GB` (English (GB)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-NZ"`: List of `en-NZ` (English (New Zealand)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-US"`: List of `en-US` (English (US)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"en-ZA"`: List of `en-ZA` (English (South African)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"eo"`: List of `eo` (Esperanto) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es"`: List of `es` (Spanish) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"es-AR"`: List of `es-AR` (Spanish (voseo)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fa"`: List of `fa` (Persian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"fr"`: List of `fr` (French) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ga-IE"`: List of `ga-IE` (Irish) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"gl-ES"`: List of `gl-ES` (Galician) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"it"`: List of `it` (Italian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ja-JP"`: List of `ja-JP` (Japanese) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"km-KH"`: List of `km-KH` (Khmer) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl"`: List of `nl` (Dutch) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"nl-BE"`: List of `nl-BE` (Dutch (Belgium)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pl-PL"`: List of `pl-PL` (Polish) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt"`: List of `pt` (Portuguese) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-AO"`: List of `pt-AO` (Portuguese (Angola preAO)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-BR"`: List of `pt-BR` (Portuguese (Brazil)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-MZ"`: List of `pt-MZ` (Portuguese (Moçambique preAO)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"pt-PT"`: List of `pt-PT` (Portuguese (Portugal)) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ro-RO"`: List of `ro-RO` (Romanian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ru-RU"`: List of `ru-RU` (Russian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sk-SK"`: List of `sk-SK` (Slovak) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sl-SI"`: List of `sl-SI` (Slovenian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"sv"`: List of `sv` (Swedish) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"ta-IN"`: List of `ta-IN` (Tamil) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"tl-PH"`: List of `tl-PH` (Tagalog) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"uk-UA"`: List of `uk-UA` (Ukrainian) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-- `"zh-CN"`: List of `zh-CN` (Chinese) false-positive diagnostics to hide.
-
-  Array where each entry has the following type:
-
-  - Scalar of type `string`
-
-</div>
 
 ## `ltex.bibtex.fields`
 
@@ -1197,15 +256,11 @@ Some common fields are already ignored, even if you set this setting to an empty
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 Object with arbitrary property names, where the value of each property has the following type:
 
 - Scalar of type `boolean`
-
-</div>
 
 ## `ltex.latex.commands`
 
@@ -1227,9 +282,7 @@ Many common commands are already handled by default, even if you set this settin
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 Object with arbitrary property names, where the value of each property has the following type:
 
@@ -1240,8 +293,6 @@ Object with arbitrary property names, where the value of each property has the f
   - `"dummy"`: The whole command together with its arguments is replaced with a dummy word (i.e., `Dummy0`, `Dummy1`, etc.). LTeX+ internally uses this mechanism for equations, citations, references, and similar constructs that are part of the sentence structure and for which LanguageTool would throw an error if simply omitted from the checked text.
   - `"pluralDummy"`: The whole command together with its arguments is replaced with a plural dummy word (i.e., `Dummies`). See description for `"dummy"`.
   - `"vowelDummy"`: The whole command together with its arguments is replaced with a vowel dummy word (i.e., `Ina`). See description for `"dummy"`.
-
-</div>
 
 ## `ltex.latex.environments`
 
@@ -1257,9 +308,7 @@ Some environments are already handled by default, even if you set this setting t
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 Object with arbitrary property names, where the value of each property has the following type:
 
@@ -1267,8 +316,6 @@ Object with arbitrary property names, where the value of each property has the f
 
   - `"default"`: The environment is treated like unknown environments are treated by default: The arguments of the environment are ignored, but the contents of the environment are not ignored.
   - `"ignore"`: The whole environment together with its arguments and contents is ignored.
-
-</div>
 
 ## `ltex.markdown.nodes`
 
@@ -1286,9 +333,7 @@ Some common node types are already handled by default, even if you set this sett
 
 *Default:* `{}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 Object with arbitrary property names, where the value of each property has the following type:
 
@@ -1299,8 +344,6 @@ Object with arbitrary property names, where the value of each property has the f
   - `"dummy"`: The whole node together with its `Text` leaves is replaced with a dummy word (i.e., `Dummy0`, `Dummy1`, etc.). LTeX+ internally uses this mechanism for example for inline code (inside backticks) that is part of the sentence structure and for which LanguageTool would throw an error if simply omitted from the checked text.
   - `"pluralDummy"`: The whole node together with its `Text` leaves is replaced with a plural dummy word (i.e., `Dummies`). See description for `"dummy"`.
   - `"vowelDummy"`: The whole node together with its `Text` leaves is replaced with a vowel dummy word (i.e., `Ina`). See description for `"dummy"`.
-
-</div>
 
 ## `ltex.configurationTarget`
 
@@ -1314,9 +357,7 @@ Controls which `settings.json` or external setting file ([see documentation](htt
 
 *Default:* `{"dictionary": "workspaceFolderExternalFile", "disabledRules": "workspaceFolderExternalFile", "hiddenFalsePositives": "workspaceFolderExternalFile"}`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 Object with the following properties:
 
@@ -1345,8 +386,6 @@ Object with the following properties:
   - `"workspaceExternalFile"`: When hiding a false positive, update the first external setting file listed in the workspace configuration if currently in a workspace, otherwise update the analogous file in the user configuration.
   - `"workspaceFolderExternalFile"`: When hiding a false positive, update the first external setting file listed in the workspace folder configuration if currently in a workspace folder, otherwise update the analogous file in the workspace configuration if currently in a workspace, otherwise update the analogous file in the user configuration.
 
-</div>
-
 ## `ltex.additionalRules.enablePickyRules`
 
 Enable LanguageTool rules that are marked as picky and that are disabled by default, e.g., rules about passive voice, sentence length, etc., at the cost of more false positives.
@@ -1371,15 +410,15 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"be-BY"`: Belarusian
 - `"br-FR"`: Breton
 - `"ca-ES"`: Catalan
+- `"ca-ES-balear"`: Catalan (Balearic)
 - `"ca-ES-valencia"`: Catalan (Valencian)
+- `"crh-UA"`: Crimean Tatar
 - `"da-DK"`: Danish
-- `"de"`: German
 - `"de-AT"`: German (Austria)
 - `"de-CH"`: German (Swiss)
 - `"de-DE"`: German (Germany)
-- `"de-DE-x-simple-language"`: Simple German
+- `"de-DE-x-simple-language"`: Simple German (also accepts: `"de-DE-x-simple-language-DE"`)
 - `"el-GR"`: Greek
-- `"en"`: English
 - `"en-AU"`: English (Australian)
 - `"en-CA"`: English (Canadian)
 - `"en-GB"`: English (GB)
@@ -1387,19 +426,22 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"en-US"`: English (US)
 - `"en-ZA"`: English (South African)
 - `"eo"`: Esperanto
-- `"es"`: Spanish
 - `"es-AR"`: Spanish (voseo)
-- `"fa"`: Persian
-- `"fr"`: French
+- `"es-ES"`: Spanish
+- `"fa-IR"`: Persian
+- `"fr-BE"`: French (Belgium)
+- `"fr-CA"`: French (Canada)
+- `"fr-CH"`: French (Switzerland)
+- `"fr-FR"`: French
 - `"ga-IE"`: Irish
 - `"gl-ES"`: Galician
-- `"it"`: Italian
+- `"it-IT"`: Italian
 - `"ja-JP"`: Japanese
 - `"km-KH"`: Khmer
-- `"nl"`: Dutch
+- `"nb"`: Norwegian (Bokmål) (also accepts: `"no"`; only on api.languagetoolplus.com)
 - `"nl-BE"`: Dutch (Belgium)
+- `"nl-NL"`: Dutch
 - `"pl-PL"`: Polish
-- `"pt"`: Portuguese
 - `"pt-AO"`: Portuguese (Angola preAO)
 - `"pt-BR"`: Portuguese (Brazil)
 - `"pt-MZ"`: Portuguese (Moçambique preAO)
@@ -1408,7 +450,7 @@ If set, additional rules will be checked to detect false friends. Picky rules ma
 - `"ru-RU"`: Russian
 - `"sk-SK"`: Slovak
 - `"sl-SI"`: Slovenian
-- `"sv"`: Swedish
+- `"sv-SE"`: Swedish
 - `"ta-IN"`: Tamil
 - `"tl-PH"`: Tagalog
 - `"uk-UA"`: Ukrainian
@@ -1461,7 +503,7 @@ API key for Premium API access. Only relevant if [`ltex.languageToolHttpServerUr
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ automatically downloads [ltex-ls from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself. Environment variables prefixed with `$` will be interpolated.
+If set to an empty string, LTeX+ automatically downloads [ltex-ls from GitHub](https://github.com/ltex-plus/ltex-ls-plus/releases), stores it in the folder of the extension, and uses it for the checking process. You can point this setting to an ltex-ls-plus release you downloaded by yourself. `$VAR` is replaced with the value of the environment variable.
 
 Use the path to the root directory of ltex-ls-plus (it contains `bin` and `lib` subdirectories).
 
@@ -1499,7 +541,7 @@ ltex-ls does not use all log levels.
 
 <!-- ltex-client-specific-begin -->
 
-If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls-plus. You can point this setting to an existing Java installation on your computer to use that installation instead. Environment variables prefixed with `$` will be interpolated.
+If set to an empty string, LTeX+ uses a Java distribution that is bundled with ltex-ls-plus. You can point this setting to an existing Java installation on your computer to use that installation instead. `$VAR` is replaced with the value of the environment variable.
 
 Use the same path as you would use for the `JAVA_HOME` environment variable (it usually contains `bin` and `lib` subdirectories, amongst others).
 
@@ -1600,9 +642,7 @@ This setting can either be a string with the severity to use for all diagnostics
 
 *Default:* `"information"`
 
-*Full type description:* <button class='expandable-button btn btn-default'>Click to show/hide</button>
-
-<div markdown='1' style='display:none;'>
+*Full type description:*
 
 One of the following types:
 
@@ -1620,8 +660,6 @@ One of the following types:
     - `"warning"`: Warning diagnostics are usually underlined with a yellow squiggly line and appear in editor, minimap, Problems tab, and Explorer.
     - `"information"`: Information diagnostics are usually underlined with a blue squiggly line and appear in editor, minimap, and Problems tab, but not in the Explorer.
     - `"hint"`: Hint diagnostics are not underlined (only subtly marked) and only appear in the editor, not in minimap, Problems tab, or Explorer.
-
-</div>
 
 ## `ltex.checkFrequency`
 

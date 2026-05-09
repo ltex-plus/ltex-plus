@@ -476,10 +476,7 @@ Please note that the premium API of [languagetool.org](https://languagetool.org)
 
 *Type:* `string`
 
-*Examples:*
-
-- `"https://api.languagetoolplus.com"`
-- `"http://localhost:8081"`
+*Examples:* `"https://api.languagetoolplus.com"` (hosted API), `"http://localhost:8081"` (self-hosted)
 
 *Default:* `""`
 

@@ -20,13 +20,14 @@ Choose the topmost scenario that applies to you.
 
 ## Via Editor Extensions
 
-LTeX+ publishes official extensions for Visual Studio Code (VS Code). For some other popular editors, third-party extensions exist that add support for LTeX+. If no extension exists yet for your editor, but your editor supports the Language Server Protocol (LSP), then you should be able to [use LTeX+ as a language client](#via-language-clients).
+LTeX+ publishes official extensions for Visual Studio Code (VS Code) and Emacs. For some other popular editors, third-party extensions exist that add support for LTeX+. If no extension exists yet for your editor, but your editor supports the Language Server Protocol (LSP), then you should be able to [use LTeX+ as a language client](#via-language-clients).
 
 ### Official Extensions
 
 | Editor | Extension | Link to instructions |
 | ------ | --------- | -------------------- |
-| [VS Code](https://code.visualstudio.com/) | vscode-ltex-plus  | [Instructions](vscode-ltex-plus/installation-usage-vscode-ltex-plus.html) |
+| [VS Code](https://code.visualstudio.com/) | vscode-ltex-plus | [Instructions](vscode-ltex-plus/installation-usage-vscode-ltex-plus.html) |
+| [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | emacs-ltex-plus | [Instructions](https://github.com/ltex-plus/emacs-ltex-plus) |
 
 ### Third-Party Extensions
 
@@ -35,12 +36,11 @@ LTeX+ is not responsible for the quality of third-party extensions. The list and
 | Editor | Extension | Link to instructions |
 | ------ | --------- | -------------------- |
 | [Emacs](https://www.gnu.org/software/emacs/) + [eglot](https://github.com/joaotavora/eglot) | eglot-ltex-plus | [Instructions](https://github.com/emacs-languagetool/eglot-ltex-plus) |
-| [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | emacs-ltex-plus&nbsp;∗ | [Instructions](https://github.com/alberti42/emacs-ltex-plus) |
-| [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | lsp-ltex-plus | [Instructions](https://github.com/emacs-languagetool/lsp-ltex-plus) |
+| [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | lsp-ltex-plus&nbsp;∗ | [Instructions](https://github.com/emacs-languagetool/lsp-ltex-plus) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
 | [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/sublimelsp/LSP-ltex-ls) |
 
-∗ [`emacs-ltex-plus`](https://github.com/alberti42/emacs-ltex-plus) is a 2026 rewrite from scratch of the previous [`lsp-ltex-plus`](https://github.com/emacs-languagetool/lsp-ltex-plus), which was originally developed for the predecessor (and now archived) [LTeX](https://github.com/valentjn/ltex-ls) project.
+∗ [`lsp-ltex-plus`](https://github.com/emacs-languagetool/lsp-ltex-plus) was originally developed for the predecessor (and now archived) [LTeX](https://github.com/valentjn/ltex-ls) project. For a recent (2026) rewrite from scratch, see [`emacs-ltex-plus`](https://github.com/ltex-plus/emacs-ltex-plus) in the [Official Extensions](#official-extensions) section above.
 
 ## Via Language Clients
 

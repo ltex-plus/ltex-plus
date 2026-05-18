@@ -56,7 +56,7 @@ Die Sprache, mit der LanguageTool auf Fehler suchen soll. Wählen Sie den BCP-47
 
 Die modernen, vollständig ausgeschriebenen Codes `"fr-FR"`, `"it-IT"`, `"es-ES"`, `"nl-NL"`, `"sv-SE"` und `"fa-IR"` erfordern ltex-ls-plus 18.7.x oder neuer; in früheren Versionen wurden diese speziellen Codes nicht akzeptiert, während die meisten anderen erweiterten Codes wie `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-CH"` und `"de-AT"` bereits funktionierten. Eine bestmögliche Beschreibung, wie Sprachcodes in jenen Versionen behandelt wurden, finden Sie unter [Language Codes in Older Versions](language-code-legacy.html). Aktuelle Versionen akzeptieren weiterhin die veralteten nackten Codes (`"fr"`, `"it"`, `"de"`, `"en"`, …) aus Gründen der Rückwärtskompatibilität, sie werden unten jedoch nicht mehr beworben und sollten in neuen Konfigurationen nicht verwendet werden.
 
-Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Dies wird nicht empfohlen, da die Erkennung grob ist und auf Sprachfamilien zurückfällt, die kein Rechtschreibwörterbuch enthalten — Rechtschreibfehler werden in diesem Fall möglicherweise nicht gemeldet. Verwenden Sie für Dokumente, die mitten im Text die Sprache wechseln, stattdessen In-Dokument-[Magic Comments](advanced-usage.html#magic-comments) — zum Beispiel in Markdown: `<!-- LTeX: language=de-DE -->`. Die genaue Syntax hängt vom Dokumenttyp ab.
+Wenn Sie den Sprachcode `"auto"` benutzen, dann wird LTeX+ versuchen, die Sprache des Dokuments zu erkennen. Falls Sie bereits wissen, in welcher Sprache ein Fragment verfasst ist, sollten Sie die Sprache explizit angeben, um Überraschungen zu vermeiden. Die Erkennung ist am zuverlässigsten, wenn LTeX+ mit einem LanguageTool-Server kommuniziert, der den Ngram-Detektor verwendet — dazu gehört die gehostete API von LanguageTool (kostenlos oder Premium). Der eingebaute lokale Prüfer und selbst gehostete LanguageTool-Server ohne den Download der Ngram-Sprachdaten verwenden einen leichteren Detektor und sind möglicherweise weniger genau. Verwenden Sie für Dokumente, die mitten im Text die Sprache wechseln, stattdessen In-Dokument-[Magic Comments](advanced-usage.html#magic-comments) — zum Beispiel in Markdown: `<!-- LTeX: language=de-DE -->`. Die genaue Syntax hängt vom Dokumenttyp ab.
 
 In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>")` markiert einen LanguageTool-Alias — eine alternative Schreibweise eines kanonischen Eintrags, die zum gleichen Prüfer auflöst (zum Beispiel wird `"no"` wie `"nb"` behandelt, die beiden Codes sind also austauschbar). `(only on api.languagetoolplus.com)` markiert einen Code, der nur von LanguageTools eigener gehosteter API erkannt wird. Der mitgelieferte Prüfer und selbst gehostete Instanzen des Open-Source-LanguageTool-Servers verwenden denselben Code-Satz und erkennen diese Codes nicht — auch nicht, wenn sie über [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) erreichbar sind.
 
@@ -64,7 +64,7 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 
 *Mögliche Werte:*
 
-- `"auto"`: Automatische Spracherkennung (nicht empfohlen)
+- `"auto"`: Automatische Spracherkennung
 - `"ar"`: Arabic
 - `"ast-ES"`: Asturian
 - `"be-BY"`: Belarusian

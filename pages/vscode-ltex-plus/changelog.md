@@ -14,10 +14,12 @@ toc: false
 
 ## 15.7.0 (upcoming)
 
+- &#x2728; *New:* Accept `elisp` and `emacs-lisp` as `codeLanguageId`s alongside the existing `lisp`. Adds activation events for both IDs so the extension activates when an Elisp buffer is opened (via a third-party Emacs Lisp extension), and maps the `.el` file extension into the enabled-file-extensions set used by batch-check commands when `elisp`, `emacs-lisp`, or `lisp` is listed in [`ltex.enabled`](../settings.html#ltexenabled). Requires the matching server-side aliases in ltex-ls-plus. &#x2014; [Andrea Alberti (@alberti42)](https://github.com/alberti42)
 - &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [vscode-ltex-plus#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
 - &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [vscode-ltex-plus#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [vscode-ltex-plus#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
 - &#x1f41b; *Bug fix:* Interpolate environment variables in path options &#x2014; [vscode-ltex-plus#190](https://github.com/ltex-plus/vscode-ltex-plus/issues/190), [Anton (@theblueplum)](https://github.com/theblueplum)
 - &#x2728; *New:* Spell check content blocks in Typst &#x2014; [ltex-ls-plus#128](https://github.com/ltex-plus/ltex-ls-plus/issues/128)
+- &#x1f527; *Change:* Update to LanguageTool 6.8 (see [LT release notes](https://github.com/languagetool-org/languagetool/blob/v6.8/languagetool-standalone/CHANGES.md))
 
 ## 15.6.1 &#x2014; &#x201c;The False Positive Manipulation&#x201d; (October 19, 2025)
 

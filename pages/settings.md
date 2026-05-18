@@ -56,7 +56,7 @@ The language LanguageTool should check against. Pick the BCP-47 code that best m
 
 The modern fully-spelled codes `"fr-FR"`, `"it-IT"`, `"es-ES"`, `"nl-NL"`, `"sv-SE"`, and `"fa-IR"` require ltex-ls-plus 18.7.x or newer; on earlier releases these specific codes were rejected, while most other extended codes such as `"en-US"`, `"en-GB"`, `"de-DE"`, `"de-CH"`, and `"de-AT"` already worked. For a best-effort description of how language codes were handled on those versions, see [Language Codes in Older Versions](language-code-legacy.html). Current versions still accept the legacy bare codes (`"fr"`, `"it"`, `"de"`, `"en"`, …) for backward compatibility but they are no longer advertised below and should not be used in new configurations.
 
-When using the language code `"auto"`, LTeX+ will try to detect the language of the document. This is not recommended, as detection is coarse and falls back to language families that may carry no spelling dictionary, so spelling errors might not be reported. For documents that switch language partway through, use in-document [magic comments](advanced-usage.html#magic-comments) instead — for example, in Markdown: `<!-- LTeX: language=de-DE -->`. The exact syntax depends on the document type.
+When using the language code `"auto"`, LTeX+ will try to detect the language of the document. If you already know which language a fragment is in, prefer setting the language explicitly to avoid surprises. Detection is most reliable when LTeX+ talks to a LanguageTool server with the Ngram detector — that includes LanguageTool's hosted API (free or Premium). The bundled local checker and self-hosted LanguageTool servers without the Ngram language-data download use a lighter detector and may be less accurate. For documents that switch language partway through, use in-document [magic comments](advanced-usage.html#magic-comments) instead — for example, in Markdown: `<!-- LTeX: language=de-DE -->`. The exact syntax depends on the document type.
 
 Two annotations may appear in the list below. `(also accepts: "<code>")` marks a LanguageTool alias — an alternative spelling of a canonical entry that resolves to the same checker (for example, `"no"` is treated as `"nb"`, so the two codes are interchangeable). `(only on api.languagetoolplus.com)` marks a code recognized only by LanguageTool's own hosted API. The bundled checker and self-hosted instances of the open-source LanguageTool server share the same code set and do not recognize these codes — even when reached via [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri).
 
@@ -64,7 +64,7 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 
 *Possible values:*
 
-- `"auto"`: Automatic language detection (not recommended)
+- `"auto"`: Automatic language detection
 - `"ar"`: Arabic
 - `"ast-ES"`: Asturian
 - `"be-BY"`: Belarusian

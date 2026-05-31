@@ -596,6 +596,30 @@ Changes require restarting LTeX+ to take effect.
 
 *Default:* `2000`
 
+## `ltex.maxRequestSize`
+
+The largest amount of text (in characters) sent to LanguageTool in a single request when a run of changed paragraphs is batched together. A run larger than this is split across several requests; it never splits an individual paragraph. The default matches the free LanguageTool HTTP API's per-request character limit, so it is safe for every backend (free HTTP, Premium HTTP whose limit is higher, and the local in-process backend which has no limit). Set it very large to effectively send each region in one request. This is always in effect, independent of the cache, and does not affect caching granularity, which is always per paragraph.
+
+*Type:* `integer`
+
+*Default:* `20000`
+
+## `ltex.paragraphCacheTtlMinutes`
+
+How long a document's cached results are kept after they stop being used. Entries for the file you're actively editing always stay warm; a document left untouched for longer than this is dropped. A document's cache is also cleared immediately when it is closed.
+
+*Type:* `integer`
+
+*Default:* `30`
+
+## `ltex.paragraphCacheEnabled`
+
+Set to `false` to disable result reuse — every paragraph is re-checked on each pass. This is independent of maxRequestSize: paragraphs are still sliced and batched into requests, they are just never stored or served from the cache.
+
+*Type:* `boolean`
+
+*Default:* `true`
+
 ## `ltex.completionEnabled`
 
 Controls whether completion is enabled (also known as auto-completion, quick suggestions, and [IntelliSense](https://code.visualstudio.com/docs/editing/intellisense)).

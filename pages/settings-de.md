@@ -594,6 +594,30 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 *Voreinstellung:* `2000`
 
+## `ltex.maxRequestSize`
+
+Die größte Textmenge (in Zeichen), die in einer einzigen Anfrage an LanguageTool gesendet wird, wenn mehrere aufeinanderfolgende geänderte Absätze gebündelt werden. Ein Block, der größer ist als dieser Wert, wird auf mehrere Anfragen aufgeteilt; ein einzelner Absatz wird dabei niemals geteilt. Der Standardwert entspricht dem Zeichenlimit pro Anfrage der kostenlosen LanguageTool-HTTP-API, sodass er für jedes Backend sicher ist (kostenloses HTTP, Premium-HTTP mit höherem Limit und das lokale In-Process-Backend, das kein Limit hat). Stellen Sie diesen Wert sehr hoch ein, damit jede Region effektiv in einer einzigen Anfrage gesendet wird. Diese Einstellung ist immer aktiv, unabhängig vom Cache, und hat keinen Einfluss auf die Caching-Granularität, die stets auf Absatzebene erfolgt.
+
+*Typ:* `integer`
+
+*Voreinstellung:* `20000`
+
+## `ltex.paragraphCacheTtlMinutes`
+
+Wie lange die zwischengespeicherten Ergebnisse eines Dokuments aufbewahrt werden, nachdem sie nicht mehr verwendet werden. Einträge für die Datei, die Sie gerade bearbeiten, bleiben immer im Cache; ein Dokument, das länger als diese Zeitspanne unberührt bleibt, wird gelöscht. Der Cache eines Dokuments wird außerdem sofort gelöscht, wenn es geschlossen wird.
+
+*Typ:* `integer`
+
+*Voreinstellung:* `30`
+
+## `ltex.paragraphCacheEnabled`
+
+Setzen Sie den Wert auf `false`, um die Wiederverwendung von Ergebnissen zu deaktivieren – jeder Absatz wird bei jedem Durchlauf erneut überprüft. Dies ist unabhängig von `maxRequestSize`: Die Absätze werden weiterhin in Teile zerlegt und in Anfragen gebündelt, sie werden jedoch niemals gespeichert oder aus dem Cache bereitgestellt.
+
+*Typ:* `boolean`
+
+*Voreinstellung:* `true`
+
 ## `ltex.completionEnabled`
 
 Steuert, ob Vervollständigung aktiviert ist (auch bekannt als Auto-Vervollständigung, Schnellvorschläge und [IntelliSense](https://code.visualstudio.com/docs/editing/intellisense)).

@@ -582,17 +582,19 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 
 ## `ltex.sentenceCacheSize`
 
-Größe des LanguageTool-Zwischenspeichers `ResultCache` in Sätzen (muss eine positive Ganzzahl sein).
+Größe des LanguageTool-Zwischenspeichers `ResultCache` in Sätzen.
 
-Falls nur ein kleiner Teil des Textes geändert wird (z. B. ein einziger Tastendruck im Editor), dann benutzt LanguageTool den Zwischenspeicher, um zu vermeiden, dass der komplette Text nochmals überprüft werden muss. LanguageTool teilt den Text intern in Sätze auf; Sätze, die bereits überprüft worden sind, werden übersprungen.
+Der Standard- und empfohlene Wert ist `0`, wodurch der eigene Cache des lokalen LanguageTool-Servers vollständig deaktiviert wird. ltex-ls-plus verwaltet seinen eigenen absatzweisen Cache (siehe [`ltex.paragraphCacheEnabled`](settings-de.html#ltexparagraphcacheenabled)), der das Caching von LanguageTool ersetzt. Ein Wert von `0` (oder jeder nicht positive Wert) nutzt den echten Cache-losen Codepfad von LanguageTool, anstatt einen Cache mit Kapazität null anzulegen.
 
-Eine Verkleinerung kann dazu führen, dass der Java-Prozess weniger RAM-Speicher benötigt. Wenn Sie diese Einstellung auf einen zu kleinen Wert setzen, dann kann sich die Zeit, die LanguageTool zur Überprüfung benötigt, deutlich erhöhen.
+Verwenden Sie einen positiven Wert, um ihn wieder zu aktivieren; beachten Sie jedoch, dass dies für die Bearbeitungsschleife redundant ist und nur CPU- und Speicheraufwand ohne zusätzlichen Nutzen verursacht. Um das Caching von LanguageTool anstelle des absatzweisen Caches zu verwenden, setzen Sie diesen Wert auf eine positive Zahl und zusätzlich [`ltex.paragraphCacheEnabled`](settings-de.html#ltexparagraphcacheenabled) auf `false`.
+
+Wenn aktiviert, benutzt LanguageTool den Zwischenspeicher, um zu vermeiden, dass der komplette Text nochmals überprüft werden muss, falls nur ein kleiner Teil geändert wird (z. B. ein einziger Tastendruck im Editor): LanguageTool teilt den Text intern in Sätze auf, und bereits überprüfte Sätze werden übersprungen. Eine Verkleinerung eines positiven Werts kann dazu führen, dass der Java-Prozess weniger RAM-Speicher benötigt; wenn Sie ihn jedoch zu klein setzen, kann sich die Überprüfungszeit deutlich erhöhen.
 
 Nach Änderungen muss LTeX+ neugestartet werden.
 
 *Typ:* `integer`
 
-*Voreinstellung:* `2000`
+*Voreinstellung:* `0`
 
 ## `ltex.maxRequestSize`
 

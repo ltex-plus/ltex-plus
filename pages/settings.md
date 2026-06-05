@@ -584,17 +584,19 @@ Changes require restarting LTeX+ to take effect.
 
 ## `ltex.sentenceCacheSize`
 
-Size of the LanguageTool `ResultCache` in sentences (must be a positive integer).
+Size of the LanguageTool `ResultCache` in sentences.
 
-If only a small portion of the text changed (e.g., a single key press in the editor), LanguageTool uses the cache to avoid rechecking the complete text. LanguageTool internally splits the text into sentences, and sentences that have already been checked are skipped.
+The default and recommended value is `0`, which disables the local LanguageTool server's own cache entirely. ltex-ls-plus keeps its own per-paragraph cache (see [`ltex.paragraphCacheEnabled`](settings.html#ltexparagraphcacheenabled)), which supersedes LanguageTool's caching. A value of `0` (or any non-positive value) takes LanguageTool's genuine no-cache code path rather than allocating a zero-capacity cache.
 
-Decreasing this might decrease RAM usage of the Java process. If you set this too small, checking time may increase significantly.
+Use a positive value to turn it back on, but be aware that for the edit loop this is redundant and only adds CPU and memory overhead with no additional benefit. To go back to LanguageTool's caching instead of the per-paragraph cache, set this to a positive value and also set [`ltex.paragraphCacheEnabled`](settings.html#ltexparagraphcacheenabled) to `false`.
+
+When enabled, LanguageTool uses the cache to avoid rechecking the complete text when only a small portion changed (e.g., a single key press in the editor): it internally splits the text into sentences and skips sentences that have already been checked. Decreasing a positive value might decrease RAM usage of the Java process, but if you set it too small, checking time may increase significantly.
 
 Changes require restarting LTeX+ to take effect.
 
 *Type:* `integer`
 
-*Default:* `2000`
+*Default:* `0`
 
 ## `ltex.maxRequestSize`
 

@@ -38,7 +38,7 @@ LTeX+ is not responsible for the quality of third-party extensions. The list and
 | [Emacs](https://www.gnu.org/software/emacs/) + [eglot](https://github.com/joaotavora/eglot) | eglot-ltex-plus | [Instructions](https://github.com/emacs-languagetool/eglot-ltex-plus) |
 | [Emacs](https://www.gnu.org/software/emacs/) + [lsp-mode](https://github.com/emacs-lsp/lsp-mode) | lsp-ltex-plus&nbsp;∗ | [Instructions](https://github.com/emacs-languagetool/lsp-ltex-plus) |
 | [Neovim](https://neovim.io/) + [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) | LTeX_extra.nvim | [Instructions](https://github.com/barreiroleo/ltex_extra.nvim) |
-| [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/sublimelsp/LSP-ltex-ls) |
+| [Sublime Text](https://www.sublimetext.com/) | LSP-ltex-ls-plus | [Instructions](https://github.com/sublimelsp/LSP-ltex-ls-plus) |
 
 ∗ [`lsp-ltex-plus`](https://github.com/emacs-languagetool/lsp-ltex-plus) was originally developed for the predecessor (and now archived) [LTeX](https://github.com/valentjn/ltex-ls) project. For a recent (2026) rewrite from scratch, see [`emacs-ltex-plus`](https://github.com/ltex-plus/emacs-ltex-plus) in the [Official Extensions](#official-extensions) section above.
 

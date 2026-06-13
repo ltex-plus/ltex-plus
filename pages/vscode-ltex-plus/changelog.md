@@ -12,11 +12,18 @@ sidebar: "sidebar"
 toc: false
 ---
 
-## 15.7.0 (upcoming)
+## 15.8.0 (upcoming)
+
+
+## 15.7.1 (June 13, 2026)
+
+- &#x1f527; *Change:* Update to ltex-ls-plus 18.7.0. Version 15.7.0 was published while still bundling ltex-ls-plus 18.6.1, so its server-side improvements were unavailable; 15.7.1 ships the intended 18.7.0 server. &#x2014; [ltex-ls-plus#157](https://github.com/ltex-plus/ltex-ls-plus/issues/157)
+
+## 15.7.0 (June 13, 2026)
 
 - &#x2728; *New:* Add settings [`ltex.maxRequestSize`](../settings.html#ltexmaxrequestsize), [`ltex.paragraphCacheTtlMinutes`](../settings.html#ltexparagraphcachettlminutes), and [`ltex.paragraphCacheEnabled`](../settings.html#ltexparagraphcacheenabled) to control batched request size and the new per-paragraph result cache. Change the default of [`ltex.sentenceCacheSize`](../settings.html#ltexsentencecachesize) from `2000` to `0`, disabling LanguageTool's own `ResultCache`, which is now superseded by the per-paragraph cache and only adds CPU and memory overhead for the edit loop. &#x2014; [ltex-ls-plus#176](https://github.com/ltex-plus/ltex-ls-plus/issues/176)
 - &#x2728; *New:* Record the language server name and version reported through the LSP `initialize` response (`serverInfo`, added in ltex-ls-plus#177). Falls back gracefully when connected to an older server that does not report it. Lays the groundwork for version-gating client features in the future. &#x2014; [ltex-ls-plus#177](https://github.com/ltex-plus/ltex-ls-plus/issues/177), [Andrea Alberti (@alberti42)](https://github.com/alberti42)
-- &#x2728; *New:* Accept `elisp` and `emacs-lisp` as `codeLanguageId`s alongside the existing `lisp`. Adds activation events for both IDs so the extension activates when an Elisp buffer is opened (via a third-party Emacs Lisp extension), and maps the `.el` file extension into the enabled-file-extensions set used by batch-check commands when `elisp`, `emacs-lisp`, or `lisp` is listed in [`ltex.enabled`](../settings.html#ltexenabled). Requires the matching server-side aliases in ltex-ls-plus. &#x2014; [Andrea Alberti (@alberti42)](https://github.com/alberti42)
+- &#x2728; *New:* Accept `elisp` and `emacs-lisp` as `codeLanguageId`s alongside the existing `lisp`. Adds activation events for both IDs so the extension activates when an Elisp buffer is opened (via a third-party Emacs Lisp extension), and maps the `.el` file extension into the enabled-file-extensions set used by batch-check commands when `elisp`, `emacs-lisp`, or `lisp` is listed in [`ltex.enabled`](../settings.html#ltexenabled). Requires the matching server-side aliases in ltex-ls-plus. &#x2014; [vscode-ltex-plus#198](https://github.com/ltex-plus/vscode-ltex-plus/issues/198), [Andrea Alberti (@alberti42)](https://github.com/alberti42)
 - &#x1f41b; *Bug fix:* Fix spelling errors for Polish dummies &#x2014; [vscode-ltex-plus#170](https://github.com/ltex-plus/vscode-ltex-plus/issues/170)
 - &#x1f41b; *Bug fix:* Fix several parsing issues in Typst documents &#x2014; [vscode-ltex-plus#169](https://github.com/ltex-plus/vscode-ltex-plus/issues/169), [vscode-ltex-plus#171](https://github.com/ltex-plus/vscode-ltex-plus/issues/171), [ltex-ls-plus#122](https://github.com/ltex-plus/ltex-ls-plus/issues/122), [ltex-ls-plus#129](https://github.com/ltex-plus/ltex-ls-plus/issues/129)
 - &#x1f41b; *Bug fix:* Interpolate environment variables in path options &#x2014; [vscode-ltex-plus#190](https://github.com/ltex-plus/vscode-ltex-plus/issues/190), [Anton (@theblueplum)](https://github.com/theblueplum)

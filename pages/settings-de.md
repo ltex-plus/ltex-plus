@@ -118,6 +118,26 @@ In der Liste unten können zwei Anmerkungen erscheinen. `(also accepts: "<code>"
 
 *Voreinstellung:* `"en-US"`
 
+## `ltex.preferredVariants`
+
+Die regionale Variante, die für jede Sprache verwendet wird, wenn [`ltex.language`](settings-de.html#ltexlanguage) auf `"auto"` gesetzt ist. Die Spracherkennung kann zum Beispiel britisches nicht von amerikanischem Englisch unterscheiden und liefert daher den nackten Code `"en"`; für `"en"`, `"de"` und `"pt"` prüft der nackte Code nur die Grammatik.
+
+Jeder Eintrag nennt eine Variante, etwa `"en-GB"`, die verwendet wird, wenn die Erkennung ihre Grundsprache liefert.
+
+Die Einträge werden mit dem Standard `["en-US", "de-DE", "pt-BR"]` zusammengeführt: Ein Eintrag ersetzt den Standard für seine Sprache, `["en-GB"]` ergibt also `["en-GB", "de-DE", "pt-BR"]`. Einträge ohne Region, etwa `"en"`, werden ignoriert.
+
+*Typ:* `array`
+
+*Beispiel:* `["en-GB"]`
+
+*Voreinstellung:* `["en-US", "de-DE", "pt-BR"]`
+
+*Vollständige Beschreibung des Typs:*
+
+Array, bei dem jeder Eintrag folgenden Typ hat:
+
+- Skalar vom Typ `string`
+
 ## `ltex.dictionary`
 
 Listen von zusätzlichen Wörtern, die nicht als Schreibfehler gewertet werden sollen.
@@ -478,6 +498,30 @@ Beachten Sie, dass in diesem Modus die Einstellung [`ltex.additionalRules.langua
 
 *Voreinstellung:* `""`
 
+## `ltex.languageToolHttpServerOfflineFallback`
+
+Falls `true` und [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) nicht erreichbar ist — typischerweise ein Laptop ohne Netzwerk —, wird der Text mit dem eingebauten LanguageTool geprüft, statt keine Diagnosen zu liefern. Jede HTTP-Antwort, auch ein Fehler, wird wie bisher gemeldet.
+
+Das eingebaute LanguageTool wird beim ersten Rückgriff geladen, daher ist diese erste Offline-Prüfung langsamer. Jede Prüfung versucht zuerst den HTTP-Server, und die erste Antwort des Servers schaltet zu ihm zurück.
+
+Regeln, die nur Premium bietet, sind offline nicht verfügbar, und die Regel-IDs unterscheiden sich zwischen den beiden Backends.
+
+*Typ:* `boolean`
+
+*Voreinstellung:* `false`
+
+## `ltex.languageToolHttpServerTimeoutSeconds`
+
+Wie viele Sekunden auf die Antwort des LanguageTool-HTTP-Servers ([`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri)) auf eine Prüfung gewartet wird. Wenn die Zeit abgelaufen ist, wird die Verbindung geschlossen, der Fehler protokolliert und die Prüfung meldet keine Treffer, oder, mit [`ltex.languageToolHttpServerOfflineFallback`](settings-de.html#ltexlanguagetoolhttpserverofflinefallback), wird der Text mit dem eingebauten LanguageTool geprüft.
+
+`0` oder weniger bedeutet keine Begrenzung.
+
+Der Standard `60` entspricht api.languagetoolplus.com, das eine Prüfung, die es nicht beenden kann, nach 60 s mit HTTP 504 beantwortet.
+
+*Typ:* `integer`
+
+*Voreinstellung:* `60`
+
 ## `ltex.languageToolOrg.username`
 
 Benutzername/E-Mail-Adresse, wie zum Login auf languagetool.org benutzt, für Zugriff auf die Premium-API. Nur relevant, falls [`ltex.languageToolHttpServerUri`](settings-de.html#ltexlanguagetoolhttpserveruri) gesetzt ist.
@@ -579,6 +623,35 @@ Nach Änderungen muss LTeX+ neugestartet werden.
 *Typ:* `integer`
 
 *Voreinstellung:* `2048`
+
+## `ltex.java.additionalOpts`
+
+<!-- ltex-client-specific-de-begin -->
+
+Liste zusätzlicher JVM-Optionen, die an den Java-Prozess von LTeX+ LS übergeben werden.
+
+Nützlich für benutzerdefinierte SSL/TLS-Truststore-Einstellungen bei Verwendung eines HTTPS-LanguageTool-Servers mit einem selbstsignierten oder privaten CA-Zertifikat, z. B.:
+
+```json
+"ltex.java.additionalOpts": [
+  "-Djavax.net.ssl.trustStore=/pfad/zu/truststore.jks",
+  "-Djavax.net.ssl.trustStorePassword=changeit"
+]
+```
+
+Nach Änderungen muss LTeX+ neugestartet werden.
+
+<!-- ltex-client-specific-end -->
+
+*Typ:* `array`
+
+*Voreinstellung:* `[]`
+
+*Vollständige Beschreibung des Typs:*
+
+Array, bei dem jeder Eintrag folgenden Typ hat:
+
+- Skalar vom Typ `string`
 
 ## `ltex.sentenceCacheSize`
 

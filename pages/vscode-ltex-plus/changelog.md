@@ -12,8 +12,14 @@ sidebar: "sidebar"
 toc: false
 ---
 
-## 15.8.0 (upcoming)
+## 16.1.0 (upcoming)
 
+- &#x2728; *New:* Declare the settings [`ltex.preferredVariants`](../settings.html#ltexpreferredvariants), [`ltex.languageToolHttpServerOfflineFallback`](../settings.html#ltexlanguagetoolhttpserverofflinefallback) and [`ltex.languageToolHttpServerTimeoutSeconds`](../settings.html#ltexlanguagetoolhttpservertimeoutseconds), which ltex-ls-plus reads since 18.7.0 and 19.0.0. They now appear in the settings UI with a description, and VS Code no longer reports them as unknown settings. &#x2014; [Andrea Alberti (@alberti42)](https://github.com/alberti42)
+
+## 16.0.0 (November 23, 2026)
+
+- &#x1f527; *Change:* Update to ltex-ls-plus 19.0.0. See [ltex-ls-plus release notes](https://github.com/ltex-plus/ltex-ls-plus/releases/tag/19.0.0).
+- &#x1f527; *Change:* Update to vscode-languageclient 11.0.0 and vscode-languageserver-protocol 3.18.5. This raises the minimum supported VS Code version to 1.101.0.
 
 ## 15.7.1 (June 13, 2026)
 

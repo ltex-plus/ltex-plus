@@ -118,6 +118,26 @@ Two annotations may appear in the list below. `(also accepts: "<code>")` marks a
 
 *Default:* `"en-US"`
 
+## `ltex.preferredVariants`
+
+The regional variant to use for each language when [`ltex.language`](settings.html#ltexlanguage) is `"auto"`. Language detection cannot tell British from American English, for example, so it returns the bare code `"en"`; for `"en"`, `"de"` and `"pt"`, the bare code only checks grammar.
+
+Each entry names one variant, such as `"en-GB"`, and is used when detection returns its base language.
+
+Entries are merged with the default `["en-US", "de-DE", "pt-BR"]`: an entry replaces the default for its language, so `["en-GB"]` gives `["en-GB", "de-DE", "pt-BR"]`. Entries without a region, such as `"en"`, are ignored.
+
+*Type:* `array`
+
+*Example:* `["en-GB"]`
+
+*Default:* `["en-US", "de-DE", "pt-BR"]`
+
+*Full type description:*
+
+Array where each entry has the following type:
+
+- Scalar of type `string`
+
 ## `ltex.dictionary`
 
 Lists of additional words that should not be counted as spelling errors.
@@ -480,6 +500,30 @@ Please note that the premium API of [languagetool.org](https://languagetool.org)
 
 *Default:* `""`
 
+## `ltex.languageToolHttpServerOfflineFallback`
+
+If `true` and [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) cannot be reached — typically a laptop with no network — the text is checked with the bundled LanguageTool instead of producing no diagnostics. Any HTTP response, including an error, is reported as before.
+
+The bundled LanguageTool is loaded on the first fallback, so that first offline check is slower. Every check tries the HTTP server first, and the first answer from the server switches back to it.
+
+Premium-only rules are not available offline, and rule IDs differ between the two backends.
+
+*Type:* `boolean`
+
+*Default:* `false`
+
+## `ltex.languageToolHttpServerTimeoutSeconds`
+
+How many seconds to wait for the answer of the LanguageTool HTTP server ([`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri)) to a check. When the time is up, the connection is closed, the failure is logged and the check reports no matches, or, with [`ltex.languageToolHttpServerOfflineFallback`](settings.html#ltexlanguagetoolhttpserverofflinefallback) on, the text is checked with the bundled LanguageTool.
+
+`0` or less means no limit.
+
+The default `60` matches api.languagetoolplus.com, which answers a check it cannot finish with HTTP 504 after 60 s.
+
+*Type:* `integer`
+
+*Default:* `60`
+
 ## `ltex.languageToolOrg.username`
 
 Username/email as used to log in at languagetool.org for Premium API access. Only relevant if [`ltex.languageToolHttpServerUri`](settings.html#ltexlanguagetoolhttpserveruri) is set.
@@ -581,6 +625,35 @@ Changes require restarting LTeX+ to take effect.
 *Type:* `integer`
 
 *Default:* `2048`
+
+## `ltex.java.additionalOpts`
+
+<!-- ltex-client-specific-begin -->
+
+List of additional JVM options passed to the Java process running LTeX+ LS.
+
+Useful for passing custom SSL/TLS truststore settings when using an HTTPS LanguageTool server with a self-signed or private CA certificate, e.g.:
+
+```json
+"ltex.java.additionalOpts": [
+  "-Djavax.net.ssl.trustStore=/path/to/truststore.jks",
+  "-Djavax.net.ssl.trustStorePassword=changeit"
+]
+```
+
+Changes require restarting LTeX+ to take effect.
+
+<!-- ltex-client-specific-end -->
+
+*Type:* `array`
+
+*Default:* `[]`
+
+*Full type description:*
+
+Array where each entry has the following type:
+
+- Scalar of type `string`
 
 ## `ltex.sentenceCacheSize`
 

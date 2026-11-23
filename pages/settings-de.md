@@ -140,9 +140,13 @@ Array, bei dem jeder Eintrag folgenden Typ hat:
 
 ## `ltex.dictionary`
 
-Listen von zusätzlichen Wörtern, die nicht als Schreibfehler gewertet werden sollen.
+Listen von zusätzlichen Wörtern und Wortgruppen, die nicht als Schreibfehler gewertet werden sollen.
 
 Diese Einstellung ist sprachabhängig. Benutzen Sie daher ein Objekt der Form `{"<SPRACHE1>": ["<WORT1>", "<WORT2>", ...], "<SPRACHE2>": ["<WORT1>", "<WORT2>", ...], ...}`, wobei `<SPRACHE>` den Sprachcode in [`ltex.language`](settings-de.html#ltexlanguage) bezeichnet.
+
+Ein Eintrag kann eine Wortgruppe aus mehreren Wörtern sein, etwa `"Reynoutria japonica"`. Eine Wortgruppe wird akzeptiert, wo ihre Wörter zusammen stehen, und jedes ihrer Wörter für sich allein wird weiterhin geprüft.
+
+Einträge unterscheiden Groß- und Kleinschreibung, mit zwei Ausnahmen: Ein Eintrag, der mit einem Kleinbuchstaben beginnt, akzeptiert auch seine Form mit großem Anfangsbuchstaben, wie am Satzanfang (`"foobar"` → `"Foobar"`), und jeder Eintrag akzeptiert auch seine Form in Großbuchstaben (`"GreenTeam"` → `"GREENTEAM"`).
 
 <!-- ltex-client-specific-de-begin -->
 

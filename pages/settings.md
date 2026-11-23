@@ -140,9 +140,13 @@ Array where each entry has the following type:
 
 ## `ltex.dictionary`
 
-Lists of additional words that should not be counted as spelling errors.
+Lists of additional words and phrases that should not be counted as spelling errors.
 
 This setting is language-specific, so use an object of the format `{"<LANGUAGE1>": ["<WORD1>", "<WORD2>", ...], "<LANGUAGE2>": ["<WORD1>", "<WORD2>", ...], ...}`, where `<LANGUAGE>` denotes the language code in [`ltex.language`](settings.html#ltexlanguage).
+
+An entry can be a phrase of several words, such as `"Reynoutria japonica"`. A phrase is accepted where its words appear together, and each of its words on its own is still checked.
+
+Entries are case-sensitive, with two exceptions: an entry that starts with a lowercase letter also accepts its form with a capital first letter, as at the start of a sentence (`"foobar"` → `"Foobar"`), and every entry also accepts its all-uppercase form (`"GreenTeam"` → `"GREENTEAM"`).
 
 <!-- ltex-client-specific-begin -->
 

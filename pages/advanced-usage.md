@@ -63,6 +63,8 @@ Magic commands trigger a reinitialization of LTeX+ due to potentially changed pa
 
 The following magic comments can be cumulative. If you want to add a setting, use `KEY+=VALUE`. If you want to remove a setting, use `KEY-=VALUE`. Use `KEY#=VALUE` to undo the magic comment and use the global defaults again.
 
+The operator is required: `dictionary=Reynoutria` is not accepted, and LTeX+ logs a warning that names `+=`, `-=` and `#=`. Each pair takes one value, so add several words with several pairs, as in `dictionary+=Reynoutria dictionary+=Fallopia`. A JSON list, such as the value of [`ltex.dictionary`](settings.html#ltexdictionary) in the client settings, is not accepted.
+
 - `dictionary`: Adds or removes a word from the dictionary
 
   *Example:* `dictionary+=Reynoutria`

@@ -63,7 +63,7 @@ See the [list of all supported settings](../settings.html). Note that some setti
 
 ## Commands
 
-Some commands are handled by LTeX+ LS, while others must be handled by the language client. This is in contrast to the [LSP specification](https://microsoft.github.io/language-server-protocol/specification), which recommends that the server handles all commands. However, handling of some commands by the client is necessary as these commands change the client configuration, which the LSP does not allow server-side.
+Some commands are handled by LTeX+ LS, while others must be handled by the language client. This is in contrast to the [LSP specification](https://microsoft.github.io/language-server-protocol/specification), which recommends that the server handles all commands. However, handling of some commands by the client is necessary as these commands change the client configuration, which the LSP does not allow server-side. The official clients, vscode-ltex-plus and lsp-ltex-plus for Emacs, handle them. Editors whose design gives the client no way to handle a command with code of its own, such as Helix and Zed, can let the server handle the three commands marked “Client” below instead, see [Server-Managed External Setting Files](#server-managed-external-setting-files).
 
 All commands are prefixed with `_ltex.` during usage. The purpose of the leading underscore is that in some clients, commands are directly exposed to the user of the client (e.g., for assigning keyboard shortcuts), which is not desirable for internal commands that require arguments. The leading underscore signals that the commands are internal.
 
@@ -262,6 +262,19 @@ interface CustomInitializationOptions {
    * Capabilities for custom requests and notifications.
    */
   customCapabilities?: CustomCapabilities;
+
+  /**
+   * Settings that the server reads only at `initialize`.
+   */
+  ltex?: {
+    externalFiles?: {
+      /**
+       * Whether the client reads and writes external setting files (default: `true`).
+       * Set to `false` to let the server do it, see "Server-Managed External Setting Files" below.
+       */
+      managedByEditor?: boolean;
+    };
+  };
 }
 
 interface CustomCapabilities {
@@ -271,6 +284,34 @@ interface CustomCapabilities {
   workspaceSpecificConfiguration?: boolean;
 }
 ```
+
+### Server-Managed External Setting Files
+
+[External setting files](../vscode-ltex-plus/setting-scopes-files.html#external-setting-files) are entries of [`ltex.dictionary`](../settings.html#ltexdictionary), [`ltex.disabledRules`](../settings.html#ltexdisabledrules), [`ltex.enabledRules`](../settings.html#ltexenabledrules) and [`ltex.hiddenFalsePositives`](../settings.html#ltexhiddenfalsepositives) that start with `:` and name a file. Writing to a file when the user picks a quick fix is a change to the client configuration, which is why the commands `_ltex.addToDictionary`, `_ltex.disableRules` and `_ltex.hideFalsePositives` are handled by the client. The official clients, vscode-ltex-plus and lsp-ltex-plus for Emacs, handle these commands and store the entries themselves. They do not need this section.
+
+Some editors cannot do this by design: Helix and Zed give the client no way to handle a command with code of its own. Neovim can, but only with a plugin that handles these commands; without one, it is in the same position.
+
+Such an editor can hand the work to the server by sending this in `InitializeParams.initializationOptions`:
+
+```json
+{
+  "ltex": {
+    "externalFiles": {
+      "managedByEditor": false
+    }
+  }
+}
+```
+
+The server then:
+
+- reads the external files on every check and merges each file's contents with the values listed in the setting itself;
+- handles `_ltex.addToDictionary`, `_ltex.disableRules` and `_ltex.hideFalsePositives` itself and advertises them in `executeCommandProvider`: it appends the entry to the first external file listed for the language of the text, creating the file if necessary, and checks the open documents again, so the diagnostic disappears;
+- offers the three quick fixes only when the setting lists an external file for the language of the document.
+
+The files have the same format as in vscode-ltex-plus, one entry per line, so one file can be shared between editors. The server only accepts absolute paths and paths starting with `~`. Unlike vscode-ltex-plus, it does not use implicit default files.
+
+The value is read only at `initialize`, so a change takes effect when the server is restarted. With the default `true`, the server behaves as before. The server announces that it supports this mode with `"experimental": {"manageExternalFiles": true}` in its `ServerCapabilities`, so a client can check for it before sending `false`.
 
 ### Custom Requests and Notifications
 
